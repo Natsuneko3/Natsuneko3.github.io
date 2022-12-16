@@ -102,4 +102,7 @@ theme: flex-block
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/Natsuneko3/Natsuneko3.github.io
+  branch: master
+  message: ssss
