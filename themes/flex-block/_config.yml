@@ -5,7 +5,7 @@ menu:
   关于: /about
 
 # 主页banner图
-banner: https://w.wallhaven.cc/full/dp/wallhaven-dpex3g.jpg
+banner: D:\Hexo\themes\flex-block\source\icons-192.png #https://w.wallhaven.cc/full/dp/wallhaven-dpovlo.jpg
 
 # 站点通知信息
 notice: flex-block主题部分重构，详情查看https://github.com/miiiku/flex-block

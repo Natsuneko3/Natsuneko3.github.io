@@ -8,7 +8,7 @@ subtitle: ''
 description: ''
 keywords:
 author: Natsunneko
-language: ch
+language: en
 timezone: ''
 
 # URL
@@ -99,4 +99,7 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: flex-block
 
-
+# Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: ''
