@@ -24,7 +24,7 @@
 
   
 
-  <title>【UE4】新手特效向Niagara常见问题解决与小技巧分享（不定期更新） | Natsuneko</title>
+  <title>【UE5】浅析UE5.1OIT半透明排序算法 | Natsuneko</title>
 
   
 
@@ -49,7 +49,7 @@
 <!-- header container -->
 <header class="header-container post">
   
-    <div class="post-image" style="background-image: url(https://pica.zhimg.com/v2-147be5e9a1831e26487605bfee955919_1440w.jpg?source=172ae18b)"></div>
+    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/z8/wallhaven-z8lmpo.jpg)"></div>
   
 
   <!-- navbar -->
@@ -100,11 +100,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">【UE4】新手特效向Niagara常见问题解决与小技巧分享（不定期更新）</h1>
+          <h1 class="title-wrap">【UE5】浅析UE5.1OIT半透明排序算法</h1>
           <h2 class="title-sub-wrap">
             <strong>夏猫</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2022-02-12T04:55:00.000Z" itemprop="datePublished">2022-02-12</time>
+            <time  class="article-date" datetime="2022-11-29T11:24:00.000Z" itemprop="datePublished">2022-11-29</time>
           </h2>
           <ul class="wrap-list dark">
   
@@ -113,7 +113,7 @@
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/Niagara/">🏷️ Niagara</a></li>
+    <li><a href="/tags/Engine/">🏷️ Engine</a></li>
   
 </ul>
         </div>
@@ -137,214 +137,18 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>现在Niagara虽然正式版虽然已经过了两个版本，由于niagara是设计是在程序与美术之间做取舍而设计出来的，他的本质是个computer shader，所以出现要是美术用的话，入门有点难，不像级联那样入门那么简单，因为他存在属性与绑定这程序上的东西。然后我也看到很多人总是问一些很简单而常见的问题，所以我决定写一遍文章做个收集，方便更多使用新手使用niagara的时候不用四处找资料。</p>
-<h1 id="问题与技巧收集"><a href="#问题与技巧收集" class="headerlink" title="问题与技巧收集"></a>问题与技巧收集</h1><h2 id="定义粒子的轴向"><a href="#定义粒子的轴向" class="headerlink" title="定义粒子的轴向"></a>定义粒子的轴向</h2>
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-c4801893074e85bbedb23622e14d3843_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-<p>图中alignment是粒子的朝向，facing mode是面向，更方便点的理解就是</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>UE在5.1更新了OIT算法,其算法原理很简单，把半透明重写写入深度进行排序和颜色混合。这里主要记录一些细节和官方的做法，同时也水一篇文章</p>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>首先UE有两种OIT排序，一个是EOITSortingType::SortedTriangles三角面排序，另一个是EOITSortingType::SortedPixels</p>
+<h1 id="SortedTriangles"><a href="#SortedTriangles" class="headerlink" title="SortedTriangles"></a>SortedTriangles</h1><p>其中三角面排序，可以直接在component里面打开<br><img src="https://pic2.zhimg.com/80/v2-7e23f29ca4f61006efa555621d970425_720w.webp"><br>只能解决半透明物体自身的排序而不能解决多个物体之间的半透明排序。图中有些重叠的面是排序错误的，而且还会产生面之间的闪烁。因为现在还是实验性功能，所以未来肯定会得到解决。</p>
+<p>这功能会在DeferredShadingRenderer里面RenderTranslucency前面调用OIT::AddSortTrianglesPass去排序。</p>
+<p>做法是先把要排序的物体三角面的中心点在shader里转化为屏幕坐标，然后用屏幕坐标的z，就是深度，转换到mesh bound里面深度</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">const</span> <span class="hljs-type">float</span> fSliceIndex = <span class="hljs-built_in">saturate</span>((ViewP.z - ViewBoundMinZ) / (ViewBoundMaxZ - ViewBoundMinZ));<br><br></code></pre></td></tr></table></figure>
+<p>得到index限制0到31,要是nVidia设备就是64，因为compute shader每个group的buffer设置为32个线程。然后把求得的深度放入shared memory对应的index中写入，进行原子操作，要是里面已经有写入了，就偏移一位,最后按照primitive id写入buffer，之后在下一个pass把排序好的index获取他的三个顶点写出到输出buffer上。</p>
+<p>之后会把之前的indexbuffer替換为这个buffer。具体可以查看OIT.cpp里面的AddOITSortTriangleIndexPass函数</p>
+<h1 id="SortedPixels"><a href="#SortedPixels" class="headerlink" title="SortedPixels"></a>SortedPixels</h1><p>而用像素排序则可以解决各个透明排序的问题,用的是Multi-Layer Alpha Blending(MLAB)技术，但跟MLAB技术有点区别<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/368065919">https://zhuanlan.zhihu.com/p/368065919</a><br>首先会开四张贴图，颜色、透射比、深度、当前需要的排序次数，这里有个小优化就是排序最大的次数是你当前像素的min（overdraw，自己设定最大排序次数）<br><img src="https://pic2.zhimg.com/80/v2-0f9f7ff716907ada51d7e42871e3b469_720w.webp"><br>分辨率是你最大采样个数开方向下取整X窗口分辨率，就是说会把多张pass合成一张大的，是R32格式的，最后会颜色R11G11B10F压缩进这帖图了。</p>
+<p>在渲染半透明物体时候会填充这些pass，按深度近向远简单填充和插入这些pass中,然后接下来会调用OIT::AddOITComposePass这函数去混合，而混合的时候会进行一次Bubble sort，最后把所有颜色*折射比从最近到远加起来。</p>
+<p>顺便说一下，现版本5.2要是场景没有半透明物体，依然会新开pass和清理pass，这点消耗就有点没必要了<br><img src="https://pic2.zhimg.com/80/v2-b4c90d895217064e6c5a3c693cfd2129_720w.webp"></p>
 
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-4cc06dc7d8404717f5d41c1950d49ddf_720w.webp" alt="朝向为（0，1，0）面向为（0，0，1）" loading="lazy" />
-      <figcaption>朝向为（0，1，0）面向为（0，0，1）</figcaption>
-    </figure>
-  
-
-
-<p>这两个属性是可以自定义的，需要在他们的模式改为自定义</p>
-
-    <figure class="figure-image">
-      <img src="https://pic2.zhimg.com/80/v2-c8f1597dc0ac60e22059bd4b1064ec31_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-
-    <figure class="figure-image">
-      <img src="https://pic2.zhimg.com/80/v2-44ad7730aac4733f14b269d247491145_720w.webp" alt="然后在粒子属性拖到emitter上，要是没有这两个属性直接像图中这样创建个" loading="lazy" />
-      <figcaption>然后在粒子属性拖到emitter上，要是没有这两个属性直接像图中这样创建个</figcaption>
-    </figure>
-  
-
-
-    <figure class="figure-image">
-      <img src="https://pic3.zhimg.com/80/v2-5046fe5da9cb248a37842344d3d3a936_720w.webp" alt="每个粒子渲染器属性都是由粒子属性绑定的，所以都是修改的，所以你创建同名属性也同样对粒子渲染属性起作用" loading="lazy" />
-      <figcaption>每个粒子渲染器属性都是由粒子属性绑定的，所以都是修改的，所以你创建同名属性也同样对粒子渲染属性起作用</figcaption>
-    </figure>
-  
-
-
-<h2 id="模型定义轴向"><a href="#模型定义轴向" class="headerlink" title="模型定义轴向"></a>模型定义轴向</h2>
-    <figure class="figure-image">
-      <img src="https://pic1.zhimg.com/80/v2-f02d00b6790d41e7fd098fbb4ac97ee0_720w.webp" alt="当你改为速度朝向时候，会把模型的x轴朝向你速度方向" loading="lazy" />
-      <figcaption>当你改为速度朝向时候，会把模型的x轴朝向你速度方向</figcaption>
-    </figure>
-  
-<p>当你改为速度朝向时候，会把模型的x轴朝向你速度方向<br>正因如此，我们可以修改这个速度绑定来达到我们的指哪打哪，也许你会问，修改了速度的绑定，那我速度怎么办，其实是这样的，mesh render的速度绑定其实就是为了定义模型速度朝向，然后真正的速度在解算模块时候（solve Force and Velocity）就控制了粒子的位置</p>
-
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-9cbf662dce47a099c8f02206dafac85b_720w.webp" alt="首先创建个属性" loading="lazy" />
-      <figcaption>首先创建个属性</figcaption>
-    </figure>
-  
-
-
-    <figure class="figure-image">
-      <img src="https://pic1.zhimg.com/80/v2-d5cf26b20cf9bf53555033718fde5058_720w.webp" alt="然后改名字，拖进去，改绑定" loading="lazy" />
-      <figcaption>然后改名字，拖进去，改绑定</figcaption>
-    </figure>
-  
-
-
-<p>那么说完简单的模型朝向，接下来就说稍微深入一点的模型旋转，其实修改模型旋转的还有个属性就是</p>
-<p>Mesh Orientation，这是个四元数，那么什么是四元数，四元数怎么旋转一个模型，本文就不讨论，我们只需要知道怎么用他</p>
-
-    <figure class="figure-image">
-      <img src="https://pic2.zhimg.com/80/v2-fed1a44e4b14b3918a92d6c56953ca39_720w.webp" alt="四元数是个非常难的东西，好在ue给我们提供许多转换旋转的函数" loading="lazy" />
-      <figcaption>四元数是个非常难的东西，好在ue给我们提供许多转换旋转的函数</figcaption>
-    </figure>
-  
-
-<p>find quat between是个非常好用的函数，其中from和to两个值的意思是指你要把模型的那一条轴（from）转到那个方向（to）。这样同样实现了指哪打哪的操作。</p>
-<h2 id="蓝图修改粒子材质"><a href="#蓝图修改粒子材质" class="headerlink" title="蓝图修改粒子材质"></a>蓝图修改粒子材质</h2><p>新建个material interface 然后放入粒子材质绑定就可以</p>
-
-    <figure class="figure-image">
-      <img src="https://pic3.zhimg.com/80/v2-0646607ff1ce98e2e077b9ee1ea6bc2a_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-<h2 id="niagara时间轴消失或者过长"><a href="#niagara时间轴消失或者过长" class="headerlink" title="niagara时间轴消失或者过长"></a>niagara时间轴消失或者过长</h2>
-    <figure class="figure-image">
-      <img src="https://pic1.zhimg.com/80/v2-a56a61449ea52da05e2c7972a66af270_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-<p>时间轴有个小蓝点报错，为bug，不影响使用，4.27以上版本修复，（ue5EA是4.27以下版本），要是觉得不舒服就把timeline关掉，特效师都是去场景调特效。</p>
-<h2 id="级联的pivot-offset"><a href="#级联的pivot-offset" class="headerlink" title="级联的pivot offset"></a>级联的pivot offset</h2>
-    <figure class="figure-image">
-      <img src="https://pic1.zhimg.com/80/v2-2312796578101a73dc7b83c04d7c1324_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-<h2 id="设置niagara的时间膨胀"><a href="#设置niagara的时间膨胀" class="headerlink" title="设置niagara的时间膨胀"></a>设置niagara的时间膨胀</h2><p>在特效经常用到子弹时间的效果，因为niagara设计原因，并没有直接像级联那样暴露一个参数来设置时间膨胀，可能暂时吧，这时候需要用到蓝图修改一下模拟tick</p>
-
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-8d140ffd1b77be04cd94bf9f273086ff_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-<p>其中修改Advance Simulation里的Tick Delta second就可以设置时间膨胀了，他的原理就是你冻结当前渲染流程，进入一个新的渲染流程并且tick 使用你的设置的deltatime，完了后在解冻。听不懂这句话没关系，用就行。</p>
-
-    <figure class="figure-image">
-      <img src="https://pic2.zhimg.com/80/v2-dd9d0737a84669d0d09b5200f0152ab1_720w.webp" alt="你想在特效某一个时间段进入时间膨胀也可以" loading="lazy" />
-      <figcaption>你想在特效某一个时间段进入时间膨胀也可以</figcaption>
-    </figure>
-  
-
-
-<p>还有一个方法就是修改emitter里面的deltatime属性，乘一个你自己的数，但这样涉及到缩放或者其他那些你都要自己再弄一个delta去乘一个数，有点麻烦</p>
-
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-1204f10fc7ec965a0239e346e658fc0f_720w.webp" alt="仅对速度进行时间膨胀" loading="lazy" />
-      <figcaption>仅对速度进行时间膨胀</figcaption>
-    </figure>
-  
-
-
-<h2 id="读取某一个粒子的属性"><a href="#读取某一个粒子的属性" class="headerlink" title="读取某一个粒子的属性"></a>读取某一个粒子的属性</h2>
-    <figure class="figure-image">
-      <img src="https://pic3.zhimg.com/80/v2-c65291d977363c710d42b94f1ee8014e_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-<p>新建一个attribute read input，打read就可以搜到，拉引脚搜你想获得的粒子属性类型，然后在attribute上打属性的名字，注意大小写。attribute reader是读取哪一个发射器，particle index是想读这个发射器的哪一个粒子。execution index是本发射器当前执行的粒子的序号，注意这个index不等同id和uniqueID。index在不同模拟中对应的东西也不同，例如在grid 2d中是当前对应的网格index。</p>
-<p>当然也通过id获取另一个发射器粒子的属性，搜get 什么什么by id就行。</p>
-
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-1204f10fc7ec965a0239e346e658fc0f_720w.webp" alt="用这个module会报错，填上emitter" loading="lazy" />
-      <figcaption>用这个module会报错，填上emitter</figcaption>
-    </figure>
-  
-
-<h2 id="空格键重新播放niagara"><a href="#空格键重新播放niagara" class="headerlink" title="空格键重新播放niagara"></a>空格键重新播放niagara</h2><p>选中niagara窗口按空格键可以重新播放niagara，在场景中选中niagara，按？也可以</p>
-
-    <figure class="figure-image">
-      <img src="https://pic1.zhimg.com/80/v2-22996b7f654d5a5aae66b5aa9b1c24dc_720w.webp" alt="选中窗口会有个小黄条（选中就是点击这个窗口随便一个地方" loading="lazy" />
-      <figcaption>选中窗口会有个小黄条（选中就是点击这个窗口随便一个地方</figcaption>
-    </figure>
-  
-
-
-<h2 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h2><p>创建一个结构体，然后在里面添加一些自己想发送的变量</p>
-
-    <figure class="figure-image">
-      <img src="https://pic2.zhimg.com/80/v2-5e0170140cb8e1cd0103b27ebba67dbd_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-    <figure class="figure-image">
-      <img src="https://pic2.zhimg.com/80/v2-958454664785527cd4454b5c50dbc721_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-
-
-<p>在项目设置添加上自己的结构体，当然也可以添加一个数据类型，就是上面parameter types设置。</p>
-
-    <figure class="figure-image">
-      <img src="https://pic2.zhimg.com/80/v2-6293e73660e682e1a0afec60c5fc8eb1_720w.webp" alt="打名字就可以找到自己的结构体" loading="lazy" />
-      <figcaption>打名字就可以找到自己的结构体</figcaption>
-    </figure>
-  
-
-    <figure class="figure-image">
-      <img src="https://pic2.zhimg.com/80/v2-5e809e057b1014ede8069164a27b3a91_720w.webp" alt="condition就是发送开关，关的时候就是不发送" loading="lazy" />
-      <figcaption>condition就是发送开关，关的时候就是不发送</figcaption>
-    </figure>
-  
-
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-6eb4f08e0e85f3d215934a65bee146c3_720w.webp" alt="把module添加到事件里，然后其他emitter就可以接收到" loading="lazy" />
-      <figcaption>把module添加到事件里，然后其他emitter就可以接收到</figcaption>
-    </figure>
-  
-
-
-<p>接收也要自己写module并放到事件中，不写的话数据不会有任何变化。</p>
-<h2 id="4-27-module里的-If-换成了Select"><a href="#4-27-module里的-If-换成了Select" class="headerlink" title="4.27 module里的 If 换成了Select"></a>4.27 module里的 If 换成了Select</h2><h2 id="半透明粒子闪烁问题"><a href="#半透明粒子闪烁问题" class="headerlink" title="半透明粒子闪烁问题"></a>半透明粒子闪烁问题</h2><p>很大概率是粒子半透明排序问题，半透明排序一直是实现渲染很大的一个问题，其中常用的解决方案是距离排序和index排序，在niagara同一emitter也有这个选项</p>
-
-    <figure class="figure-image">
-      <img src="https://pic1.zhimg.com/80/v2-0fd024f24e3059b30e36f55a7b548968_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-<p>在sprite render下面有个这个排序。</p>
-<p>view depth：根据深度（是根据camera vectro dot camera direction的值进行排，并不是gbuffer的深度）</p>
-<p>view distance：距离相机的距离排序</p>
-<p>custom Ascending:根据id排序，越小的id在前面</p>
-<p>custom Decending:也是根据进行排序，大的排在前面</p>
-
-    <figure class="figure-image">
-      <img src="https://pic1.zhimg.com/80/v2-dbdc92b71fe69d2058d09c1a8547123c_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-
-<p>越高的数字越靠前，同一数字的话会根据首次排序进行排序，首次排序是根据在创建发射器的时候，就是说这系统里有2个发射器，你复制一个或者新建一个发射器那这个发射器就是排序最前的，数字最大的（首次排序）</p>
-
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-1552d644466e3969a629b910bd641903_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
       </section>
 
       
@@ -354,12 +158,12 @@
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
-      <div class="card-cover" background-image-lazy data-img="https://picx.zhimg.com/v2-fa0f656bfc72e1635473a5a545572c73_1440w.jpg?source=172ae18b"></div>
+      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/e7/wallhaven-e72x6k.jpg"></div>
     
     <div class="card-text">
       
-        <a href="/2022/04/08/Softbody/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">【UE5】在niagara实现Softbody dynamic</h2>
+        <a href="/2022/12/17/WallpaperEnging/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">把ue变成WallpaperEngine</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -371,12 +175,12 @@
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
-      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/pk/wallhaven-pkmzl9.jpg"></div>
+      <div class="card-cover" background-image-lazy data-img="https://pic1.zhimg.com/v2-79bce61997eaf687cca50c7dabcb3065_1440w.jpg?source=172ae18b"></div>
     
     <div class="card-text">
       
-        <a href="/2021/10/07/color2/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">【VFX】浅析特效设计与色彩（2）</h2>
+        <a href="/2022/11/07/DualKawaseBlur/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">【UE4/UE5】拓展后期pass实现DualKawaseBlur</h2>
         </a>
       
       <div class="card-text--row">Older</div>
