@@ -24,7 +24,7 @@
 
   
 
-  <title>【VFX】浅析特效设计与色彩（2） | Natsuneko</title>
+  <title>【UE4】新手特效向Niagara常见问题解决与小技巧分享（不定期更新） | Natsuneko</title>
 
   
 
@@ -49,7 +49,7 @@
 <!-- header container -->
 <header class="header-container post">
   
-    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/pk/wallhaven-pkmzl9.jpg)"></div>
+    <div class="post-image" style="background-image: url(https://pica.zhimg.com/v2-147be5e9a1831e26487605bfee955919_1440w.jpg?source=172ae18b)"></div>
   
 
   <!-- navbar -->
@@ -100,11 +100,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">【VFX】浅析特效设计与色彩（2）</h1>
+          <h1 class="title-wrap">【UE4】新手特效向Niagara常见问题解决与小技巧分享（不定期更新）</h1>
           <h2 class="title-sub-wrap">
             <strong>夏猫</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2021-10-07T13:23:00.000Z" itemprop="datePublished">2021-10-07</time>
+            <time  class="article-date" datetime="2022-02-12T04:55:00.000Z" itemprop="datePublished">2022-02-12</time>
           </h2>
           <ul class="wrap-list dark">
   
@@ -113,7 +113,7 @@
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/%E7%BE%8E%E6%9C%AF%E5%8E%9F%E7%90%86/">🏷️ 美术原理</a></li>
+    <li><a href="/tags/Niagara/">🏷️ Niagara</a></li>
   
 </ul>
         </div>
@@ -137,112 +137,214 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="三、特效设计"><a href="#三、特效设计" class="headerlink" title="三、特效设计"></a>三、特效设计</h1><h2 id="3-1-特效元素"><a href="#3-1-特效元素" class="headerlink" title="3.1 特效元素"></a>3.1 特效元素</h2><p>特效是由各种元素构成的，每当你设计特效的时候，首先应该会考虑这特效里面有什么元素，例如这个特效是个什么类型的技能，要不要设计魔法阵，魔法阵要加入什么故事背景，或者什么元素，伤害的主体是什么。这些都要先考虑清楚。</p>
-<p>俗话说，万事开头难，在设计特效的时候一开始会很多想法出现在脑海里，但这些想法只是你平常玩游戏或看作品时候积累下来别人的想法，想设计一个自己的特效该怎么开始呢。我推荐用联想法，举个例子。</p>
-<p>一个船长的角色，你要给他设计技能，船长在魔幻题材里首先会联系到海盗，这时候你可以设计一个技能召唤几个海盗向前突次挥砍，这也是一个技能。有别于普通特效，这样可以使得特效有趣一点。再者，海盗可以联想到船只（dota2里的船长）、水果、坏死病、炸药桶（lol里的船长）。在特效有特定主题元素会使得特效更有创意性。</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/a8831366-25dd-11ec-8300-3e5df503a204.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211292&auth_key=1671211292-0-0-b48af83baeafdca0a53c360b724c23d2&v=tx&pu=078babd7' ></div>
-
-
-<p>人们看习惯了圆形的飞弹，要是在新的皮肤中，可以把飞弹变为圆形或方形，或者其他元素，就会使得眼前一亮。就像lol里面的皮肤一样，会在特效中加入各种符合皮肤主体的元素，使得特效独一无二，更有幻想性和创意性，这也说明了伤害主体不同给人的视觉效果也不同。</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/2586d136-25de-11ec-ac91-3648b313a234.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211320&auth_key=1671211320-0-0-96883e68b136982ed57d924d7517de14&v=tx&pu=078babd7' ></div>
-
-
-<p>同时，伤害主体形状也与让人感到的伤害危险性相关联，就像拉长的椭圆与圆相比。较尖锐的形状给人感觉到的威胁性与伤害更高。例如圆形的刀光和带有锯齿形的元素的刀光</p>
-
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>现在Niagara虽然正式版虽然已经过了两个版本，由于niagara是设计是在程序与美术之间做取舍而设计出来的，他的本质是个computer shader，所以出现要是美术用的话，入门有点难，不像级联那样入门那么简单，因为他存在属性与绑定这程序上的东西。然后我也看到很多人总是问一些很简单而常见的问题，所以我决定写一遍文章做个收集，方便更多使用新手使用niagara的时候不用四处找资料。</p>
+<h1 id="问题与技巧收集"><a href="#问题与技巧收集" class="headerlink" title="问题与技巧收集"></a>问题与技巧收集</h1><h2 id="定义粒子的轴向"><a href="#定义粒子的轴向" class="headerlink" title="定义粒子的轴向"></a>定义粒子的轴向</h2>
     <figure class="figure-image">
-      <img src="https://pic1.zhimg.com/v2-ab2da508e66a1dbe468999412f9f3434_b.jpg" alt="" loading="lazy" />
+      <img src="https://pic4.zhimg.com/80/v2-c4801893074e85bbedb23622e14d3843_720w.webp" alt="" loading="lazy" />
       <figcaption></figcaption>
     </figure>
   
-<p>在设计写实类特效时，可以尝试在里面加入一些金色的金属元素，现在大多数写实类游戏里面很少存在金色金属元素，看习惯了各种高饱和的魔法元素，加入金色金属元素也会让人眼前一亮</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/0bc36774-2664-11ec-a7b3-eefe9d25504f.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211321&auth_key=1671211321-0-0-2bc42413f2c61af0bd8628197395eefd&v=tx&pu=078babd7' ></div>
-<p>游戏名：《Forspoken》</p>
-<h2 id="3-2-特效动态"><a href="#3-2-特效动态" class="headerlink" title="3.2 特效动态"></a>3.2 特效动态</h2><p>生活中处处存在着节奏，特效色彩有节奏，动态更要有节奏。不同的节奏给人的感觉也不一样，就像恐怖片里面的bgm一样，配乐慢慢把气氛推向高潮，特效一样也可以，在lol里面死歌放大，能力读条逐渐放大，伤害也随之来临，这样的节奏也会给玩家带来恐惧感。</p>
-<p>而这些节奏都是由k曲线得到的，有节奏的特效会使人感到变化，就像一个爆发性的东西，节奏通常都是瞬间炸开高亮，然后迅速衰减，再慢慢消失，例如爆点、爆炸还有爆开的粒子。</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/8a8e6140-25dc-11ec-93aa-76c83b05f5f9.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211321&auth_key=1671211321-0-0-4cd0efa363d8a1d79849d17065ccf127&v=tx&pu=078babd7' ></div>
-<p>一个个小节奏的组成整个大的特效节奏</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/597e6350-25f7-11ec-99d6-7225eddbd47b.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211322&auth_key=1671211322-0-0-c7e80465da3cbe9db2792e7653ed6aba&v=tx&pu=078babd7' ></div>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/adb7ccae-25f7-11ec-9255-daebc28fd291.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211322&auth_key=1671211322-0-0-62d638d9bea9388de8e929e50eb67d3e&v=tx&pu=078babd7' ></div>
-<p><a href="https://link.zhihu.com/?target=https://www.youtube.com/watch?v=-L2JvngkkWw">Visual Effects Bootcamp: Artistic Principles of VFX</a></p>
-<p>做的越多，看的越多，对曲线的节奏掌握也就越熟练，美术的东西都是讲究日积月累的</p>
-<h2 id="3-3-特效形式"><a href="#3-3-特效形式" class="headerlink" title="3.3 特效形式"></a>3.3 特效形式</h2><p>说完了基本要素，接下来说一下特效的整体形式，特效的整体形状大致分为圆形、柱形还有扇形。技能的形式的大小关联着伤害范围，在一些游戏里，技能范围会做范围提示，可以让玩家清楚技能的范围伤害，从而提前做出动作，这些范围圈一般是清晰可见，甚至高亮</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/4664f59e-267a-11ec-98e4-3ae338a87c94.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211322&auth_key=1671211322-0-0-f34f4ff747aafdbe242e16320bada4d8&v=tx&pu=078babd7' ></div>
-
-
-<h1 id="四、贴图的制作"><a href="#四、贴图的制作" class="headerlink" title="四、贴图的制作"></a>四、贴图的制作</h1><p>说到特效的制作最离不开的就是贴图，贴图对于对谁来说都可以用祖传贴图，随着你的贴图库越来越大，制作个人练习特效几乎可以不用动手做，也可能懒得动手做，而且在不经意间选的贴图放上去也会有意外的效果出现。</p>
-<p>特效贴图可以用程序化去生成，也可以手绘制作，但一开始很多人都没绘画的基础或者从来没有接触过板绘，往往会从程序化贴图开始做起。其实手绘贴图没那么难，只要掌握了基本ps操作都可以画，画贴图并不需要很准确吧光影画出来，因为动态模糊和扰动会弥补你的暇疵，此时你只需要把外形画出来。但对于一些写实类特效来说，还是程序化生成比较简单。</p>
-<h2 id="4-1-手绘贴图"><a href="#4-1-手绘贴图" class="headerlink" title="4.1 手绘贴图"></a>4.1 手绘贴图</h2><p>在绘画时候一般会把大形简单绘画出来，画贴图也是如此</p>
+<p>图中alignment是粒子的朝向，facing mode是面向，更方便点的理解就是</p>
 
     <figure class="figure-image">
-      <img src="https://pic1.zhimg.com/80/v2-ea2f01083c4ac443bf25eedd70ba13e8_720w.webp" alt="多的地方用橡皮擦把透明度调低一点擦掉，就可以做到虚掉" loading="lazy" />
-      <figcaption>多的地方用橡皮擦把透明度调低一点擦掉，就可以做到虚掉</figcaption>
-    </figure>
-  
-
-<p>导入ue里就变成一个弹头</p>
-
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-1615cac09bfb81b939ab2de9b5a9d547_720w.webp" alt="先画白色画出关系，再图层样式渐变叠加" loading="lazy" />
-      <figcaption>先画白色画出关系，再图层样式渐变叠加</figcaption>
+      <img src="https://pic4.zhimg.com/80/v2-4cc06dc7d8404717f5d41c1950d49ddf_720w.webp" alt="朝向为（0，1，0）面向为（0，0，1）" loading="lazy" />
+      <figcaption>朝向为（0，1，0）面向为（0，0，1）</figcaption>
     </figure>
   
 
 
-<p>同理画上拖尾</p>
+<p>这两个属性是可以自定义的，需要在他们的模式改为自定义</p>
 
     <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-4bf3ed9eda23b81a22f00e727926a7fb_720w.webp" alt="" loading="lazy" />
+      <img src="https://pic2.zhimg.com/80/v2-c8f1597dc0ac60e22059bd4b1064ec31_720w.webp" alt="" loading="lazy" />
       <figcaption></figcaption>
     </figure>
   
 
 
-<p>导入ue并加上扰乱</p>
+    <figure class="figure-image">
+      <img src="https://pic2.zhimg.com/80/v2-44ad7730aac4733f14b269d247491145_720w.webp" alt="然后在粒子属性拖到emitter上，要是没有这两个属性直接像图中这样创建个" loading="lazy" />
+      <figcaption>然后在粒子属性拖到emitter上，要是没有这两个属性直接像图中这样创建个</figcaption>
+    </figure>
+  
+
 
     <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-44defd79a4b1137d129cbc84c282eb4b_720w.webp" alt="" loading="lazy" />
+      <img src="https://pic3.zhimg.com/80/v2-5046fe5da9cb248a37842344d3d3a936_720w.webp" alt="每个粒子渲染器属性都是由粒子属性绑定的，所以都是修改的，所以你创建同名属性也同样对粒子渲染属性起作用" loading="lazy" />
+      <figcaption>每个粒子渲染器属性都是由粒子属性绑定的，所以都是修改的，所以你创建同名属性也同样对粒子渲染属性起作用</figcaption>
+    </figure>
+  
+
+
+<h2 id="模型定义轴向"><a href="#模型定义轴向" class="headerlink" title="模型定义轴向"></a>模型定义轴向</h2>
+    <figure class="figure-image">
+      <img src="https://pic1.zhimg.com/80/v2-f02d00b6790d41e7fd098fbb4ac97ee0_720w.webp" alt="当你改为速度朝向时候，会把模型的x轴朝向你速度方向" loading="lazy" />
+      <figcaption>当你改为速度朝向时候，会把模型的x轴朝向你速度方向</figcaption>
+    </figure>
+  
+<p>当你改为速度朝向时候，会把模型的x轴朝向你速度方向<br>正因如此，我们可以修改这个速度绑定来达到我们的指哪打哪，也许你会问，修改了速度的绑定，那我速度怎么办，其实是这样的，mesh render的速度绑定其实就是为了定义模型速度朝向，然后真正的速度在解算模块时候（solve Force and Velocity）就控制了粒子的位置</p>
+
+    <figure class="figure-image">
+      <img src="https://pic4.zhimg.com/80/v2-9cbf662dce47a099c8f02206dafac85b_720w.webp" alt="首先创建个属性" loading="lazy" />
+      <figcaption>首先创建个属性</figcaption>
+    </figure>
+  
+
+
+    <figure class="figure-image">
+      <img src="https://pic1.zhimg.com/80/v2-d5cf26b20cf9bf53555033718fde5058_720w.webp" alt="然后改名字，拖进去，改绑定" loading="lazy" />
+      <figcaption>然后改名字，拖进去，改绑定</figcaption>
+    </figure>
+  
+
+
+<p>那么说完简单的模型朝向，接下来就说稍微深入一点的模型旋转，其实修改模型旋转的还有个属性就是</p>
+<p>Mesh Orientation，这是个四元数，那么什么是四元数，四元数怎么旋转一个模型，本文就不讨论，我们只需要知道怎么用他</p>
+
+    <figure class="figure-image">
+      <img src="https://pic2.zhimg.com/80/v2-fed1a44e4b14b3918a92d6c56953ca39_720w.webp" alt="四元数是个非常难的东西，好在ue给我们提供许多转换旋转的函数" loading="lazy" />
+      <figcaption>四元数是个非常难的东西，好在ue给我们提供许多转换旋转的函数</figcaption>
+    </figure>
+  
+
+<p>find quat between是个非常好用的函数，其中from和to两个值的意思是指你要把模型的那一条轴（from）转到那个方向（to）。这样同样实现了指哪打哪的操作。</p>
+<h2 id="蓝图修改粒子材质"><a href="#蓝图修改粒子材质" class="headerlink" title="蓝图修改粒子材质"></a>蓝图修改粒子材质</h2><p>新建个material interface 然后放入粒子材质绑定就可以</p>
+
+    <figure class="figure-image">
+      <img src="https://pic3.zhimg.com/80/v2-0646607ff1ce98e2e077b9ee1ea6bc2a_720w.webp" alt="" loading="lazy" />
+      <figcaption></figcaption>
+    </figure>
+  
+
+<h2 id="niagara时间轴消失或者过长"><a href="#niagara时间轴消失或者过长" class="headerlink" title="niagara时间轴消失或者过长"></a>niagara时间轴消失或者过长</h2>
+    <figure class="figure-image">
+      <img src="https://pic1.zhimg.com/80/v2-a56a61449ea52da05e2c7972a66af270_720w.webp" alt="" loading="lazy" />
+      <figcaption></figcaption>
+    </figure>
+  
+<p>时间轴有个小蓝点报错，为bug，不影响使用，4.27以上版本修复，（ue5EA是4.27以下版本），要是觉得不舒服就把timeline关掉，特效师都是去场景调特效。</p>
+<h2 id="级联的pivot-offset"><a href="#级联的pivot-offset" class="headerlink" title="级联的pivot offset"></a>级联的pivot offset</h2>
+    <figure class="figure-image">
+      <img src="https://pic1.zhimg.com/80/v2-2312796578101a73dc7b83c04d7c1324_720w.webp" alt="" loading="lazy" />
+      <figcaption></figcaption>
+    </figure>
+  
+
+<h2 id="设置niagara的时间膨胀"><a href="#设置niagara的时间膨胀" class="headerlink" title="设置niagara的时间膨胀"></a>设置niagara的时间膨胀</h2><p>在特效经常用到子弹时间的效果，因为niagara设计原因，并没有直接像级联那样暴露一个参数来设置时间膨胀，可能暂时吧，这时候需要用到蓝图修改一下模拟tick</p>
+
+    <figure class="figure-image">
+      <img src="https://pic4.zhimg.com/80/v2-8d140ffd1b77be04cd94bf9f273086ff_720w.webp" alt="" loading="lazy" />
+      <figcaption></figcaption>
+    </figure>
+  
+<p>其中修改Advance Simulation里的Tick Delta second就可以设置时间膨胀了，他的原理就是你冻结当前渲染流程，进入一个新的渲染流程并且tick 使用你的设置的deltatime，完了后在解冻。听不懂这句话没关系，用就行。</p>
+
+    <figure class="figure-image">
+      <img src="https://pic2.zhimg.com/80/v2-dd9d0737a84669d0d09b5200f0152ab1_720w.webp" alt="你想在特效某一个时间段进入时间膨胀也可以" loading="lazy" />
+      <figcaption>你想在特效某一个时间段进入时间膨胀也可以</figcaption>
+    </figure>
+  
+
+
+<p>还有一个方法就是修改emitter里面的deltatime属性，乘一个你自己的数，但这样涉及到缩放或者其他那些你都要自己再弄一个delta去乘一个数，有点麻烦</p>
+
+    <figure class="figure-image">
+      <img src="https://pic4.zhimg.com/80/v2-1204f10fc7ec965a0239e346e658fc0f_720w.webp" alt="仅对速度进行时间膨胀" loading="lazy" />
+      <figcaption>仅对速度进行时间膨胀</figcaption>
+    </figure>
+  
+
+
+<h2 id="读取某一个粒子的属性"><a href="#读取某一个粒子的属性" class="headerlink" title="读取某一个粒子的属性"></a>读取某一个粒子的属性</h2>
+    <figure class="figure-image">
+      <img src="https://pic3.zhimg.com/80/v2-c65291d977363c710d42b94f1ee8014e_720w.webp" alt="" loading="lazy" />
+      <figcaption></figcaption>
+    </figure>
+  
+<p>新建一个attribute read input，打read就可以搜到，拉引脚搜你想获得的粒子属性类型，然后在attribute上打属性的名字，注意大小写。attribute reader是读取哪一个发射器，particle index是想读这个发射器的哪一个粒子。execution index是本发射器当前执行的粒子的序号，注意这个index不等同id和uniqueID。index在不同模拟中对应的东西也不同，例如在grid 2d中是当前对应的网格index。</p>
+<p>当然也通过id获取另一个发射器粒子的属性，搜get 什么什么by id就行。</p>
+
+    <figure class="figure-image">
+      <img src="https://pic4.zhimg.com/80/v2-1204f10fc7ec965a0239e346e658fc0f_720w.webp" alt="用这个module会报错，填上emitter" loading="lazy" />
+      <figcaption>用这个module会报错，填上emitter</figcaption>
+    </figure>
+  
+
+<h2 id="空格键重新播放niagara"><a href="#空格键重新播放niagara" class="headerlink" title="空格键重新播放niagara"></a>空格键重新播放niagara</h2><p>选中niagara窗口按空格键可以重新播放niagara，在场景中选中niagara，按？也可以</p>
+
+    <figure class="figure-image">
+      <img src="https://pic1.zhimg.com/80/v2-22996b7f654d5a5aae66b5aa9b1c24dc_720w.webp" alt="选中窗口会有个小黄条（选中就是点击这个窗口随便一个地方" loading="lazy" />
+      <figcaption>选中窗口会有个小黄条（选中就是点击这个窗口随便一个地方</figcaption>
+    </figure>
+  
+
+
+<h2 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h2><p>创建一个结构体，然后在里面添加一些自己想发送的变量</p>
+
+    <figure class="figure-image">
+      <img src="https://pic2.zhimg.com/80/v2-5e0170140cb8e1cd0103b27ebba67dbd_720w.webp" alt="" loading="lazy" />
       <figcaption></figcaption>
     </figure>
   
 
     <figure class="figure-image">
-      <img src="https://pic3.zhimg.com/80/v2-5510898d7186f1ede4b64c23299a69f6_720w.webp" alt="" loading="lazy" />
+      <img src="https://pic2.zhimg.com/80/v2-958454664785527cd4454b5c50dbc721_720w.webp" alt="" loading="lazy" />
       <figcaption></figcaption>
     </figure>
   
 
-<p>配合上弹头，加上其他点缀，调一下</p>
-<p>一个简单的lol风格的特效就出来了，其实这也是我第一次手绘贴图，没想到还挺容易上手的，所以画贴图不是一件难事。尽量多尝试。</p>
-<h2 id="4-2-程序化贴图"><a href="#4-2-程序化贴图" class="headerlink" title="4.2 程序化贴图"></a>4.2 程序化贴图</h2><p>由于程序化贴图各种各样的制作软件与方法，所以简单的概叙一下。</p>
-<p>烟雾序列图的做一般都是用houdini和embergen，embergen是用gpu模拟，即使是2070显卡0.1体素模拟几乎是实时，可以快速输出序列图和motion vector图，对游戏来说是完全满足需求，界面简单易上手，可以快速调节参数，因为是实时的，不用像houdini每一帧去模拟cache等待结果才可以连续播放。</p>
+
+
+<p>在项目设置添加上自己的结构体，当然也可以添加一个数据类型，就是上面parameter types设置。</p>
 
     <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-51636e160a57b3fcc4514a700eacd2b3_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
+      <img src="https://pic2.zhimg.com/80/v2-6293e73660e682e1a0afec60c5fc8eb1_720w.webp" alt="打名字就可以找到自己的结构体" loading="lazy" />
+      <figcaption>打名字就可以找到自己的结构体</figcaption>
     </figure>
   
-
-<p>噪点图的制作软件很多，ae、ps、sd甚至houdini都可以做，根据自己的需求去做图，没什么制作方法分享。</p>
 
     <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-09242e54234e16c52f9480f98c5c1737_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
+      <img src="https://pic2.zhimg.com/80/v2-5e809e057b1014ede8069164a27b3a91_720w.webp" alt="condition就是发送开关，关的时候就是不发送" loading="lazy" />
+      <figcaption>condition就是发送开关，关的时候就是不发送</figcaption>
     </figure>
   
-
-<p>渐变一拉，对比度曲线拉一下就成了<br>流光图也是用常规的制作软件可以做，几张噪声图叠在一起，对比度拉高一点，透一点，我也推荐一款软件叫flame painter pro3 ，这是一款可以笔刷一键画流光图的软件，里面内置了各种流光预设笔刷。</p>
 
     <figure class="figure-image">
-      <img src="https://pic1.zhimg.com/80/v2-d7d4c740ea4cd36acdc40c79c0b093c8_720w.webp" alt="" loading="lazy" />
+      <img src="https://pic4.zhimg.com/80/v2-6eb4f08e0e85f3d215934a65bee146c3_720w.webp" alt="把module添加到事件里，然后其他emitter就可以接收到" loading="lazy" />
+      <figcaption>把module添加到事件里，然后其他emitter就可以接收到</figcaption>
+    </figure>
+  
+
+
+<p>接收也要自己写module并放到事件中，不写的话数据不会有任何变化。</p>
+<h2 id="4-27-module里的-If-换成了Select"><a href="#4-27-module里的-If-换成了Select" class="headerlink" title="4.27 module里的 If 换成了Select"></a>4.27 module里的 If 换成了Select</h2><h2 id="半透明粒子闪烁问题"><a href="#半透明粒子闪烁问题" class="headerlink" title="半透明粒子闪烁问题"></a>半透明粒子闪烁问题</h2><p>很大概率是粒子半透明排序问题，半透明排序一直是实现渲染很大的一个问题，其中常用的解决方案是距离排序和index排序，在niagara同一emitter也有这个选项</p>
+
+    <figure class="figure-image">
+      <img src="https://pic1.zhimg.com/80/v2-0fd024f24e3059b30e36f55a7b548968_720w.webp" alt="" loading="lazy" />
+      <figcaption></figcaption>
+    </figure>
+  
+
+<p>在sprite render下面有个这个排序。</p>
+<p>view depth：根据深度（是根据camera vectro dot camera direction的值进行排，并不是gbuffer的深度）</p>
+<p>view distance：距离相机的距离排序</p>
+<p>custom Ascending:根据id排序，越小的id在前面</p>
+<p>custom Decending:也是根据进行排序，大的排在前面</p>
+
+    <figure class="figure-image">
+      <img src="https://pic1.zhimg.com/80/v2-dbdc92b71fe69d2058d09c1a8547123c_720w.webp" alt="" loading="lazy" />
       <figcaption></figcaption>
     </figure>
   
 
 
+<p>越高的数字越靠前，同一数字的话会根据首次排序进行排序，首次排序是根据在创建发射器的时候，就是说这系统里有2个发射器，你复制一个或者新建一个发射器那这个发射器就是排序最前的，数字最大的（首次排序）</p>
 
-<h1 id="五-总结"><a href="#五-总结" class="headerlink" title="五 总结"></a>五 总结</h1><p>特效这东西，就是要多练、多看和多玩。所以说玩游戏也是一种学习，美术这东西没有捷径。但有的人感性能力强，对于美术很快就可以上手，天赋好的人稍微练一下就可以很强，程序也是同理。</p>
-<p>做特效时候创意很重要，可以使你的特效是否脱颖而出，在特效存在特定主体的元素会使得你特效创意性提高，还有不同的技能样式也会。在色彩搭配时注意明暗对比，还有饱和度与明度的区分，避免出现大规模同饱和度和明度的色彩。在做特效节奏时候多k曲线，曲线这东西多练才会熟悉。顺便推荐一下特效TA闲聊群：1047461022</p>
-
+    <figure class="figure-image">
+      <img src="https://pic4.zhimg.com/80/v2-1552d644466e3969a629b910bd641903_720w.webp" alt="" loading="lazy" />
+      <figcaption></figcaption>
+    </figure>
+  
       </section>
 
       
@@ -252,12 +354,12 @@
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
-      <div class="card-cover" background-image-lazy data-img="https://pica.zhimg.com/v2-147be5e9a1831e26487605bfee955919_1440w.jpg?source=172ae18b"></div>
+      <div class="card-cover" background-image-lazy data-img="https://picx.zhimg.com/v2-fa0f656bfc72e1635473a5a545572c73_1440w.jpg?source=172ae18b"></div>
     
     <div class="card-text">
       
-        <a href="/2022/02/12/Niagara/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">【UE4】新手特效向Niagara常见问题解决与小技巧分享（不定期更新）</h2>
+        <a href="/2022/04/08/Softbody/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">【UE5】在niagara实现Softbody dynamic</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -269,12 +371,12 @@
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
-      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/q6/wallhaven-q6wmkq.jpg"></div>
+      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/pk/wallhaven-pkmzl9.jpg"></div>
     
     <div class="card-text">
       
-        <a href="/2021/09/29/color/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">【VFX】浅析特效设计与色彩（1）</h2>
+        <a href="/2021/10/07/color2/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">【VFX】浅析特效设计与色彩（2）</h2>
         </a>
       
       <div class="card-text--row">Older</div>
@@ -445,41 +547,6 @@
 
 
 <!-- dplayer -->
-
-
-<!-- dplayer 视频 start -->
-<script type="text/javascript" src="https://unpkg.com/hls.js@1.0.1/dist/hls.js"></script>
-<script type="text/javascript" src="https://unpkg.com/dplayer@1.25.1/dist/DPlayer.min.js"></script>
-<script type="text/javascript">
-  const dplayer = document.querySelectorAll(".dplayer-box");
-  dplayer && initDPlayer(dplayer);
-  function initDPlayer(els) {
-    let elsArr = Array.from(els);
-    elsArr.forEach(el => {
-      let url = el.dataset.url;
-      let pic = el.dataset.pic;
-      let subtitle = el.dataset.subtitle;
-
-      let options = {
-        container: el,
-        video: { url: url, pic: pic },
-        theme: "#b7daff",
-        autoplay: false,
-        loop: false,
-        mutex: true,
-      }
-
-      if (subtitle) {
-        options.subtitle = {
-          url: el.dataset.subtitle,
-        }
-      }
-      new DPlayer(options);
-    });
-  }
-</script>
-<!-- dplayer 视频 end -->
-
 
 
 

@@ -24,7 +24,7 @@
 
   
 
-  <title>【VFX】浅析特效设计与色彩（2） | Natsuneko</title>
+  <title>把ue变成WallpaperEngine | Natsuneko</title>
 
   
 
@@ -49,7 +49,7 @@
 <!-- header container -->
 <header class="header-container post">
   
-    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/pk/wallhaven-pkmzl9.jpg)"></div>
+    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/e7/wallhaven-e72x6k.jpg)"></div>
   
 
   <!-- navbar -->
@@ -100,20 +100,20 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">【VFX】浅析特效设计与色彩（2）</h1>
+          <h1 class="title-wrap">把ue变成WallpaperEngine</h1>
           <h2 class="title-sub-wrap">
             <strong>夏猫</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2021-10-07T13:23:00.000Z" itemprop="datePublished">2021-10-07</time>
+            <time  class="article-date" datetime="2022-12-17T10:34:00.000Z" itemprop="datePublished">2022-12-17</time>
           </h2>
           <ul class="wrap-list dark">
   
-    <li><a href="/categories/%E6%96%87%E7%AB%A0/">📒 文章</a></li>
+    <li><a href="/categories/%E6%8F%92%E4%BB%B6/">📒 插件</a></li>
   
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/%E7%BE%8E%E6%9C%AF%E5%8E%9F%E7%90%86/">🏷️ 美术原理</a></li>
+    <li><a href="/tags/Plugin/">🏷️ Plugin</a></li>
   
 </ul>
         </div>
@@ -137,111 +137,13 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="三、特效设计"><a href="#三、特效设计" class="headerlink" title="三、特效设计"></a>三、特效设计</h1><h2 id="3-1-特效元素"><a href="#3-1-特效元素" class="headerlink" title="3.1 特效元素"></a>3.1 特效元素</h2><p>特效是由各种元素构成的，每当你设计特效的时候，首先应该会考虑这特效里面有什么元素，例如这个特效是个什么类型的技能，要不要设计魔法阵，魔法阵要加入什么故事背景，或者什么元素，伤害的主体是什么。这些都要先考虑清楚。</p>
-<p>俗话说，万事开头难，在设计特效的时候一开始会很多想法出现在脑海里，但这些想法只是你平常玩游戏或看作品时候积累下来别人的想法，想设计一个自己的特效该怎么开始呢。我推荐用联想法，举个例子。</p>
-<p>一个船长的角色，你要给他设计技能，船长在魔幻题材里首先会联系到海盗，这时候你可以设计一个技能召唤几个海盗向前突次挥砍，这也是一个技能。有别于普通特效，这样可以使得特效有趣一点。再者，海盗可以联想到船只（dota2里的船长）、水果、坏死病、炸药桶（lol里的船长）。在特效有特定主题元素会使得特效更有创意性。</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/a8831366-25dd-11ec-8300-3e5df503a204.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211292&auth_key=1671211292-0-0-b48af83baeafdca0a53c360b724c23d2&v=tx&pu=078babd7' ></div>
+        <h1 id="WallpaperEnginePlugin"><a href="#WallpaperEnginePlugin" class="headerlink" title="WallpaperEnginePlugin"></a><a target="_blank" rel="noopener" href="https://https//github.com/natsupora/WallpaperEnginePlugin">WallpaperEnginePlugin</a></h1><div class="dplayer-box" data-url='https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/Wallpaper.mp4' ></div>
 
-
-<p>人们看习惯了圆形的飞弹，要是在新的皮肤中，可以把飞弹变为圆形或方形，或者其他元素，就会使得眼前一亮。就像lol里面的皮肤一样，会在特效中加入各种符合皮肤主体的元素，使得特效独一无二，更有幻想性和创意性，这也说明了伤害主体不同给人的视觉效果也不同。</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/2586d136-25de-11ec-ac91-3648b313a234.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211320&auth_key=1671211320-0-0-96883e68b136982ed57d924d7517de14&v=tx&pu=078babd7' ></div>
-
-
-<p>同时，伤害主体形状也与让人感到的伤害危险性相关联，就像拉长的椭圆与圆相比。较尖锐的形状给人感觉到的威胁性与伤害更高。例如圆形的刀光和带有锯齿形的元素的刀光</p>
-
-    <figure class="figure-image">
-      <img src="https://pic1.zhimg.com/v2-ab2da508e66a1dbe468999412f9f3434_b.jpg" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-<p>在设计写实类特效时，可以尝试在里面加入一些金色的金属元素，现在大多数写实类游戏里面很少存在金色金属元素，看习惯了各种高饱和的魔法元素，加入金色金属元素也会让人眼前一亮</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/0bc36774-2664-11ec-a7b3-eefe9d25504f.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211321&auth_key=1671211321-0-0-2bc42413f2c61af0bd8628197395eefd&v=tx&pu=078babd7' ></div>
-<p>游戏名：《Forspoken》</p>
-<h2 id="3-2-特效动态"><a href="#3-2-特效动态" class="headerlink" title="3.2 特效动态"></a>3.2 特效动态</h2><p>生活中处处存在着节奏，特效色彩有节奏，动态更要有节奏。不同的节奏给人的感觉也不一样，就像恐怖片里面的bgm一样，配乐慢慢把气氛推向高潮，特效一样也可以，在lol里面死歌放大，能力读条逐渐放大，伤害也随之来临，这样的节奏也会给玩家带来恐惧感。</p>
-<p>而这些节奏都是由k曲线得到的，有节奏的特效会使人感到变化，就像一个爆发性的东西，节奏通常都是瞬间炸开高亮，然后迅速衰减，再慢慢消失，例如爆点、爆炸还有爆开的粒子。</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/8a8e6140-25dc-11ec-93aa-76c83b05f5f9.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211321&auth_key=1671211321-0-0-4cd0efa363d8a1d79849d17065ccf127&v=tx&pu=078babd7' ></div>
-<p>一个个小节奏的组成整个大的特效节奏</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/597e6350-25f7-11ec-99d6-7225eddbd47b.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211322&auth_key=1671211322-0-0-c7e80465da3cbe9db2792e7653ed6aba&v=tx&pu=078babd7' ></div>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/adb7ccae-25f7-11ec-9255-daebc28fd291.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211322&auth_key=1671211322-0-0-62d638d9bea9388de8e929e50eb67d3e&v=tx&pu=078babd7' ></div>
-<p><a href="https://link.zhihu.com/?target=https://www.youtube.com/watch?v=-L2JvngkkWw">Visual Effects Bootcamp: Artistic Principles of VFX</a></p>
-<p>做的越多，看的越多，对曲线的节奏掌握也就越熟练，美术的东西都是讲究日积月累的</p>
-<h2 id="3-3-特效形式"><a href="#3-3-特效形式" class="headerlink" title="3.3 特效形式"></a>3.3 特效形式</h2><p>说完了基本要素，接下来说一下特效的整体形式，特效的整体形状大致分为圆形、柱形还有扇形。技能的形式的大小关联着伤害范围，在一些游戏里，技能范围会做范围提示，可以让玩家清楚技能的范围伤害，从而提前做出动作，这些范围圈一般是清晰可见，甚至高亮</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/4664f59e-267a-11ec-98e4-3ae338a87c94.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211322&auth_key=1671211322-0-0-f34f4ff747aafdbe242e16320bada4d8&v=tx&pu=078babd7' ></div>
-
-
-<h1 id="四、贴图的制作"><a href="#四、贴图的制作" class="headerlink" title="四、贴图的制作"></a>四、贴图的制作</h1><p>说到特效的制作最离不开的就是贴图，贴图对于对谁来说都可以用祖传贴图，随着你的贴图库越来越大，制作个人练习特效几乎可以不用动手做，也可能懒得动手做，而且在不经意间选的贴图放上去也会有意外的效果出现。</p>
-<p>特效贴图可以用程序化去生成，也可以手绘制作，但一开始很多人都没绘画的基础或者从来没有接触过板绘，往往会从程序化贴图开始做起。其实手绘贴图没那么难，只要掌握了基本ps操作都可以画，画贴图并不需要很准确吧光影画出来，因为动态模糊和扰动会弥补你的暇疵，此时你只需要把外形画出来。但对于一些写实类特效来说，还是程序化生成比较简单。</p>
-<h2 id="4-1-手绘贴图"><a href="#4-1-手绘贴图" class="headerlink" title="4.1 手绘贴图"></a>4.1 手绘贴图</h2><p>在绘画时候一般会把大形简单绘画出来，画贴图也是如此</p>
-
-    <figure class="figure-image">
-      <img src="https://pic1.zhimg.com/80/v2-ea2f01083c4ac443bf25eedd70ba13e8_720w.webp" alt="多的地方用橡皮擦把透明度调低一点擦掉，就可以做到虚掉" loading="lazy" />
-      <figcaption>多的地方用橡皮擦把透明度调低一点擦掉，就可以做到虚掉</figcaption>
-    </figure>
-  
-
-<p>导入ue里就变成一个弹头</p>
-
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-1615cac09bfb81b939ab2de9b5a9d547_720w.webp" alt="先画白色画出关系，再图层样式渐变叠加" loading="lazy" />
-      <figcaption>先画白色画出关系，再图层样式渐变叠加</figcaption>
-    </figure>
-  
-
-
-<p>同理画上拖尾</p>
-
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-4bf3ed9eda23b81a22f00e727926a7fb_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-
-<p>导入ue并加上扰乱</p>
-
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-44defd79a4b1137d129cbc84c282eb4b_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-    <figure class="figure-image">
-      <img src="https://pic3.zhimg.com/80/v2-5510898d7186f1ede4b64c23299a69f6_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-<p>配合上弹头，加上其他点缀，调一下</p>
-<p>一个简单的lol风格的特效就出来了，其实这也是我第一次手绘贴图，没想到还挺容易上手的，所以画贴图不是一件难事。尽量多尝试。</p>
-<h2 id="4-2-程序化贴图"><a href="#4-2-程序化贴图" class="headerlink" title="4.2 程序化贴图"></a>4.2 程序化贴图</h2><p>由于程序化贴图各种各样的制作软件与方法，所以简单的概叙一下。</p>
-<p>烟雾序列图的做一般都是用houdini和embergen，embergen是用gpu模拟，即使是2070显卡0.1体素模拟几乎是实时，可以快速输出序列图和motion vector图，对游戏来说是完全满足需求，界面简单易上手，可以快速调节参数，因为是实时的，不用像houdini每一帧去模拟cache等待结果才可以连续播放。</p>
-
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-51636e160a57b3fcc4514a700eacd2b3_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-<p>噪点图的制作软件很多，ae、ps、sd甚至houdini都可以做，根据自己的需求去做图，没什么制作方法分享。</p>
-
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-09242e54234e16c52f9480f98c5c1737_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-<p>渐变一拉，对比度曲线拉一下就成了<br>流光图也是用常规的制作软件可以做，几张噪声图叠在一起，对比度拉高一点，透一点，我也推荐一款软件叫flame painter pro3 ，这是一款可以笔刷一键画流光图的软件，里面内置了各种流光预设笔刷。</p>
-
-    <figure class="figure-image">
-      <img src="https://pic1.zhimg.com/80/v2-d7d4c740ea4cd36acdc40c79c0b093c8_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-
-
-<h1 id="五-总结"><a href="#五-总结" class="headerlink" title="五 总结"></a>五 总结</h1><p>特效这东西，就是要多练、多看和多玩。所以说玩游戏也是一种学习，美术这东西没有捷径。但有的人感性能力强，对于美术很快就可以上手，天赋好的人稍微练一下就可以很强，程序也是同理。</p>
-<p>做特效时候创意很重要，可以使你的特效是否脱颖而出，在特效存在特定主体的元素会使得你特效创意性提高，还有不同的技能样式也会。在色彩搭配时注意明暗对比，还有饱和度与明度的区分，避免出现大规模同饱和度和明度的色彩。在做特效节奏时候多k曲线，曲线这东西多练才会熟悉。顺便推荐一下特效TA闲聊群：1047461022</p>
+<p>这是一个可以改变你ue界面的小插件，慢慢更新 <br>下载地址：<br><a target="_blank" rel="noopener" href="https://github.com/Natsuneko3/WallpaperEnginePlugin/releases/download/V1.0/Ue4.26Plugins.zip">UE4.26</a> <br><a target="_blank" rel="noopener" href="https://github.com/Natsuneko3/WallpaperEnginePlugin/releases/download/V1.0/Ue4.27Plugins.zip">UE4.27</a> <br><a target="_blank" rel="noopener" href="https://github.com/Natsuneko3/WallpaperEnginePlugin/releases/download/V1.0/Ue5Plugins.zip">UE5.0</a> <br><a target="_blank" rel="noopener" href="https://github.com/Natsuneko3/WallpaperEnginePlugin/releases/download/V1.0/UE5.1Plugins.zip">UE5.1</a> </p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>1.选择你引擎对应版本，把plugins解压到你项目根目录下。</p>
+<h3 id="例如"><a href="#例如" class="headerlink" title="例如:"></a>例如:</h3><p>解压到Plugins文件夹下，要是没有自己新建个即可 <br><img src="https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/%E5%9B%BE%E7%89%871.png"> <br>然后重新编译 <br><img src="https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/%E5%9B%BE%E7%89%876.png" > <br>要是打开引擎要是提醒版本不同，点是就行 <br><img src="https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/%E5%9B%BE%E7%89%872.png" > </p>
+<p>2.把静态图片放在这文件夹下面,上面列表会自动同步列表，要是视频的话，会自动同步WallpaperEngine。 <br><img src="https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/%E5%9B%BE%E7%89%873.png"></p>
+<h2 id="设置界面说明"><a href="#设置界面说明" class="headerlink" title="设置界面说明"></a>设置界面说明</h2><p>💙  <strong>Use Wallpaper Engine</strong> : 播放视频，ue5.0版本中DX12不支持播放，在UE5.1中问题修复 <br>❤️ <strong>UseGrid</strong> : 材质背景网格 <br>💛 <strong>Editor&#x2F; Panel Opacity</strong> : 背景透明度 <br>💚 <strong>Enable Timer</strong> : 随机背景播放循环 <br>💜 <strong>Wallpaper Direction</strong> : WallPaper Engine 路径 ，写你的steam文件夹，例如我把D:\steam ，会自动找到位于&#x2F;steamapps&#x2F;workshop&#x2F;content下面所有视频，要是自己的视频库的话，请自动加上这个路径 <br>🕳️ <strong>Menu BackGround</strong> ： 右键菜单栏背景 其中Tint可以调节颜色与透明度<br><img src="https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/%E5%9B%BE%E7%89%875.png"> </p>
 
       </section>
 
@@ -249,32 +151,16 @@
       
         <nav class="article-nav">
           
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-      <div class="card-cover" background-image-lazy data-img="https://pica.zhimg.com/v2-147be5e9a1831e26487605bfee955919_1440w.jpg?source=172ae18b"></div>
-    
-    <div class="card-text">
-      
-        <a href="/2022/02/12/Niagara/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">【UE4】新手特效向Niagara常见问题解决与小技巧分享（不定期更新）</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
-      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/q6/wallhaven-q6wmkq.jpg"></div>
+      <div class="card-cover" background-image-lazy data-img="https://picx.zhimg.com/v2-fa0f656bfc72e1635473a5a545572c73_1440w.jpg?source=172ae18b"></div>
     
     <div class="card-text">
       
-        <a href="/2021/09/29/color/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">【VFX】浅析特效设计与色彩（1）</h2>
+        <a href="/2022/04/08/Softbody/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">【UE5】在niagara实现Softbody dynamic</h2>
         </a>
       
       <div class="card-text--row">Older</div>
