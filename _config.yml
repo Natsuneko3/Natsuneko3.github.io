@@ -4,11 +4,11 @@
 
 # Site
 title: Natsuneko
-subtitle: ''
+subtitle: '嵐です！'
 description: ''
 keywords:
-author: Natsunneko
-language: en
+author: 夏猫
+language: ch
 timezone: ''
 
 # URL
@@ -104,5 +104,5 @@ theme: flex-block
 deploy:
   type: git
   repo: https://github.com/Natsuneko3/Natsuneko3.github.io
-  branch: master
-  message: ssss
+  branch: gh-pages
+  message: 

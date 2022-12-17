@@ -1,20 +1,20 @@
 # Header
 menu:
-  首页: /
-  友链: /links
+  首页: natsuneko3.github.io
+  友链: https://www.realtime.xyz/
   关于: /about
 
 # 主页banner图
-banner: D:\Hexo\themes\flex-block\source\icons-192.png #https://w.wallhaven.cc/full/dp/wallhaven-dpovlo.jpg
+banner: https://w.wallhaven.cc/full/6o/wallhaven-6o55ml.jpg
 
 # 站点通知信息
-notice: flex-block主题部分重构，详情查看https://github.com/miiiku/flex-block
+notice: 
 
 # 作者信息
 author:
-  name: Natsuneko
-  avatar: https://s.gravatar.com/avatar/2d6b803eea37de0257620d5fabee7e64?s=200&r=g&d=retro
-  description: 这是一个小小的个人网站，到时候会自己开个网站，
+  name: 夏猫(Natsuneko)
+  avatar: https://w.wallhaven.cc/full/lm/wallhaven-lmljgl.png
+  description: 这是一个小小的个人网站，到时候会自己开个网站，这里主要会写一点ue文章和插件，后续会加点有趣的东西？
 
 toc:
   max_depth: 3 # 生成 TOC 的最大深度
