@@ -2,25 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb8cd9ad-dabc-42f7-a2dd-22ea79844d2c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/source/_posts/DualKawaseBlur.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/MultiPass.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/Softbody.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/WallpaperEnging.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/assets/图片1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/assets/图片2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/assets/图片3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/assets/图片4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/assets/图片5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/assets/图片6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/oit.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_config.shoka.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/4c3e7710-b3c9-11ec-9908-2ed9809c7c79.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/about/index.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.neko.github.io.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.neko.github.io.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/DualKawaseBlur.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/DualKawaseBlur.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/MultiPass.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/MultiPass.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Niagara.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Niagara.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Softbody.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Softbody.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/WallpaperEnging.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/WallpaperEnging.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/_posts/color.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/color.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/arknights" beforeDir="false" afterPath="$PROJECT_DIR$/themes/arknights" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/flex-block/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/flex-block/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/flex-block/layout/_widget/widget-notice.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/flex-block/layout/_widget/widget-notice.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/color2.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/color2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/oit.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/oit.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/_images.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/_images.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/example/_config.shoka.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/example/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/example/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/example/source/_data/images.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/example/source/_data/images.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/example/source/_data/languages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/example/source/_data/languages.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/example/source/_posts/videos.md" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/example/source/_posts/videos.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/example/source/assets/wallpaper-2311325.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/example/source/assets/wallpaper-2572384.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/example/source/assets/wallpaper-878514.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/languages/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/languages/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/languages/default.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/languages/default.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/languages/en.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/languages/ja.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/languages/zh-CN.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/languages/zh-CN.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/languages/zh-HK.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/languages/zh-TW.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/scripts/generaters/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/scripts/generaters/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/source/images/alipay.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/source/images/alipay.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/source/images/apple-touch-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/source/images/apple-touch-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/source/images/avatar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/source/images/avatar.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/source/images/failure.ico" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/source/images/failure.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/source/images/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/source/images/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/source/images/paypal.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/source/images/paypal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/source/images/wechatpay.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/source/images/wechatpay.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/shoka/source/js/_app/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/source/js/_app/page.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +52,9 @@
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/package-lock.json" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -42,25 +68,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "D:\\JetBrains Rider 2022.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\JetBrains Rider 2022.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Neko\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Neko\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\Neko\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Neko\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Neko\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Neko\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -74,6 +100,10 @@
       <workItem from="1671123406494" duration="1053000" />
       <workItem from="1671189947177" duration="18453000" />
       <workItem from="1671253920255" duration="14631000" />
+      <workItem from="1671297566179" duration="1313000" />
+      <workItem from="1671328979848" duration="16462000" />
+      <workItem from="1671352132818" duration="61000" />
+      <workItem from="1671352207234" duration="17103000" />
     </task>
     <task id="LOCAL-00001" summary="N">
       <created>1671124293172</created>

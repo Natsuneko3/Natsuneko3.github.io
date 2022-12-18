@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Natsuneko
+title: 夏猫
 subtitle: '嵐です！'
-description: ''
+description: '主要分享关于ue或者TA的知识，也或者分享点自己想写的东西，作品什么的'
 keywords:
 author: 夏猫
 language: ch
@@ -29,7 +29,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
-
+  
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: flex-block
+theme: shoka
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

@@ -3,6 +3,7 @@ title: 【UE5】浅析UE5.1OIT半透明排序算法
 date: 2022-11-29 19:24
 tags: Engine
 category: 文章
+dplayer: true
 cover: https://w.wallhaven.cc/full/z8/wallhaven-z8lmpo.jpg
 ---
 
@@ -23,9 +24,8 @@ UE在5.1更新了OIT算法,其算法原理很简单，把半透明重写写入�
 这功能会在DeferredShadingRenderer里面RenderTranslucency前面调用OIT::AddSortTrianglesPass去排序。
 
 做法是先把要排序的物体三角面的中心点在shader里转化为屏幕坐标，然后用屏幕坐标的z，就是深度，转换到mesh bound里面深度
-```c++
+```c++ ""
 const float fSliceIndex = saturate((ViewP.z - ViewBoundMinZ) / (ViewBoundMaxZ - ViewBoundMinZ));
-
 ```
 得到index限制0到31,要是nVidia设备就是64，因为compute shader每个group的buffer设置为32个线程。然后把求得的深度放入shared memory对应的index中写入，进行原子操作，要是里面已经有写入了，就偏移一位,最后按照primitive id写入buffer，之后在下一个pass把排序好的index获取他的三个顶点写出到输出buffer上。
 

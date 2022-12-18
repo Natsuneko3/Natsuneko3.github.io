@@ -65,10 +65,9 @@ virtual void PrePostProcessPass_RenderThread(FRDGBuilder& GraphBuilder, const FS
 
 对于在后期插入pass输出贴图我们可以在SubscribeToPostProcessingPass里面注册Delegate，这是个回调函数，ue5会在SSRInput、MotionBlur、Tonemap、FXAA、VisualizeDepthOfField这5个post process pass中有个lambda函数去调用这Delegate并输出我们的pass，而ue4则没有SSRInput和不支持mobile插入pass
 
-{% image
-url="https://pic3.zhimg.com/80/v2-1a531f2ec8d8743db843a4803d3457fe_1440w.webp"
-title=Postprocess.cpp
-%}
+![](https://pic3.zhimg.com/80/v2-1a531f2ec8d8743db843a4803d3457fe_1440w.webp
+"Postprocess.cpp"
+)
 
 在创建好自己的SceneViewExtension类后我可以在新建个蓝图actor类，在actor中新建个函数，直接调用
 
@@ -94,33 +93,29 @@ DualKawaseBlur的原理也很简单，他是衍生自Kawase
 Blur的模糊算法，而Kawase Blur就是用来做bloom，那DualKawaseBlur的原理就是在降分辨率的同时采样一个像素的四个角做卷积（通俗点就是做平均），做完几张降分辨率的pass后，再做同样pass
 的升分辨率的操作并上下左右像素和四个角做卷积
 
-{% image
-url="https://pic3.zhimg.com/80/v2-8b00333bd6c99e2fc63a8547caa6c03a_1440w.webp"
-title=这个就是图像处理的卷积核，相当于乘当前采样的值并相加
-%}
+![](https://pic3.zhimg.com/80/v2-8b00333bd6c99e2fc63a8547caa6c03a_1440w.webp
+"这个就是图像处理的卷积核，相当于乘当前采样的值并相加"
+)
 这就是Dual Kawase Blur的过程
-{% image
-url="https://pic3.zhimg.com/80/v2-e8214e4a4a3a8e1d9191a6b67ee8a096_1440w.webp"
-%}
+![](https://pic3.zhimg.com/80/v2-e8214e4a4a3a8e1d9191a6b67ee8a096_1440w.webp
+)
 方式还是很简单的
 ![](https://pic3.zhimg.com/80/v2-1e5eccdacfcfb1799b2df3a7ede49536_1440w.webp)
 在性能上表现最佳，效果也是比较接近高斯模糊，相比之下，高斯模糊模糊的值越大，消耗也是成倍增加
-{% image
-url="https://pic1.zhimg.com/80/v2-419c8a4d584f779076278e9dbc36589c_1440w.webp"
-title=DualKawaseBlur 的耗时
-%}
-{% image
-url="https://pic3.zhimg.com/80/v2-6d853687a366a063ff2d902d86101f8a_1440w.webp"
-title=高斯模糊的耗时
-%}
+![](https://pic1.zhimg.com/80/v2-419c8a4d584f779076278e9dbc36589c_1440w.webp
+"DualKawaseBlur 的耗时"
+)
+![](https://pic3.zhimg.com/80/v2-6d853687a366a063ff2d902d86101f8a_1440w.webp
+"高斯模糊的耗时"
+)
 在用compute shader的情况下，3070ti，差不多同样的效果，高斯模糊竟然达到了20ms，而dual blur只有3个pass才0.2ms
 
 # 源码
 
 最后是代码
 
-DualKawaseBlur.h
-```c++
+
+```c++ DualKawaseBlur.h
 #include "CoreMinimal.h"
 #include "SceneViewExtension.h"
 #include "ScreenPass.h"
@@ -155,8 +150,8 @@ public:
 
 };
 ```
-DualKawaseBlur.cpp
-```c++
+
+```c++ DualKawaseBlur.cpp
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
@@ -313,7 +308,7 @@ FScreenPassTexture FDualKawaseBlur::PostProcessPassAfterTonemap_RenderThread(FRD
 ```
 
 最后新建个actor类编写一个函数，然后在蓝图的构建函数里面调用就可以了
-```c++
+```c++ actor
 void ASetupDualKawaseBlur::DrawPass()
 {
 	if(DualKawaseBlur)

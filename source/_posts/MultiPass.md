@@ -17,7 +17,16 @@ cover: https://w.wallhaven.cc/full/yx/wallhaven-yxj26x.jpg
 首先可以看到上图，网格体渲染从FPrimitiveSceneProxy开始，FPrimitiveSceneProxy负责通过对GetDynamicMeshElements和DrawStaticElements的回调将FMeshBatch提交给渲染器。从名字就可以看出这个FPrimitiveSceneProxy就是图元场景代理，是UPrimitiveComponent在渲染器的代表，镜像了UPrimitiveComponent在渲染线程的状态。
 
 UE渲染大致的过程是渲染器会遍历场景的所有经过了可见性测试的PrimitiveSceneProxy对象，利用其接口收集不同的FMeshBatch，加入渲染队列中，所以我们自定义自己的渲染数据类型只需要继承FPrimitiveSceneProxy创建FMeshBatch就可以。这里只是粗略的介绍了渲染机制，更加详细的话可以看这篇文章
-https://link.zhihu.com/?target=https%3A//www.cnblogs.com/timlly/p/14588598.html%23322-%25E4%25BB%258Efprimitivesceneproxy%25E5%2588%25B0fmeshbatch
+
+
+{% links %}
+- site: 博客园
+  owner: 0向往0
+  url: https://www.cnblogs.com/timlly/p/14588598.html#322-%E4%BB%8Efprimitivesceneproxy%E5%88%B0fmeshbatch
+  desc: 剖析虚幻渲染体系（03）- 渲染机制
+  image: https://common.cnblogs.com/logo.svg
+  color: "#e9546b"
+  {% endlinks %}
 
 FPrimitiveSceneProxy有两个生成FMeshBatches的路径：动态路径和缓存路径，就是GetDynamicMeshElements和DrawStaticElements这两个函数去生成FMeshBatches，然后FPrimitiveSceneProxy通过GetViewRelevance(）函数控制每个帧使用的路径。
 
@@ -27,7 +36,7 @@ FPrimitiveSceneProxy有两个生成FMeshBatches的路径：动态路径和缓存
 
 由FPrimitiveSceneProxy::GetViewRelevance决定由那个途径生成FMeshBatch，其中还有其他关于渲染属性的一些开关：
 
-```c++
+```c++ ""
 uint32 bStaticRelevance : 是否静态路劲生成
 uint32 bDynamicRelevance : 是否动态路劲生成
 uint32 bDrawRelevance : 是否要渲染
@@ -44,8 +53,8 @@ uint32 bHasSimpleLights : 图元收集简单的灯光是否被GatherSimpleLights
 uint32 bUsesLightingChannels : 是否使用灯光Channels
 uint32 bTranslucentSelfShadow : 是否使用半透明自阴影
 ```
-还有一些在4.25以上改名的开关
-```c++
+还有一些在4.25以上改名的开关 
+```c++ ""
 UE_DEPRECATED(4.25, "ShadingModelMaskRelevance has been renamed ShadingModelMask")
 uint16 ShadingModelMaskRelevance;
 UE_DEPRECATED(4.25, "bOpaqueRelevance has been renamed bOpaque")
@@ -67,7 +76,7 @@ uint32 bHairStrandsRelevance : 1；
 # 实现
 
 简单介绍完FPrimitiveSceneProxy，然后接了下来说一下实现，为了代码从简，直接用DrawStaticElements，什么情况都不考虑直接用lod0 这部分可以参考StaticMeshRender.cpp,SkeletalMesh则可以参考SkeletalMesh.cpp
-```c++
+```c++ Myproxy
 class FMultiDrawSceneProxy : public FPrimitiveSceneProxy
 {
 public:
@@ -170,8 +179,8 @@ public:
 ```
 一个最简单的FPrimitiveSceneProxy就完成了，然后实现我们的component
 
-头文件
-```c++
+
+```c++ 头文件
 UCLASS(editinlinenew,
    meta = (BlueprintSpawnableComponent),
    ClassGroup = Rendering,
@@ -206,8 +215,8 @@ public:
 //放到场景时候会调用这函数
    virtual FPrimitiveSceneProxy* CreateSceneProxy() override;
 ```
-cpp
-```c++
+
+```c++ cpp
 FPrimitiveSceneProxy* UMultiDrawMeshComponent::CreateSceneProxy()
 {
    if (StaticDrawMesh)
@@ -266,11 +275,9 @@ FBoxSphereBounds UMultiDrawMeshComponent::CalcBounds(const FTransform& LocalToWo
 在drawcall方面分别用了复制四个模型和自己的Component放到场景对比
 
 最后测试出来的结果是
-{%  image
-url="https://pic3.zhimg.com/80/v2-63666e2a6c49732188d3121b15342322_1440w.webp"
-title=四个为17drawcall
-%}
-{%  image
-url="https://pic2.zhimg.com/80/v2-eead240e4769d987f583be639445968d_1440w.webp"
-title=四个为17drawcall
-%}
+![](https://pic3.zhimg.com/80/v2-63666e2a6c49732188d3121b15342322_1440w.webp
+"四个为17drawcall"
+)
+![](https://pic2.zhimg.com/80/v2-eead240e4769d987f583be639445968d_1440w.webp
+"四个为17drawcall"
+)
