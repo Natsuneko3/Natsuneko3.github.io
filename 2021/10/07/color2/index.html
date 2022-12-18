@@ -1,504 +1,521 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="ch">
-<head>
+<head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+<!-- hexo injector head_begin end -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="theme-color" content="#3367D6"/>
-  <link rel="apple-touch-icon" href="/icons-192.png">
-  <link rel="manifest" href="/manifest.json">
-  
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 
-  <meta name="generator" content="Hexo 6.3.0">
+<link rel="alternate" type="application/rss+xml" title="夏猫" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="夏猫" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="夏猫" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
+  <meta name="keywords" content="美术原理" />
 
-  
 
-  
-    <meta name="author" content="夏猫">
-  
+<link rel="canonical" href="http://example.com/2021/10/07/color2/">
 
-  
 
-  
 
-  <title>【VFX】浅析特效设计与色彩（2） | Natsuneko</title>
-
-  
-
-  
-    <link rel="shortcut icon" href="/favicon.ico">
-  
-
-  
-
-  
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@1.1.3/index.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/monokai.css">
-  
-
-  
-<link rel="stylesheet" href="/css/style.css">
-
-</head>
-<body>
-  <div class="root-container">
-    
-<!-- header container -->
-<header class="header-container post">
-  
-    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/pk/wallhaven-pkmzl9.jpg)"></div>
-  
-
-  <!-- navbar -->
-<nav class="navbar">
-  <div class="navbar-content">
-    <!-- logo -->
-    <div class="navbar-logo">
-      <a href="/">
-        
-          Natsuneko
-        
-      </a>
-    </div>
-    <!-- link -->
-    <div class="navbar-link">
-      <div class="navbar-btn">
-        <div></div>
-        <div></div>
-        <div></div>
+  <title>
+【VFX】浅析特效设计与色彩（2） - 文章 |
+Natsu neko = 夏猫 = 嵐です！</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
       </div>
-      <ul class="navbar-list">
-        
-          <li class="navbar-list-item"><a href="/natsuneko3.github.io">首页</a></li>
-        
-          <li class="navbar-list-item"><a target="_blank" rel="noopener" href="https://www.realtime.xyz/">友链</a></li>
-        
-          <li class="navbar-list-item"><a href="/about">关于</a></li>
-        
-      </ul>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
     </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">【VFX】浅析特效设计与色彩（2）
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-10-07 21:23:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-10-07T21:23:00+08:00">2021-10-07</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Natsu neko</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
   </div>
 </nav>
 
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-    <div class="header-content">
-      <div class="post-text layout-block">
-        <div class="layout-margin">
-          <h1 class="title-wrap">【VFX】浅析特效设计与色彩（2）</h1>
-          <h2 class="title-sub-wrap">
-            <strong>夏猫</strong>
-            <span>发布于</span>
-            <time  class="article-date" datetime="2021-10-07T13:23:00.000Z" itemprop="datePublished">2021-10-07</time>
-          </h2>
-          <ul class="wrap-list dark">
-  
-    <li><a href="/categories/%E6%96%87%E7%AB%A0/">📒 文章</a></li>
-  
-</ul>
-          <ul class="wrap-list dark">
-  
-    <li><a href="/tags/%E7%BE%8E%E6%9C%AF%E5%8E%9F%E7%90%86/">🏷️ 美术原理</a></li>
-  
-</ul>
-        </div>
       </div>
+      <div id="imgs" class="pjax">
+          <img src="https://w.wallhaven.cc/full/pk/wallhaven-pkmzl9.jpg">
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
     </div>
-  
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E6%96%87%E7%AB%A0/" itemprop="item" rel="index" title="In 文章"><span itemprop="name">文章</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
 
-  
-  
-  
-</header>
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="ch">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/07/color2/">
 
-    <!-- 文章 -->
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="夏猫">
+    <meta itemprop="description" content="嵐です！, 这里是个个人的小网站，主要分享关于ue或者TA的知识，也或者分享点自己想写的东西，做好的东西">
+  </span>
 
-<!-- 文章内容 -->
-<div class="body-container">
-  <article class="content-container layout-block post-container">
-    <div class="article-info">
-      
-      
-      
-      
-      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="三、特效设计"><a href="#三、特效设计" class="headerlink" title="三、特效设计"></a>三、特效设计</h1><h2 id="3-1-特效元素"><a href="#3-1-特效元素" class="headerlink" title="3.1 特效元素"></a>3.1 特效元素</h2><p>特效是由各种元素构成的，每当你设计特效的时候，首先应该会考虑这特效里面有什么元素，例如这个特效是个什么类型的技能，要不要设计魔法阵，魔法阵要加入什么故事背景，或者什么元素，伤害的主体是什么。这些都要先考虑清楚。</p>
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="夏猫">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="三-特效设计"><a class="markdownIt-Anchor" href="#三-特效设计">#</a> 三、特效设计</h1>
+<h2 id="31-特效元素"><a class="markdownIt-Anchor" href="#31-特效元素">#</a> 3.1 特效元素</h2>
+<p>特效是由各种元素构成的，每当你设计特效的时候，首先应该会考虑这特效里面有什么元素，例如这个特效是个什么类型的技能，要不要设计魔法阵，魔法阵要加入什么故事背景，或者什么元素，伤害的主体是什么。这些都要先考虑清楚。</p>
 <p>俗话说，万事开头难，在设计特效的时候一开始会很多想法出现在脑海里，但这些想法只是你平常玩游戏或看作品时候积累下来别人的想法，想设计一个自己的特效该怎么开始呢。我推荐用联想法，举个例子。</p>
-<p>一个船长的角色，你要给他设计技能，船长在魔幻题材里首先会联系到海盗，这时候你可以设计一个技能召唤几个海盗向前突次挥砍，这也是一个技能。有别于普通特效，这样可以使得特效有趣一点。再者，海盗可以联想到船只（dota2里的船长）、水果、坏死病、炸药桶（lol里的船长）。在特效有特定主题元素会使得特效更有创意性。</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/a8831366-25dd-11ec-8300-3e5df503a204.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211292&auth_key=1671211292-0-0-b48af83baeafdca0a53c360b724c23d2&v=tx&pu=078babd7' ></div>
-
-
-<p>人们看习惯了圆形的飞弹，要是在新的皮肤中，可以把飞弹变为圆形或方形，或者其他元素，就会使得眼前一亮。就像lol里面的皮肤一样，会在特效中加入各种符合皮肤主体的元素，使得特效独一无二，更有幻想性和创意性，这也说明了伤害主体不同给人的视觉效果也不同。</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/2586d136-25de-11ec-ac91-3648b313a234.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211320&auth_key=1671211320-0-0-96883e68b136982ed57d924d7517de14&v=tx&pu=078babd7' ></div>
-
-
+<p>一个船长的角色，你要给他设计技能，船长在魔幻题材里首先会联系到海盗，这时候你可以设计一个技能召唤几个海盗向前突次挥砍，这也是一个技能。有别于普通特效，这样可以使得特效有趣一点。再者，海盗可以联想到船只（dota2 里的船长）、水果、坏死病、炸药桶（lol 里的船长）。在特效有特定主题元素会使得特效更有创意性。</p>
+<div class="media-container"><div class="player" data-type="video" data-src='[{"name":"dota2 船长开大","url":"https://vdn6.vzuu.com/SD/a8831366-25dd-11ec-8300-3e5df503a204.mp4?pkey=AAVpF6auuCxz7tVuI_yoFSY9QGtTqNEuPCD1SoaS-gDLt20qEvBpZVuW-iFDuJvMmsfFDLv-zdomAs-mtjbtwjAB&c=avc.0.0&f=mp4&pu=078babd7&bu=078babd7&expiration=1671352920&v=ks6"}]'></div></div>
+<p>人们看习惯了圆形的飞弹，要是在新的皮肤中，可以把飞弹变为圆形或方形，或者其他元素，就会使得眼前一亮。就像 lol 里面的皮肤一样，会在特效中加入各种符合皮肤主体的元素，使得特效独一无二，更有<strong>幻想性</strong>和<strong>创意性</strong>，这也说明了伤害主体不同给人的视觉效果也不同。</p>
+<div class="media-container"><div class="player" data-type="video" data-src='[{"name":"","url":"https://vdn3.vzuu.com/SD/2586d136-25de-11ec-ac91-3648b313a234.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671349413&auth_key=1671349413-0-0-c84631bcaefc301f53c29a97f23cbfc4&v=tx&pu=078babd7"}]'></div></div>
 <p>同时，伤害主体形状也与让人感到的伤害危险性相关联，就像拉长的椭圆与圆相比。较尖锐的形状给人感觉到的威胁性与伤害更高。例如圆形的刀光和带有锯齿形的元素的刀光</p>
-
-    <figure class="figure-image">
-      <img src="https://pic1.zhimg.com/v2-ab2da508e66a1dbe468999412f9f3434_b.jpg" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-<p>在设计写实类特效时，可以尝试在里面加入一些金色的金属元素，现在大多数写实类游戏里面很少存在金色金属元素，看习惯了各种高饱和的魔法元素，加入金色金属元素也会让人眼前一亮</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/0bc36774-2664-11ec-a7b3-eefe9d25504f.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211321&auth_key=1671211321-0-0-2bc42413f2c61af0bd8628197395eefd&v=tx&pu=078babd7' ></div>
-<p>游戏名：《Forspoken》</p>
-<h2 id="3-2-特效动态"><a href="#3-2-特效动态" class="headerlink" title="3.2 特效动态"></a>3.2 特效动态</h2><p>生活中处处存在着节奏，特效色彩有节奏，动态更要有节奏。不同的节奏给人的感觉也不一样，就像恐怖片里面的bgm一样，配乐慢慢把气氛推向高潮，特效一样也可以，在lol里面死歌放大，能力读条逐渐放大，伤害也随之来临，这样的节奏也会给玩家带来恐惧感。</p>
-<p>而这些节奏都是由k曲线得到的，有节奏的特效会使人感到变化，就像一个爆发性的东西，节奏通常都是瞬间炸开高亮，然后迅速衰减，再慢慢消失，例如爆点、爆炸还有爆开的粒子。</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/8a8e6140-25dc-11ec-93aa-76c83b05f5f9.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211321&auth_key=1671211321-0-0-4cd0efa363d8a1d79849d17065ccf127&v=tx&pu=078babd7' ></div>
+<p><img data-src="https://pic1.zhimg.com/v2-ab2da508e66a1dbe468999412f9f3434_b.jpg" alt=""><br>
+在设计写实类特效时，可以尝试在里面加入一些金色的金属元素，现在大多数写实类游戏里面很少存在金色金属元素，看习惯了各种高饱和的魔法元素，加入金色金属元素也会让人眼前一亮</p>
+<div class="media-container"><div class="player" data-type="video" data-src='[{"name":"游戏名：《Forspoken》","url":"https://vdn3.vzuu.com/SD/0bc36774-2664-11ec-a7b3-eefe9d25504f.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671349626&auth_key=1671349626-0-0-e7163ec21c6c8afa98eff8292a12f1b5&v=tx&pu=078babd7"}]'></div></div>
+<h2 id="32-特效动态"><a class="markdownIt-Anchor" href="#32-特效动态">#</a> 3.2 特效动态</h2>
+<p>生活中处处存在着节奏，特效色彩有节奏，动态更要有节奏。不同的节奏给人的感觉也不一样，就像恐怖片里面的 bgm 一样，配乐慢慢把气氛推向高潮，特效一样也可以，在 lol 里面死歌放大，能力读条逐渐放大，伤害也随之来临，这样的节奏也会给玩家带来恐惧感。</p>
+<p>而这些节奏都是由 k 曲线得到的，有节奏的特效会使人感到变化，就像一个爆发性的东西，节奏通常都是瞬间炸开高亮，然后迅速衰减，再慢慢消失，例如爆点、爆炸还有爆开的粒子。</p>
+<div class="media-container"><div class="player" data-type="video" data-src='[{"name":"","url":"https://vdn6.vzuu.com/SD/8a8e6140-25dc-11ec-93aa-76c83b05f5f9.mp4?pkey=AAUH1CpddGVfpocK5ksnGv-35DOwcGpk8bS19hAXqoeKtYbU62WiIpot9wlAt-RJ6WR2_X5-f8e0_X6NZV-kLrNb&c=avc.0.0&f=mp4&pu=078babd7&bu=078babd7&expiration=1671353326&v=ks6"}]'></div></div>
 <p>一个个小节奏的组成整个大的特效节奏</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/597e6350-25f7-11ec-99d6-7225eddbd47b.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211322&auth_key=1671211322-0-0-c7e80465da3cbe9db2792e7653ed6aba&v=tx&pu=078babd7' ></div>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/adb7ccae-25f7-11ec-9255-daebc28fd291.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211322&auth_key=1671211322-0-0-62d638d9bea9388de8e929e50eb67d3e&v=tx&pu=078babd7' ></div>
-<p><a href="https://link.zhihu.com/?target=https://www.youtube.com/watch?v=-L2JvngkkWw">Visual Effects Bootcamp: Artistic Principles of VFX</a></p>
+<div class="media-container"><div class="player" data-type="video" data-src='[{"name":"video1","url":"https://vdn6.vzuu.com/SD/597e6350-25f7-11ec-99d6-7225eddbd47b.mp4?pkey=AAWhnPCWuOztHpYxxN6zpIJIgyIIbQ7966TaezGLzonoVRJ5bzadViY3uCbGrOeu8CRspkJitvMAPEktcLfyFmVq&c=avc.0.0&f=mp4&pu=078babd7&bu=078babd7&expiration=1671353343&v=ks6"},{"name":"video2","url":"https://vdn6.vzuu.com/SD/adb7ccae-25f7-11ec-9255-daebc28fd291.mp4?pkey=AAW76qNytpRMw8BIZ0ZoyojJeQY6pUg-b0RZPVsIvu92QzHDZnMxc5LYvN53vbk02JUtVx1EO6ojH5KD7VVqDQmf&c=avc.0.0&f=mp4&pu=078babd7&bu=078babd7&expiration=1671353350&v=ks6"}]'></div></div>
+<p><span class="exturl" data-url="aHR0cHM6Ly9saW5rLnpoaWh1LmNvbS8/dGFyZ2V0PWh0dHBzJTNBLy93d3cueW91dHViZS5jb20vd2F0Y2glM0Z2JTNELUwySnZuZ2trV3c=">Visual Effects Bootcamp: Artistic Principles of VFX</span></p>
 <p>做的越多，看的越多，对曲线的节奏掌握也就越熟练，美术的东西都是讲究日积月累的</p>
-<h2 id="3-3-特效形式"><a href="#3-3-特效形式" class="headerlink" title="3.3 特效形式"></a>3.3 特效形式</h2><p>说完了基本要素，接下来说一下特效的整体形式，特效的整体形状大致分为圆形、柱形还有扇形。技能的形式的大小关联着伤害范围，在一些游戏里，技能范围会做范围提示，可以让玩家清楚技能的范围伤害，从而提前做出动作，这些范围圈一般是清晰可见，甚至高亮</p>
-<div class="dplayer-box" data-url='https://vdn3.vzuu.com/SD/4664f59e-267a-11ec-98e4-3ae338a87c94.mp4?disable_local_cache=1&bu=078babd7&c=avc.0.0&f=mp4&expiration=1671211322&auth_key=1671211322-0-0-f34f4ff747aafdbe242e16320bada4d8&v=tx&pu=078babd7' ></div>
-
-
-<h1 id="四、贴图的制作"><a href="#四、贴图的制作" class="headerlink" title="四、贴图的制作"></a>四、贴图的制作</h1><p>说到特效的制作最离不开的就是贴图，贴图对于对谁来说都可以用祖传贴图，随着你的贴图库越来越大，制作个人练习特效几乎可以不用动手做，也可能懒得动手做，而且在不经意间选的贴图放上去也会有意外的效果出现。</p>
-<p>特效贴图可以用程序化去生成，也可以手绘制作，但一开始很多人都没绘画的基础或者从来没有接触过板绘，往往会从程序化贴图开始做起。其实手绘贴图没那么难，只要掌握了基本ps操作都可以画，画贴图并不需要很准确吧光影画出来，因为动态模糊和扰动会弥补你的暇疵，此时你只需要把外形画出来。但对于一些写实类特效来说，还是程序化生成比较简单。</p>
-<h2 id="4-1-手绘贴图"><a href="#4-1-手绘贴图" class="headerlink" title="4.1 手绘贴图"></a>4.1 手绘贴图</h2><p>在绘画时候一般会把大形简单绘画出来，画贴图也是如此</p>
-
-    <figure class="figure-image">
-      <img src="https://pic1.zhimg.com/80/v2-ea2f01083c4ac443bf25eedd70ba13e8_720w.webp" alt="多的地方用橡皮擦把透明度调低一点擦掉，就可以做到虚掉" loading="lazy" />
-      <figcaption>多的地方用橡皮擦把透明度调低一点擦掉，就可以做到虚掉</figcaption>
-    </figure>
-  
-
-<p>导入ue里就变成一个弹头</p>
-
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-1615cac09bfb81b939ab2de9b5a9d547_720w.webp" alt="先画白色画出关系，再图层样式渐变叠加" loading="lazy" />
-      <figcaption>先画白色画出关系，再图层样式渐变叠加</figcaption>
-    </figure>
-  
-
-
-<p>同理画上拖尾</p>
-
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-4bf3ed9eda23b81a22f00e727926a7fb_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-
-<p>导入ue并加上扰乱</p>
-
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-44defd79a4b1137d129cbc84c282eb4b_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-    <figure class="figure-image">
-      <img src="https://pic3.zhimg.com/80/v2-5510898d7186f1ede4b64c23299a69f6_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
+<h2 id="33-特效形式"><a class="markdownIt-Anchor" href="#33-特效形式">#</a> 3.3 特效形式</h2>
+<p>说完了基本要素，接下来说一下特效的整体形式，特效的整体形状大致分为圆形、柱形还有扇形。技能的形式的大小关联着伤害范围，在一些游戏里，技能范围会做范围提示，可以让玩家清楚技能的范围伤害，从而提前做出动作，这些范围圈一般是清晰可见，甚至高亮</p>
+<div class="media-container"><div class="player" data-type="video" data-src='[{"name":"video1","url":"https://vdn6.vzuu.com/SD/4664f59e-267a-11ec-98e4-3ae338a87c94.mp4?pkey=AAVfBZlEN1gmKP6h_8E8Pg44H96AcAR4ddhIPyv4DpnlPPM1ZQ-6WVuCD6ENr_OXGLavnVM4hLGxlNcEKeRjcihc&c=avc.0.0&f=mp4&pu=078babd7&bu=078babd7&expiration=1671353465&v=ks6"}]'></div></div>
+<h1 id="四-贴图的制作"><a class="markdownIt-Anchor" href="#四-贴图的制作">#</a> 四、贴图的制作</h1>
+<p>说到特效的制作最离不开的就是贴图，贴图对于对谁来说都可以用祖传贴图，随着你的贴图库越来越大，制作个人练习特效几乎可以不用动手做，也可能懒得动手做，而且在不经意间选的贴图放上去也会有意外的效果出现。</p>
+<p>特效贴图可以用程序化去生成，也可以手绘制作，但一开始很多人都没绘画的基础或者从来没有接触过板绘，往往会从程序化贴图开始做起。其实手绘贴图没那么难，只要掌握了基本 ps 操作都可以画，画贴图并不需要很准确吧光影画出来，因为动态模糊和扰动会弥补你的暇疵，此时你只需要把外形画出来。但对于一些写实类特效来说，还是程序化生成比较简单。</p>
+<h2 id="41-手绘贴图"><a class="markdownIt-Anchor" href="#41-手绘贴图">#</a> 4.1 手绘贴图</h2>
+<p>在绘画时候一般会把大形简单绘画出来，画贴图也是如此<br>
+<img data-src="https://pic1.zhimg.com/80/v2-ea2f01083c4ac443bf25eedd70ba13e8_720w.webp" alt="" title="多的地方用橡皮擦把透明度调低一点擦掉，就可以做到虚掉"></p>
+<p>导入 ue 里就变成一个弹头<br>
+<img data-src="https://pic4.zhimg.com/80/v2-1615cac09bfb81b939ab2de9b5a9d547_720w.webp" alt="" title="先画白色画出关系，再图层样式渐变叠加"></p>
+<p>同理画上拖尾<br>
+<img data-src="https://pic4.zhimg.com/80/v2-4bf3ed9eda23b81a22f00e727926a7fb_720w.webp" alt=""></p>
+<p>导入 ue 并加上扰乱<br>
+<img data-src="https://pic4.zhimg.com/80/v2-44defd79a4b1137d129cbc84c282eb4b_720w.webp" alt=""><br>
+<img data-src="https://pic3.zhimg.com/80/v2-5510898d7186f1ede4b64c23299a69f6_720w.webp" alt=""></p>
 <p>配合上弹头，加上其他点缀，调一下</p>
-<p>一个简单的lol风格的特效就出来了，其实这也是我第一次手绘贴图，没想到还挺容易上手的，所以画贴图不是一件难事。尽量多尝试。</p>
-<h2 id="4-2-程序化贴图"><a href="#4-2-程序化贴图" class="headerlink" title="4.2 程序化贴图"></a>4.2 程序化贴图</h2><p>由于程序化贴图各种各样的制作软件与方法，所以简单的概叙一下。</p>
-<p>烟雾序列图的做一般都是用houdini和embergen，embergen是用gpu模拟，即使是2070显卡0.1体素模拟几乎是实时，可以快速输出序列图和motion vector图，对游戏来说是完全满足需求，界面简单易上手，可以快速调节参数，因为是实时的，不用像houdini每一帧去模拟cache等待结果才可以连续播放。</p>
+<p>一个简单的 lol 风格的特效就出来了，其实这也是我第一次手绘贴图，没想到还挺容易上手的，所以画贴图不是一件难事。尽量多尝试。</p>
+<h2 id="42-程序化贴图"><a class="markdownIt-Anchor" href="#42-程序化贴图">#</a> 4.2 程序化贴图</h2>
+<p>由于程序化贴图各种各样的制作软件与方法，所以简单的概叙一下。</p>
+<p>烟雾序列图的做一般都是用 houdini 和 embergen，embergen 是用 gpu 模拟，即使是 2070 显卡 0.1 体素模拟几乎是实时，可以快速输出序列图和 motion vector 图，对游戏来说是完全满足需求，界面简单易上手，可以快速调节参数，因为是实时的，不用像 houdini 每一帧去模拟 cache 等待结果才可以连续播放。<br>
+<img data-src="https://pic4.zhimg.com/80/v2-51636e160a57b3fcc4514a700eacd2b3_720w.webp" alt=""></p>
+<p>噪点图的制作软件很多，ae、ps、sd 甚至 houdini 都可以做，根据自己的需求去做图，没什么制作方法分享。<br>
+<img data-src="https://pic4.zhimg.com/80/v2-09242e54234e16c52f9480f98c5c1737_720w.webp" alt=""></p>
+<p>渐变一拉，对比度曲线拉一下就成了<br>
+流光图也是用常规的制作软件可以做，几张噪声图叠在一起，对比度拉高一点，透一点，我也推荐一款软件叫 flame painter pro3 ，这是一款可以笔刷一键画流光图的软件，里面内置了各种流光预设笔刷。<br>
+<img data-src="https://pic1.zhimg.com/80/v2-d7d4c740ea4cd36acdc40c79c0b093c8_720w.webp" alt=""></p>
+<h1 id="五-总结"><a class="markdownIt-Anchor" href="#五-总结">#</a> 五 总结</h1>
+<p>特效这东西，就是要多练、多看和多玩。所以说玩游戏也是一种学习，美术这东西没有捷径。但有的人感性能力强，对于美术很快就可以上手，天赋好的人稍微练一下就可以很强，程序也是同理。</p>
+<p>做特效时候创意很重要，可以使你的特效是否脱颖而出，在特效存在特定主体的元素会使得你特效创意性提高，还有不同的技能样式也会。在色彩搭配时注意明暗对比，还有饱和度与明度的区分，避免出现大规模同饱和度和明度的色彩。在做特效节奏时候多 k 曲线，曲线这东西多练才会熟悉。顺便推荐一下特效 TA 闲聊群：1047461022</p>
 
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-51636e160a57b3fcc4514a700eacd2b3_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-<p>噪点图的制作软件很多，ae、ps、sd甚至houdini都可以做，根据自己的需求去做图，没什么制作方法分享。</p>
-
-    <figure class="figure-image">
-      <img src="https://pic4.zhimg.com/80/v2-09242e54234e16c52f9480f98c5c1737_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-<p>渐变一拉，对比度曲线拉一下就成了<br>流光图也是用常规的制作软件可以做，几张噪声图叠在一起，对比度拉高一点，透一点，我也推荐一款软件叫flame painter pro3 ，这是一款可以笔刷一键画流光图的软件，里面内置了各种流光预设笔刷。</p>
-
-    <figure class="figure-image">
-      <img src="https://pic1.zhimg.com/80/v2-d7d4c740ea4cd36acdc40c79c0b093c8_720w.webp" alt="" loading="lazy" />
-      <figcaption></figcaption>
-    </figure>
-  
-
-
-
-<h1 id="五-总结"><a href="#五-总结" class="headerlink" title="五 总结"></a>五 总结</h1><p>特效这东西，就是要多练、多看和多玩。所以说玩游戏也是一种学习，美术这东西没有捷径。但有的人感性能力强，对于美术很快就可以上手，天赋好的人稍微练一下就可以很强，程序也是同理。</p>
-<p>做特效时候创意很重要，可以使你的特效是否脱颖而出，在特效存在特定主体的元素会使得你特效创意性提高，还有不同的技能样式也会。在色彩搭配时注意明暗对比，还有饱和度与明度的区分，避免出现大规模同饱和度和明度的色彩。在做特效节奏时候多k曲线，曲线这东西多练才会熟悉。顺便推荐一下特效TA闲聊群：1047461022</p>
-
-      </section>
-
-      
-      
-        <nav class="article-nav">
-          
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-      <div class="card-cover" background-image-lazy data-img="https://pica.zhimg.com/v2-147be5e9a1831e26487605bfee955919_1440w.jpg?source=172ae18b"></div>
-    
-    <div class="card-text">
-      
-        <a href="/2022/02/12/Niagara/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">【UE4】新手特效向Niagara常见问题解决与小技巧分享（不定期更新）</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
-          
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/q6/wallhaven-q6wmkq.jpg"></div>
-    
-    <div class="card-text">
-      
-        <a href="/2021/09/29/color/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">【VFX】浅析特效设计与色彩（1）</h2>
-        </a>
-      
-      <div class="card-text--row">Older</div>
-    </div>
-  </article>
-</div>
-          
-        </nav>
-      
-
-      <section class="page-message-container layout-padding">
-        
-
-
-  
-  
-
-  
-  
-
-
-      </section>
-    </div>
-    <div class="widget-info">
-      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
-  <div class="widget-body">
-    
-      <img src="https://w.wallhaven.cc/full/lm/wallhaven-lmljgl.png" class="soft-size--round soft-style--box" alt="夏猫(Natsuneko)">
-    
-    
-      <h2>夏猫(Natsuneko)</h2>
-    
-    
-      <p>这是一个小小的个人网站，到时候会自己开个网站，这里主要会写一点ue文章和插件，后续会加点有趣的东西？</p>
-    
-
-    <div class="count-box">
-      <div class="count-box--item">
-        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
-</svg>
-        <span>8</span>
+      <div class="tags">
+          <a href="/tags/%E7%BE%8E%E6%9C%AF%E5%8E%9F%E7%90%86/" rel="tag"><i class="ic i-tag"></i> 美术原理</a>
       </div>
-      <div class="count-box--item">
-        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
-</svg>
-        2
-      </div>
-      <div class="count-box--item">
-        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
-</svg>
-        4
-      </div>
-    </div>
   </div>
-</section>
 
-      
+   <footer>
 
-      
-
-      <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
-  <div class="widget-title">
-    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
-</svg>
-    <span>CATEGORYS</span>
-  </div>
-  <div class="widget-body">
-    <ul class="categorys-list">
-      
-        <li class="categorys-list-item">
-          <a href="/categories/%E6%96%87%E7%AB%A0/">
-            文章 (7)
-          </a>
-        </li>
-      
-        <li class="categorys-list-item">
-          <a href="/categories/%E6%8F%92%E4%BB%B6/">
-            插件 (1)
-          </a>
-        </li>
-      
-    </ul>
-  </div>
-</section>
-
-      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
-  <div class="widget-title">
-    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
-</svg>
-    <span>TAGS</span>
-  </div>
-  <div class="widget-body">
-    <div class="tags-cloud">
-      <a href="/tags/Engine/" style="font-size: 20px;" class="tags-cloud-10">Engine</a> <a href="/tags/Niagara/" style="font-size: 15px;" class="tags-cloud-5">Niagara</a> <a href="/tags/Plugin/" style="font-size: 10px;" class="tags-cloud-0">Plugin</a> <a href="/tags/%E7%BE%8E%E6%9C%AF%E5%8E%9F%E7%90%86/" style="font-size: 15px;" class="tags-cloud-5">美术原理</a>
-    </div>
-  </div>
-</section>
-    </div>
-  </article>
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2022-12-18 14:51:28" itemprop="dateModified" datetime="2022-12-18T14:51:28+08:00">2022-12-18</time>
+  </span>
 </div>
 
-    <!-- footer container -->
-<footer id="footer" class="footer">
-  <div class="footer-container">
-    
-    <div class="social-icons">
       
-        
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
       
-        
-          <a href="https://www.zhihu.com/people/Natsuneko" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
-            <svg t="1587373160860" class="icon icon-zhihu" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path d="M544.949 561.422s0-71.387-34.779-75.050c-34.779-3.663-142.775 0-142.775 0v-219.654h161.078s-1.83-73.219-32.949-73.219h-261.755l43.93-117.148s-65.897 3.663-89.692 45.761-98.844 252.604-98.844 252.604 25.627 10.983 67.726-20.134c42.101-31.116 56.743-86.033 56.743-86.033l76.879-3.663 1.83 223.316s-133.621-1.83-161.078 0c-27.457 1.83-42.101 75.050-42.101 75.050h203.182s-18.307 124.47-69.557 214.164c-53.085 89.692-151.929 161.078-151.929 161.078s71.387 29.287 140.947-10.983c69.557-42.101 120.811-223.316 120.811-223.316l162.912 203.182s14.643-97.013-1.83-124.47c-18.307-27.457-113.49-137.283-113.49-137.283l-42.101 36.607 29.287-120.811h177.552zM587.050 188.010l-1.83 660.793h65.897l23.795 82.37 115.321-82.37h162.912v-660.793h-366.091zM879.92 775.584h-76.879l-97.013 75.050-21.965-75.050h-20.134v-512.527h215.991v512.527z"></path>
-</svg>
-          </a>
-        
+      <div>
+        <img data-src="/images/wechatpay.png" alt="夏猫 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
       
-        
+      <div>
+        <img data-src="/images/alipay.png" alt="夏猫 Alipay">
+        <p>Alipay</p>
+      </div>
       
-        
-          <a href="https://github.com/Natsuneko3/" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
-            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
-</svg>
-          </a>
-        
+      <div>
+        <img data-src="/images/paypal.png" alt="夏猫 PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
       
-        
-          <a href="https://twitter.com/natsunekosan" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
-            <svg class="icon icon-twitter" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path d="M962.285714 233.142857q-38.285714 56-92.571429 95.428571 0.571429 8 0.571429 24 0 74.285714-21.714286 148.285714t-66 142-105.428571 120.285714-147.428571 83.428571-184.571429 31.142857q-154.857143 0-283.428571-82.857143 20 2.285714 44.571429 2.285714 128.571429 0 229.142857-78.857143-60-1.142857-107.428571-36.857143t-65.142857-91.142857q18.857143 2.857143 34.857143 2.857143 24.571429 0 48.571429-6.285714-64-13.142857-106-63.714286t-42-117.428571l0-2.285714q38.857143 21.714286 83.428571 23.428571-37.714286-25.142857-60-65.714286t-22.285714-88q0-50.285714 25.142857-93.142857 69.142857 85.142857 168.285714 136.285714t212.285714 56.857143q-4.571429-21.714286-4.571429-42.285714 0-76.571429 54-130.571429t130.571429-54q80 0 134.857143 58.285714 62.285714-12 117.142857-44.571429-21.142857 65.714286-81.142857 101.714286 53.142857-5.714286 106.285714-28.571429z"></path>
-</svg>
-          </a>
-        
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>夏猫 <i class="ic i-at"><em>@</em></i>夏猫
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2021/10/07/color2/" title="【VFX】浅析特效设计与色彩（2）">http://example.com/2021/10/07/color2/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
       
+
+  <a href="/2021/09/29/color/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;w.wallhaven.cc&#x2F;full&#x2F;q6&#x2F;wallhaven-q6wmkq.jpg" title="【VFX】浅析特效设计与色彩（1）">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> 文章</span>
+  <h3>【VFX】浅析特效设计与色彩（1）</h3>
+  </a>
+
     </div>
-     
-    <p>&copy; 2022 <a href="/" target="_blank">夏猫</a></p>
+    <div class="item right">
+      
 
-    
+  <a href="/2022/02/12/Niagara/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pica.zhimg.com&#x2F;v2-147be5e9a1831e26487605bfee955919_1440w.jpg?source&#x3D;172ae18b" title="【UE4】新手特效向Niagara常见问题解决与小技巧分享（不定期更新）">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> 文章</span>
+  <h3>【UE4】新手特效向Niagara常见问题解决与小技巧分享（不定期更新）</h3>
+  </a>
 
-    <p>Powered by <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p>
-
-    <p>
-      <a href="javascript:;" id="theme-light">🌞 浅色</a>
-      <a href="javascript:;" id="theme-dark">🌛 深色</a>
-      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
-    </p>
-  </div>
-</footer>
-  </div>
-
-  <div class="back-to-top-fixed soft-size--round soft-style--box">
-    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
-      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
-      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
-    </svg>
-  </div>
+    </div>
+</div>
 
   
-  <!-- aplayer -->
+  <div class="wrap" id="comments"></div>
 
 
-<!-- dplayer -->
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89-%E7%89%B9%E6%95%88%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.</span> <span class="toc-text"> 三、特效设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#31-%E7%89%B9%E6%95%88%E5%85%83%E7%B4%A0"><span class="toc-number">1.1.</span> <span class="toc-text"> 3.1 特效元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#32-%E7%89%B9%E6%95%88%E5%8A%A8%E6%80%81"><span class="toc-number">1.2.</span> <span class="toc-text"> 3.2 特效动态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#33-%E7%89%B9%E6%95%88%E5%BD%A2%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text"> 3.3 特效形式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B-%E8%B4%B4%E5%9B%BE%E7%9A%84%E5%88%B6%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text"> 四、贴图的制作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#41-%E6%89%8B%E7%BB%98%E8%B4%B4%E5%9B%BE"><span class="toc-number">2.1.</span> <span class="toc-text"> 4.1 手绘贴图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#42-%E7%A8%8B%E5%BA%8F%E5%8C%96%E8%B4%B4%E5%9B%BE"><span class="toc-number">2.2.</span> <span class="toc-text"> 4.2 程序化贴图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94-%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text"> 五 总结</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/2021/09/29/color/" rel="bookmark" title="【VFX】浅析特效设计与色彩（1）">【VFX】浅析特效设计与色彩（1）</a></li><li class="active"><a href="/2021/10/07/color2/" rel="bookmark" title="【VFX】浅析特效设计与色彩（2）">【VFX】浅析特效设计与色彩（2）</a></li><li><a href="/2022/02/12/Niagara/" rel="bookmark" title="【UE4】新手特效向Niagara常见问题解决与小技巧分享（不定期更新）">【UE4】新手特效向Niagara常见问题解决与小技巧分享（不定期更新）</a></li><li><a href="/2022/04/08/Softbody/" rel="bookmark" title="【UE5】在niagara实现Softbody dynamic">【UE5】在niagara实现Softbody dynamic</a></li><li><a href="/2022/06/26/MultiPass/" rel="bookmark" title="【虚幻引擎】在UE实现多Pass Renderer">【虚幻引擎】在UE实现多Pass Renderer</a></li><li><a href="/2022/11/07/DualKawaseBlur/" rel="bookmark" title="【UE4/UE5】拓展后期pass实现DualKawaseBlur">【UE4/UE5】拓展后期pass实现DualKawaseBlur</a></li><li><a href="/2022/11/29/oit/" rel="bookmark" title="【UE5】浅析UE5.1OIT半透明排序算法">【UE5】浅析UE5.1OIT半透明排序算法</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="夏猫"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">夏猫</p>
+  <div class="description" itemprop="description">这里是个个人的小网站，主要分享关于ue或者TA的知识，也或者分享点自己想写的东西，做好的东西</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">8</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">2</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">4</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
 
 
-<!-- dplayer 视频 start -->
-<script type="text/javascript" src="https://unpkg.com/hls.js@1.0.1/dist/hls.js"></script>
-<script type="text/javascript" src="https://unpkg.com/dplayer@1.25.1/dist/DPlayer.min.js"></script>
-<script type="text/javascript">
-  const dplayer = document.querySelectorAll(".dplayer-box");
-  dplayer && initDPlayer(dplayer);
-  function initDPlayer(els) {
-    let elsArr = Array.from(els);
-    elsArr.forEach(el => {
-      let url = el.dataset.url;
-      let pic = el.dataset.pic;
-      let subtitle = el.dataset.subtitle;
+</ul>
 
-      let options = {
-        container: el,
-        video: { url: url, pic: pic },
-        theme: "#b7daff",
-        autoplay: false,
-        loop: false,
-        mutex: true,
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/09/29/color/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/02/12/Niagara/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E7%AB%A0/" title="In 文章">文章</a>
+</div>
+
+    <span><a href="/2022/11/29/oit/" title="【UE5】浅析UE5.1OIT半透明排序算法">【UE5】浅析UE5.1OIT半透明排序算法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E7%AB%A0/" title="In 文章">文章</a>
+</div>
+
+    <span><a href="/2021/09/29/color/" title="【VFX】浅析特效设计与色彩（1）">【VFX】浅析特效设计与色彩（1）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E7%AB%A0/" title="In 文章">文章</a>
+</div>
+
+    <span><a href="/2022/02/12/Niagara/" title="【UE4】新手特效向Niagara常见问题解决与小技巧分享（不定期更新）">【UE4】新手特效向Niagara常见问题解决与小技巧分享（不定期更新）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E7%AB%A0/" title="In 文章">文章</a>
+</div>
+
+    <span><a href="/2021/10/07/color2/" title="【VFX】浅析特效设计与色彩（2）">【VFX】浅析特效设计与色彩（2）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E7%AB%A0/" title="In 文章">文章</a>
+</div>
+
+    <span><a href="/2022/06/26/MultiPass/" title="【虚幻引擎】在UE实现多Pass Renderer">【虚幻引擎】在UE实现多Pass Renderer</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E7%AB%A0/" title="In 文章">文章</a>
+</div>
+
+    <span><a href="/2022/11/07/DualKawaseBlur/" title="【UE4&#x2F;UE5】拓展后期pass实现DualKawaseBlur">【UE4/UE5】拓展后期pass实现DualKawaseBlur</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%8F%92%E4%BB%B6/" title="In 插件">插件</a>
+</div>
+
+    <span><a href="/2022/12/17/WallpaperEnging/" title="把ue变成WallpaperEngine">把ue变成WallpaperEngine</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E7%AB%A0/" title="In 文章">文章</a>
+</div>
+
+    <span><a href="/2022/04/08/Softbody/" title="【UE5】在niagara实现Softbody dynamic">【UE5】在niagara实现Softbody dynamic</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">夏猫 @ Natsu neko</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/10/07/color2/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
       }
-
-      if (subtitle) {
-        options.subtitle = {
-          url: el.dataset.subtitle,
-        }
-      }
-      new DPlayer(options);
-    });
-  }
+    ]
+  };
 </script>
-<!-- dplayer 视频 end -->
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
 
 
 
 
-
-  
-
-
-  
-
-
-  
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-  
-  <!-- 尾部用户自定义相关内容 -->
 </body>
 </html>

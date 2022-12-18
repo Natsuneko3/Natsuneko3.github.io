@@ -1,390 +1,496 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="ch">
-<head>
+<head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+<!-- hexo injector head_begin end -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="theme-color" content="#3367D6"/>
-  <link rel="apple-touch-icon" href="/icons-192.png">
-  <link rel="manifest" href="/manifest.json">
-  
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 
-  <meta name="generator" content="Hexo 6.3.0">
+<link rel="alternate" type="application/rss+xml" title="夏猫" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="夏猫" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="夏猫" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
+  <meta name="keywords" content="Plugin" />
 
-  
 
-  
-    <meta name="author" content="夏猫">
-  
+<link rel="canonical" href="http://example.com/2022/12/17/WallpaperEnging/">
 
-  
 
-  
 
-  <title>把ue变成WallpaperEngine | Natsuneko</title>
-
-  
-
-  
-    <link rel="shortcut icon" href="/favicon.ico">
-  
-
-  
-
-  
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@1.1.3/index.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/monokai.css">
-  
-
-  
-<link rel="stylesheet" href="/css/style.css">
-
-</head>
-<body>
-  <div class="root-container">
-    
-<!-- header container -->
-<header class="header-container post">
-  
-    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/e7/wallhaven-e72x6k.jpg)"></div>
-  
-
-  <!-- navbar -->
-<nav class="navbar">
-  <div class="navbar-content">
-    <!-- logo -->
-    <div class="navbar-logo">
-      <a href="/">
-        
-          Natsuneko
-        
-      </a>
-    </div>
-    <!-- link -->
-    <div class="navbar-link">
-      <div class="navbar-btn">
-        <div></div>
-        <div></div>
-        <div></div>
+  <title>
+把ue变成WallpaperEngine - 插件 |
+Natsu neko = 夏猫 = 嵐です！</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
       </div>
-      <ul class="navbar-list">
-        
-          <li class="navbar-list-item"><a href="/natsuneko3.github.io">首页</a></li>
-        
-          <li class="navbar-list-item"><a target="_blank" rel="noopener" href="https://www.realtime.xyz/">友链</a></li>
-        
-          <li class="navbar-list-item"><a href="/about">关于</a></li>
-        
-      </ul>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
     </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">把ue变成WallpaperEngine
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2022-12-17 18:34:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-12-17T18:34:00+08:00">2022-12-17</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Natsu neko</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
   </div>
 </nav>
 
-  
-  
+      </div>
+      <div id="imgs" class="pjax">
+          <img src="https://w.wallhaven.cc/full/e7/wallhaven-e72x6k.jpg">
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E6%8F%92%E4%BB%B6/" itemprop="item" rel="index" title="In 插件"><span itemprop="name">插件</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
 
-  
-  
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="ch">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/17/WallpaperEnging/">
 
-  
-  
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="夏猫">
+    <meta itemprop="description" content="嵐です！, 这里是个个人的小网站，主要分享关于ue或者TA的知识，也或者分享点自己想写的东西，做好的东西">
+  </span>
 
-  
-  
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="夏猫">
+  </span>
 
-  
-  
-    <div class="header-content">
-      <div class="post-text layout-block">
-        <div class="layout-margin">
-          <h1 class="title-wrap">把ue变成WallpaperEngine</h1>
-          <h2 class="title-sub-wrap">
-            <strong>夏猫</strong>
-            <span>发布于</span>
-            <time  class="article-date" datetime="2022-12-17T10:34:00.000Z" itemprop="datePublished">2022-12-17</time>
-          </h2>
-          <ul class="wrap-list dark">
-  
-    <li><a href="/categories/%E6%8F%92%E4%BB%B6/">📒 插件</a></li>
-  
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="wallpaperengineplugin"><a class="markdownIt-Anchor" href="#wallpaperengineplugin">#</a> <span class="exturl" data-url="aHR0cHM6Ly9odHRwczovL2dpdGh1Yi5jb20vbmF0c3Vwb3JhL1dhbGxwYXBlckVuZ2luZVBsdWdpbg==">WallpaperEnginePlugin</span></h1>
+<div class="media-container"><div class="player" data-type="video" data-src='[{"name":"Wallpaper","url":"https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/Wallpaper.mp4"}]'></div></div>
+<p>这是一个可以改变你 ue 界面的小插件，慢慢更新 <br>
+下载地址：<br>
+<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL05hdHN1bmVrbzMvV2FsbHBhcGVyRW5naW5lUGx1Z2luL3JlbGVhc2VzL2Rvd25sb2FkL1YxLjAvVWU0LjI2UGx1Z2lucy56aXA=">UE4.26</span> <br>
+<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL05hdHN1bmVrbzMvV2FsbHBhcGVyRW5naW5lUGx1Z2luL3JlbGVhc2VzL2Rvd25sb2FkL1YxLjAvVWU0LjI3UGx1Z2lucy56aXA=">UE4.27</span> <br>
+<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL05hdHN1bmVrbzMvV2FsbHBhcGVyRW5naW5lUGx1Z2luL3JlbGVhc2VzL2Rvd25sb2FkL1YxLjAvVWU1UGx1Z2lucy56aXA=">UE5.0</span> <br>
+<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL05hdHN1bmVrbzMvV2FsbHBhcGVyRW5naW5lUGx1Z2luL3JlbGVhc2VzL2Rvd25sb2FkL1YxLjAvVUU1LjFQbHVnaW5zLnppcA==">UE5.1</span></p>
+<h2 id="使用方法"><a class="markdownIt-Anchor" href="#使用方法">#</a> 使用方法</h2>
+<p>1. 选择你引擎对应版本，把 plugins 解压到你项目根目录下。</p>
+<h3 id="例如"><a class="markdownIt-Anchor" href="#例如">#</a> 例如:</h3>
+<div class="note default">
+<p>解压到 Plugins 文件夹下，要是没有自己新建个即可</p>
+</div>
+<img data-src="https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/%E5%9B%BE%E7%89%871.png"> 
+<div class="note default">
+<p>然后重新编译</p>
+</div>
+<img data-src="https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/%E5%9B%BE%E7%89%876.png" >
+<div class="note default">
+<p>要是打开引擎要是提醒版本不同，点是就行</p>
+</div>
+<img data-src="https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/%E5%9B%BE%E7%89%872.png" >
+<div class="note default">
+<p>把静态图片放在这文件夹下面，上面列表会自动同步列表，要是视频的话，会自动同步 WallpaperEngine。</p>
+</div>
+<img data-src="https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/%E5%9B%BE%E7%89%873.png">
+<h2 id="设置界面说明"><a class="markdownIt-Anchor" href="#设置界面说明">#</a> 设置界面说明</h2>
+<p>💙  <strong>Use Wallpaper Engine</strong> : 播放视频，ue5.0 版本中 DX12 不支持播放，在 UE5.1 中问题修复<br>
+❤️ <strong>UseGrid</strong> : 材质背景网格 <br>
+💛 <strong>Editor/ Panel Opacity</strong> : 背景透明度 <br>
+💚 <strong>Enable Timer</strong> : 随机背景播放循环 <br>
+💜 <strong>Wallpaper Direction</strong> : WallPaper Engine 路径 ，写你的 steam 文件夹，例如我把 D:\steam ，会自动找到位于 /steamapps/workshop/content 下面所有视频，要是自己的视频库的话，请自动加上这个路径 <br>
+🕳️ <strong>Menu BackGround</strong> ： 右键菜单栏背景 其中 Tint 可以调节颜色与透明度<br>
+<img data-src="https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/%E5%9B%BE%E7%89%875.png"></p>
+
+      <div class="tags">
+          <a href="/tags/Plugin/" rel="tag"><i class="ic i-tag"></i> Plugin</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2022-12-18 13:19:33" itemprop="dateModified" datetime="2022-12-18T13:19:33+08:00">2022-12-18</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="夏猫 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="夏猫 Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="夏猫 PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>夏猫 <i class="ic i-at"><em>@</em></i>夏猫
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2022/12/17/WallpaperEnging/" title="把ue变成WallpaperEngine">http://example.com/2022/12/17/WallpaperEnging/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
 </ul>
-          <ul class="wrap-list dark">
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
   
-    <li><a href="/tags/Plugin/">🏷️ Plugin</a></li>
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/11/29/oit/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;w.wallhaven.cc&#x2F;full&#x2F;z8&#x2F;wallhaven-z8lmpo.jpg" title="【UE5】浅析UE5.1OIT半透明排序算法">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> 文章</span>
+  <h3>【UE5】浅析UE5.1OIT半透明排序算法</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
   
-</ul>
+  <div class="wrap" id="comments"></div>
+
+
         </div>
-      </div>
-    </div>
-  
-
-  
-  
-  
-</header>
-
-    <!-- 文章 -->
-
-<!-- 文章内容 -->
-<div class="body-container">
-  <article class="content-container layout-block post-container">
-    <div class="article-info">
-      
-      
-      
-      
-      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="WallpaperEnginePlugin"><a href="#WallpaperEnginePlugin" class="headerlink" title="WallpaperEnginePlugin"></a><a target="_blank" rel="noopener" href="https://https//github.com/natsupora/WallpaperEnginePlugin">WallpaperEnginePlugin</a></h1><div class="dplayer-box" data-url='https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/Wallpaper.mp4' ></div>
-
-<p>这是一个可以改变你ue界面的小插件，慢慢更新 <br>下载地址：<br><a target="_blank" rel="noopener" href="https://github.com/Natsuneko3/WallpaperEnginePlugin/releases/download/V1.0/Ue4.26Plugins.zip">UE4.26</a> <br><a target="_blank" rel="noopener" href="https://github.com/Natsuneko3/WallpaperEnginePlugin/releases/download/V1.0/Ue4.27Plugins.zip">UE4.27</a> <br><a target="_blank" rel="noopener" href="https://github.com/Natsuneko3/WallpaperEnginePlugin/releases/download/V1.0/Ue5Plugins.zip">UE5.0</a> <br><a target="_blank" rel="noopener" href="https://github.com/Natsuneko3/WallpaperEnginePlugin/releases/download/V1.0/UE5.1Plugins.zip">UE5.1</a> </p>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>1.选择你引擎对应版本，把plugins解压到你项目根目录下。</p>
-<h3 id="例如"><a href="#例如" class="headerlink" title="例如:"></a>例如:</h3><p>解压到Plugins文件夹下，要是没有自己新建个即可 <br><img src="https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/%E5%9B%BE%E7%89%871.png"> <br>然后重新编译 <br><img src="https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/%E5%9B%BE%E7%89%876.png" > <br>要是打开引擎要是提醒版本不同，点是就行 <br><img src="https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/%E5%9B%BE%E7%89%872.png" > </p>
-<p>2.把静态图片放在这文件夹下面,上面列表会自动同步列表，要是视频的话，会自动同步WallpaperEngine。 <br><img src="https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/%E5%9B%BE%E7%89%873.png"></p>
-<h2 id="设置界面说明"><a href="#设置界面说明" class="headerlink" title="设置界面说明"></a>设置界面说明</h2><p>💙  <strong>Use Wallpaper Engine</strong> : 播放视频，ue5.0版本中DX12不支持播放，在UE5.1中问题修复 <br>❤️ <strong>UseGrid</strong> : 材质背景网格 <br>💛 <strong>Editor&#x2F; Panel Opacity</strong> : 背景透明度 <br>💚 <strong>Enable Timer</strong> : 随机背景播放循环 <br>💜 <strong>Wallpaper Direction</strong> : WallPaper Engine 路径 ，写你的steam文件夹，例如我把D:\steam ，会自动找到位于&#x2F;steamapps&#x2F;workshop&#x2F;content下面所有视频，要是自己的视频库的话，请自动加上这个路径 <br>🕳️ <strong>Menu BackGround</strong> ： 右键菜单栏背景 其中Tint可以调节颜色与透明度<br><img src="https://github.com/Natsuneko3/WallpaperEnginePlugin/raw/main/assets/%E5%9B%BE%E7%89%875.png"> </p>
-
-      </section>
-
-      
-      
-        <nav class="article-nav">
+        <div id="sidebar">
           
-          
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/z8/wallhaven-z8lmpo.jpg"></div>
-    
-    <div class="card-text">
-      
-        <a href="/2022/11/29/oit/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">【UE5】浅析UE5.1OIT半透明排序算法</h2>
-        </a>
-      
-      <div class="card-text--row">Older</div>
-    </div>
-  </article>
-</div>
-          
-        </nav>
-      
 
-      <section class="page-message-container layout-padding">
-        
+<div class="inner">
 
-
-  
-  
-
-  
-  
-
-
-      </section>
-    </div>
-    <div class="widget-info">
-      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
-  <div class="widget-body">
-    
-      <img src="https://w.wallhaven.cc/full/lm/wallhaven-lmljgl.png" class="soft-size--round soft-style--box" alt="夏猫(Natsuneko)">
-    
-    
-      <h2>夏猫(Natsuneko)</h2>
-    
-    
-      <p>这是一个小小的个人网站，到时候会自己开个网站，这里主要会写一点ue文章和插件，后续会加点有趣的东西？</p>
-    
-
-    <div class="count-box">
-      <div class="count-box--item">
-        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
-</svg>
-        <span>8</span>
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#wallpaperengineplugin"><span class="toc-number">1.</span> <span class="toc-text"> WallpaperEnginePlugin</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text"> 使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%A6%82"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 例如:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%95%8C%E9%9D%A2%E8%AF%B4%E6%98%8E"><span class="toc-number">1.2.</span> <span class="toc-text"> 设置界面说明</span></a></li></ol></li></ol>
       </div>
-      <div class="count-box--item">
-        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
-</svg>
-        2
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li class="active"><a href="/2022/12/17/WallpaperEnging/" rel="bookmark" title="把ue变成WallpaperEngine">把ue变成WallpaperEngine</a></li>
+        </ul>
       </div>
-      <div class="count-box--item">
-        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
-</svg>
-        4
-      </div>
-    </div>
-  </div>
-</section>
-
-      
-
-      
-
-      <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
-  <div class="widget-title">
-    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
-</svg>
-    <span>CATEGORYS</span>
-  </div>
-  <div class="widget-body">
-    <ul class="categorys-list">
-      
-        <li class="categorys-list-item">
-          <a href="/categories/%E6%96%87%E7%AB%A0/">
-            文章 (7)
-          </a>
-        </li>
-      
-        <li class="categorys-list-item">
-          <a href="/categories/%E6%8F%92%E4%BB%B6/">
-            插件 (1)
-          </a>
-        </li>
-      
-    </ul>
-  </div>
-</section>
-
-      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
-  <div class="widget-title">
-    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
-</svg>
-    <span>TAGS</span>
-  </div>
-  <div class="widget-body">
-    <div class="tags-cloud">
-      <a href="/tags/Engine/" style="font-size: 20px;" class="tags-cloud-10">Engine</a> <a href="/tags/Niagara/" style="font-size: 15px;" class="tags-cloud-5">Niagara</a> <a href="/tags/Plugin/" style="font-size: 10px;" class="tags-cloud-0">Plugin</a> <a href="/tags/%E7%BE%8E%E6%9C%AF%E5%8E%9F%E7%90%86/" style="font-size: 15px;" class="tags-cloud-5">美术原理</a>
-    </div>
-  </div>
-</section>
-    </div>
-  </article>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="夏猫"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">夏猫</p>
+  <div class="description" itemprop="description">这里是个个人的小网站，主要分享关于ue或者TA的知识，也或者分享点自己想写的东西，做好的东西</div>
 </div>
 
-    <!-- footer container -->
-<footer id="footer" class="footer">
-  <div class="footer-container">
-    
-    <div class="social-icons">
-      
-        
-      
-        
-          <a href="https://www.zhihu.com/people/Natsuneko" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
-            <svg t="1587373160860" class="icon icon-zhihu" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path d="M544.949 561.422s0-71.387-34.779-75.050c-34.779-3.663-142.775 0-142.775 0v-219.654h161.078s-1.83-73.219-32.949-73.219h-261.755l43.93-117.148s-65.897 3.663-89.692 45.761-98.844 252.604-98.844 252.604 25.627 10.983 67.726-20.134c42.101-31.116 56.743-86.033 56.743-86.033l76.879-3.663 1.83 223.316s-133.621-1.83-161.078 0c-27.457 1.83-42.101 75.050-42.101 75.050h203.182s-18.307 124.47-69.557 214.164c-53.085 89.692-151.929 161.078-151.929 161.078s71.387 29.287 140.947-10.983c69.557-42.101 120.811-223.316 120.811-223.316l162.912 203.182s14.643-97.013-1.83-124.47c-18.307-27.457-113.49-137.283-113.49-137.283l-42.101 36.607 29.287-120.811h177.552zM587.050 188.010l-1.83 660.793h65.897l23.795 82.37 115.321-82.37h162.912v-660.793h-366.091zM879.92 775.584h-76.879l-97.013 75.050-21.965-75.050h-20.134v-512.527h215.991v512.527z"></path>
-</svg>
-          </a>
-        
-      
-        
-      
-        
-          <a href="https://github.com/Natsuneko3/" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
-            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
-</svg>
-          </a>
-        
-      
-        
-          <a href="https://twitter.com/natsunekosan" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
-            <svg class="icon icon-twitter" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path d="M962.285714 233.142857q-38.285714 56-92.571429 95.428571 0.571429 8 0.571429 24 0 74.285714-21.714286 148.285714t-66 142-105.428571 120.285714-147.428571 83.428571-184.571429 31.142857q-154.857143 0-283.428571-82.857143 20 2.285714 44.571429 2.285714 128.571429 0 229.142857-78.857143-60-1.142857-107.428571-36.857143t-65.142857-91.142857q18.857143 2.857143 34.857143 2.857143 24.571429 0 48.571429-6.285714-64-13.142857-106-63.714286t-42-117.428571l0-2.285714q38.857143 21.714286 83.428571 23.428571-37.714286-25.142857-60-65.714286t-22.285714-88q0-50.285714 25.142857-93.142857 69.142857 85.142857 168.285714 136.285714t212.285714 56.857143q-4.571429-21.714286-4.571429-42.285714 0-76.571429 54-130.571429t130.571429-54q80 0 134.857143 58.285714 62.285714-12 117.142857-44.571429-21.142857 65.714286-81.142857 101.714286 53.142857-5.714286 106.285714-28.571429z"></path>
-</svg>
-          </a>
-        
-      
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">8</span>
+        <span class="name">posts</span>
+      </a>
     </div>
-     
-    <p>&copy; 2022 <a href="/" target="_blank">夏猫</a></p>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">2</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">4</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
 
-    
+<div class="social">
+</div>
 
-    <p>Powered by <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p>
-
-    <p>
-      <a href="javascript:;" id="theme-light">🌞 浅色</a>
-      <a href="javascript:;" id="theme-dark">🌛 深色</a>
-      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
-    </p>
-  </div>
-</footer>
-  </div>
-
-  <div class="back-to-top-fixed soft-size--round soft-style--box">
-    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
-      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
-      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
-    </svg>
-  </div>
-
+<ul class="menu">
   
-  <!-- aplayer -->
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
 
 
-<!-- dplayer -->
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
 
 
-<!-- dplayer 视频 start -->
-<script type="text/javascript" src="https://unpkg.com/hls.js@1.0.1/dist/hls.js"></script>
-<script type="text/javascript" src="https://unpkg.com/dplayer@1.25.1/dist/DPlayer.min.js"></script>
-<script type="text/javascript">
-  const dplayer = document.querySelectorAll(".dplayer-box");
-  dplayer && initDPlayer(dplayer);
-  function initDPlayer(els) {
-    let elsArr = Array.from(els);
-    elsArr.forEach(el => {
-      let url = el.dataset.url;
-      let pic = el.dataset.pic;
-      let subtitle = el.dataset.subtitle;
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E7%AB%A0/" title="In 文章">文章</a>
+</div>
 
-      let options = {
-        container: el,
-        video: { url: url, pic: pic },
-        theme: "#b7daff",
-        autoplay: false,
-        loop: false,
-        mutex: true,
+    <span><a href="/2021/10/07/color2/" title="【VFX】浅析特效设计与色彩（2）">【VFX】浅析特效设计与色彩（2）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E7%AB%A0/" title="In 文章">文章</a>
+</div>
+
+    <span><a href="/2022/06/26/MultiPass/" title="【虚幻引擎】在UE实现多Pass Renderer">【虚幻引擎】在UE实现多Pass Renderer</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E7%AB%A0/" title="In 文章">文章</a>
+</div>
+
+    <span><a href="/2022/11/29/oit/" title="【UE5】浅析UE5.1OIT半透明排序算法">【UE5】浅析UE5.1OIT半透明排序算法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E7%AB%A0/" title="In 文章">文章</a>
+</div>
+
+    <span><a href="/2022/04/08/Softbody/" title="【UE5】在niagara实现Softbody dynamic">【UE5】在niagara实现Softbody dynamic</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%8F%92%E4%BB%B6/" title="In 插件">插件</a>
+</div>
+
+    <span><a href="/2022/12/17/WallpaperEnging/" title="把ue变成WallpaperEngine">把ue变成WallpaperEngine</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E7%AB%A0/" title="In 文章">文章</a>
+</div>
+
+    <span><a href="/2021/09/29/color/" title="【VFX】浅析特效设计与色彩（1）">【VFX】浅析特效设计与色彩（1）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E7%AB%A0/" title="In 文章">文章</a>
+</div>
+
+    <span><a href="/2022/11/07/DualKawaseBlur/" title="【UE4&#x2F;UE5】拓展后期pass实现DualKawaseBlur">【UE4/UE5】拓展后期pass实现DualKawaseBlur</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E7%AB%A0/" title="In 文章">文章</a>
+</div>
+
+    <span><a href="/2022/02/12/Niagara/" title="【UE4】新手特效向Niagara常见问题解决与小技巧分享（不定期更新）">【UE4】新手特效向Niagara常见问题解决与小技巧分享（不定期更新）</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">夏猫 @ Natsu neko</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/12/17/WallpaperEnging/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
       }
-
-      if (subtitle) {
-        options.subtitle = {
-          url: el.dataset.subtitle,
-        }
-      }
-      new DPlayer(options);
-    });
-  }
+    ]
+  };
 </script>
-<!-- dplayer 视频 end -->
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
 
 
 
 
-
-  
-
-
-  
-
-
-  
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-  
-  <!-- 尾部用户自定义相关内容 -->
 </body>
 </html>
