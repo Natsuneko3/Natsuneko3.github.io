@@ -2,48 +2,110 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb8cd9ad-dabc-42f7-a2dd-22ea79844d2c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/_config.shoka.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asset/4c3e7710-b3c9-11ec-9908-2ed9809c7c79.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/about/index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/Ambient Cube 074e81bf559f43b48fa72e7c2635eae7.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/Ambient Cube 074e81bf559f43b48fa72e7c2635eae7/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/Ambient Cube 074e81bf559f43b48fa72e7c2635eae7/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/Compute shader ce8a4f41e18845b0ac4fb1978f28869f.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/Compute shader ce8a4f41e18845b0ac4fb1978f28869f/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/Compute shader ce8a4f41e18845b0ac4fb1978f28869f/threadgroupids.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/GTAO cdb7d5c086e44d4ca1489b7b64c373a0.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/GTAO cdb7d5c086e44d4ca1489b7b64c373a0/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/GTAO cdb7d5c086e44d4ca1489b7b64c373a0/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/GTAO cdb7d5c086e44d4ca1489b7b64c373a0/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/HZB (Hierarchical Z-Buffer) 84e7171093be454f8b86d1d03ac2310b.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/HZB (Hierarchical Z-Buffer) 84e7171093be454f8b86d1d03ac2310b/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/HZB (Hierarchical Z-Buffer) 84e7171093be454f8b86d1d03ac2310b/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/HZB (Hierarchical Z-Buffer) 84e7171093be454f8b86d1d03ac2310b/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled 5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/SH求谐函数与立体角 ea839e75f76f4b02bfaf515e79810f44.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/SH求谐函数与立体角 ea839e75f76f4b02bfaf515e79810f44/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/SH求谐函数与立体角 ea839e75f76f4b02bfaf515e79810f44/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/SH求谐函数与立体角 ea839e75f76f4b02bfaf515e79810f44/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/SH求谐函数与立体角 ea839e75f76f4b02bfaf515e79810f44/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/TAA fefed9e1f12f4d78a64918dcba545d9d.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/TAA fefed9e1f12f4d78a64918dcba545d9d/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/TAA fefed9e1f12f4d78a64918dcba545d9d/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/VXGI bac8f80de4544dd7b5e7741bab2ab299.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/VXGI bac8f80de4544dd7b5e7741bab2ab299/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/VXGI bac8f80de4544dd7b5e7741bab2ab299/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/VXGI bac8f80de4544dd7b5e7741bab2ab299/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/VXGI bac8f80de4544dd7b5e7741bab2ab299/Untitled 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/VXGI bac8f80de4544dd7b5e7741bab2ab299/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/Visibility Buffer 328fe9588ec5451faf76588581bfd0b1.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/Visibility Buffer 328fe9588ec5451faf76588581bfd0b1/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/动态光源优化 3dcc82b1b9ed4887b642f6edb3c355c0/OS2BMSUAK(UKJUC17A8W.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/动态光源优化 3dcc82b1b9ed4887b642f6edb3c355c0/P0LVW5ACC594DI)Y3D12M.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/动态光源优化 3dcc82b1b9ed4887b642f6edb3c355c0/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/动态光源优化 3dcc82b1b9ed4887b642f6edb3c355c0/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/图片压缩算法 37b07de836514407b210f68c9a91c0ec.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/图片压缩算法 37b07de836514407b210f68c9a91c0ec/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/图片压缩算法 37b07de836514407b210f68c9a91c0ec/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/图片压缩算法 37b07de836514407b210f68c9a91c0ec/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/图片压缩算法 37b07de836514407b210f68c9a91c0ec/Untitled 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/图片压缩算法 37b07de836514407b210f68c9a91c0ec/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/OS2BMSUAK(UKJUC17A8W.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/P0LVW5ACC594DI)Y3D12M.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled 5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled 6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled 7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled 8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled 5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/范数 7e8460db51a840648bc0541f33b4af00.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/范数 7e8460db51a840648bc0541f33b4af00/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/范数 7e8460db51a840648bc0541f33b4af00/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/范数 7e8460db51a840648bc0541f33b4af00/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/范数 7e8460db51a840648bc0541f33b4af00/Untitled 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/范数 7e8460db51a840648bc0541f33b4af00/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/迭代法 d5c9fb20c6d746ceadd94b6beb306cd3.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/迭代法 d5c9fb20c6d746ceadd94b6beb306cd3/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/迭代法 d5c9fb20c6d746ceadd94b6beb306cd3/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/迭代法 d5c9fb20c6d746ceadd94b6beb306cd3/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/迭代法 d5c9fb20c6d746ceadd94b6beb306cd3/Untitled.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.neko.github.io.dir/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.neko.github.io.dir/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.neko.github.io.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.neko.github.io.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.shoka.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.shoka.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/DualKawaseBlur.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/DualKawaseBlur.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/MultiPass.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/MultiPass.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Niagara.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Niagara.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Softbody.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Softbody.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/WallpaperEnging.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/WallpaperEnging.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/color.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/color.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/color2.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/color2.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/oit.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/oit.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/_images.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/_images.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/example/_config.shoka.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/example/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/example/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/example/source/_data/images.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/example/source/_data/images.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/example/source/_data/languages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/example/source/_data/languages.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/example/source/_posts/videos.md" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/example/source/_posts/videos.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/example/source/assets/wallpaper-2311325.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/example/source/assets/wallpaper-2572384.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/example/source/assets/wallpaper-878514.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/languages/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/languages/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/languages/default.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/languages/default.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/languages/en.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/languages/ja.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/languages/zh-CN.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/languages/zh-CN.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/languages/zh-HK.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/languages/zh-TW.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/scripts/generaters/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/scripts/generaters/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/source/images/alipay.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/source/images/alipay.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/source/images/apple-touch-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/source/images/apple-touch-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/source/images/avatar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/source/images/avatar.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/source/images/failure.ico" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/source/images/failure.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/source/images/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/source/images/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/source/images/paypal.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/source/images/paypal.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/source/images/wechatpay.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/source/images/wechatpay.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/shoka/source/js/_app/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/shoka/source/js/_app/page.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,15 +115,12 @@
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/package-lock.json" root0="SKIP_HIGHLIGHTING" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectId" id="2IxBhmOIArLIAxg3TokREDCuSor" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -75,7 +134,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\JetBrains Rider 2022.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -103,7 +162,13 @@
       <workItem from="1671297566179" duration="1313000" />
       <workItem from="1671328979848" duration="16462000" />
       <workItem from="1671352132818" duration="61000" />
-      <workItem from="1671352207234" duration="17103000" />
+      <workItem from="1671352207234" duration="17394000" />
+      <workItem from="1671453367374" duration="10257000" />
+      <workItem from="1671535313440" duration="4876000" />
+      <workItem from="1671621982223" duration="2254000" />
+      <workItem from="1672062485795" duration="100000" />
+      <workItem from="1672062595212" duration="11001000" />
+      <workItem from="1672139863514" duration="6870000" />
     </task>
     <task id="LOCAL-00001" summary="N">
       <created>1671124293172</created>
@@ -126,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671204469107</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="wed update">
+      <created>1671376188528</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671376188528</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,10 +219,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/themes/arknights" />
+      <path value="$PROJECT_DIR$/themes/shoka" />
+    </ignored-roots>
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="N" />
     <MESSAGE value="first" />
     <MESSAGE value="deploy" />
-    <option name="LAST_COMMIT_MESSAGE" value="deploy" />
+    <MESSAGE value="wed update" />
+    <option name="LAST_COMMIT_MESSAGE" value="wed update" />
   </component>
 </project>
