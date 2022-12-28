@@ -1,0 +1,35 @@
+<hr />
+<p>title: BRDF 方程<br />
+ date: 2022-04-07 12:00<br />
+tags:</p>
+<ul>
+<li>图形学笔记</li>
+<li>渲染<br />
+ category: 笔记<br />
+ cover: Untitled 1.png</li>
+</ul>
+<hr />
+<h1 id="brdf方程"><a class="anchor" href="#brdf方程">#</a> BRDF 方程</h1>
+<p><img src="Untitled.png" alt="Untitled" /></p>
+<p>小数字 0 为观察视觉，i 为入射角，Li 为 radiance<br />
+<img src="Untitled%201.png" alt="Untitled" /></p>
+<p>这里的 “kd” 是入射光线中被折射部分的能量所占的比率，而 “ks” 是被反射部分的比率。</p>
+<p><img src="Untitled%202.png" alt="Untitled" /></p>
+<p><img src="Untitled%203.png" alt="Untitled" /></p>
+<p>法线分布函数 D 项</p>
+<p><img src="Untitled%204.png" alt="Untitled" /></p>
+<p>D (h) 来描述组成表面一点 的所有微表面的法线分布概率。则可以这样理解：向 NDF 输入一个朝向 h，NDF 会返回朝向 是 h 的微表面数占微表面总数的比例，a 为 roughness^2</p>
+<h1 id="g项几何函数"><a class="anchor" href="#g项几何函数">#</a> G 项（几何函数）</h1>
+<p><img src="Untitled%205.png" alt="Untitled" /></p>
+<p>N dot L 和 N dot V 要 Max 0，<br />
+这里的 k 基于几何函数是针对直接光照还是针对 IBL 光照的重映射 (Remapping)</p>
+<p><img src="Untitled%206.png" alt="Untitled" /></p>
+<h1 id="f项fresnel"><a class="anchor" href="#f项fresnel">#</a> F 项（Fresnel）</h1>
+<p><img src="Untitled%207.png" alt="Untitled" /></p>
+<p>而 ue 采用了</p>
+<p><img src="Untitled%208.png" alt="Untitled" /></p>
+<p><img src="Untitled%209.png" alt="Untitled" /></p>
+<p>各向异性 Li 光强度</p>
+<p>Ks 高光反射率</p>
+<p>h half vector ：L add V</p>
+<p><img src="Untitled%2010.png" alt="Untitled" /></p>
