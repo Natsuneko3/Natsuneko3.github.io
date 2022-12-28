@@ -1,7 +1,9 @@
 ---
 title: Visibility Buffer
 date: 2022-04-07 12:00
-tags: 图形学笔记
+tags: 
+- 图形学笔记
+- 渲染
 category: 笔记
 ---
 # Visibility Buffer

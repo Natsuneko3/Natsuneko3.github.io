@@ -4,7 +4,6 @@ date: 2021-10-07 21:23
 tags: 美术原理
 category: 文章
 dplayer: true
-cover: https://w.wallhaven.cc/full/pk/wallhaven-pkmzl9.jpg
 ---
 # 三、特效设计
 ## 3.1 特效元素

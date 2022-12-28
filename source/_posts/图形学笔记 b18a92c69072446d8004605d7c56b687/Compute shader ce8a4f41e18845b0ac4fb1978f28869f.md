@@ -3,7 +3,6 @@ title: Compute shader
 date: 2022-04-07 12:00
 tags: 图形学笔记
 category: 笔记
-cover: assets/图片1.png
 ---
 # Compute shader
 
