@@ -1,6 +1,7 @@
 ---
 title: 把ue变成WallpaperEngine
 date: 2022-12-17 18:34
+count: true
 tags: Plugin
 category: 插件
 sticky: true

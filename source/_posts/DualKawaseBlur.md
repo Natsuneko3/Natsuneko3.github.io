@@ -4,6 +4,7 @@ date: 2022-11-07 17:35
 tags: Engine
 category: 文章
 cover: https://pic1.zhimg.com/v2-79bce61997eaf687cca50c7dabcb3065_1440w.jpg?source=172ae18b
+count: true
 ---
 
 # Scene View Extension

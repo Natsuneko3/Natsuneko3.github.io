@@ -1,6 +1,7 @@
 ---
 title: 【VFX】浅析特效设计与色彩（1）
 date: 2021-09-29 22:14
+count: true
 tags: 美术原理
 category: 文章
 dplayer: true

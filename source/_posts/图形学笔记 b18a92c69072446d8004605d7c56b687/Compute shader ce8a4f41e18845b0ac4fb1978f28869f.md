@@ -1,8 +1,9 @@
 ---
 title: Compute shader
 date: 2022-04-07 12:00
+count: true
 tags: 图形学笔记
-category: 笔记
+category: 图形学笔记
 ---
 # Compute shader
 

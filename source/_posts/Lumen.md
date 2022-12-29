@@ -1,6 +1,7 @@
 ---
 title: Lumen
 date: 2022-04-19 12:00
+count: true
 tags:
 - 图形学笔记
 - 渲染

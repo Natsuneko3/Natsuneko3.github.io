@@ -1,10 +1,11 @@
 ---
 title: Ambient Cube
 date: 2022-04-07 12:00
+count: true
 tags: 
 - 图形学笔记 
 - 渲染
-category: 笔记
+category: 图形学笔记
 ---
 # Ambient Cube
 

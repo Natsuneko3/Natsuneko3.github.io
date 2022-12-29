@@ -1,6 +1,7 @@
 ---
 title: 【虚幻引擎】在UE实现多Pass Renderer
 date: 2022-06-26 15:38
+count: true
 tags: Engine
 category: 文章
 cover: https://w.wallhaven.cc/full/yx/wallhaven-yxj26x.jpg

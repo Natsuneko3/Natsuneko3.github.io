@@ -117,6 +117,18 @@ deploy:
   branch: gh-pages
   message: 
     
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
+  exclude_codeblock: false
+  awl: 4
+  wpm: 275
+  suffix: "mins."
+  separated_meta: true
+  item_text_post: true
+  item_text_total: false
 # edit for Theme.shoka
 markdown:
   render: # 渲染器设置
