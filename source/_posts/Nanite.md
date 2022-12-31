@@ -5,7 +5,7 @@ count: true
 tags:
 - 图形学笔记
 - 渲染
-category: 笔记
+category: 图形学笔记
 ---
 # Nanite
 
@@ -21,15 +21,15 @@ Nanite把实现分成两个过程三个部分: *预处理过程 : 在模型导�
 
 把模型分成Cluster,类似Meshshader中的Meshlet。划分在拓扑空间中邻近的Cluster，是为了提高访问数据时Cache命中率。Cluster分割使用Metis库把模型的顶点数据进一步切分为更细粒度的**Cluster**（或者叫做**Meshlet**），让每个Cluster的粒度能够更好地适应Vertex Processing阶段的Cache大小，并以Cluster为单位进行各类剔除（**Frustum Culling，Occulsion Culling，Backface Culling**）已经逐渐成为了复杂场景优化的最佳实践，
 
-### **Primtive数据**
+## **Primtive数据**
 
 Nanite资源的Primitive数据都使用StructureBuffer存在于GPU Memory中，这就为后续的剔除、合批等操作提供了GPU Driven式的便利。
 
-### **Cull**
+## **Cull**
 
 Nanite的Cull在是GPU Driven的，在CS中执行的，它分为两大块： 一是Primitive Instance级，为每个模型执行FrustumCull/HZB Cull 二是内部BVH树及Cluster级，分层的为BVH进行剔除，在一直相交的情形下会下降到Cluster Boundary，注意到目前的Nanite Cluster剔除并没有剔除面积很小的三角形，也没有做背面剔除。 Cull的同时它还会做一件事：标记该三角形走软件光栅化还是走硬件光栅化——只有面积小于给定值的三角形才会走软件光栅化
 
-### **光栅化(Rasterization)**
+## **光栅化(Rasterization)**
 
 在剔除结束之后，每个Cluster会根据其屏幕空间的大小送至不同的光栅器，**大三角形和非Nanite Mesh仍然基于硬件光栅化，小三角形基于Compute Shader写成的软光栅化**。Nanite的Visibility Buffer为一张R32G32_UINT的贴图(8 Bytes/Pixel)，其中R通道的0~6 bit存储Triangle ID，7~31 bit存储Cluster ID，G通道存储32 bit深度。
 
@@ -63,7 +63,7 @@ Nanite的Cull在是GPU Driven的，在CS中执行的，它分为两大块： 一
 
 为了保证数据结构尽量紧凑，减少读写带宽，所有软光栅化需要的数据都存进了一张Visibility Buffer，但是为了与场景中基于硬件光栅化生成的像素混合，我们最终还是需要将Visibility Buffer中的额外信息写入到统一的Depth/Stencil Buffer以及Motion Vector Buffer当中。这个阶段通常由几个全屏Pass组成
 
-### （1）**Emit Scene Depth/Stencil/Nanite Mask/Velocity Buffer**
+## （1）**Emit Scene Depth/Stencil/Nanite Mask/Velocity Buffer**
 
 这一步根据最终场景需要的RenderTarget数据，最多输出四个Buffer，其中Nanite Mask用0/1表示当前像素是普通Mesh还是Nanite Mesh（根据Visibility Buffer对应位置的ClusterID得到），对于Nanite Mesh Pixel，将Visibility Buffer中的Depth由UINT转为float写入Scene Depth Buffer，并根据Nanite Mesh是否接受贴花，将贴花对应的Stencil Value写入Scene Stencil Buffer，并根据上一帧位置计算当前像素的Motion Vector写入Velocity Buffer，非Nanite Mesh则直接discard跳过。
 

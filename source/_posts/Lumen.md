@@ -5,7 +5,7 @@ count: true
 tags:
 - 图形学笔记
 - 渲染
-category: 笔记
+category: 图形学笔记
 ---
 # Lumen
 
