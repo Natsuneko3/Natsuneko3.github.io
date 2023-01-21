@@ -33,3 +33,19 @@ tags: 图形学笔记<br />
 <h1 id="求点是否在三角形里面"><a class="anchor" href="#求点是否在三角形里面">#</a> 求点是否在三角形里面</h1>
 <p><img src="Untitled%207.png" alt="Untitled" /></p>
 <p><img src="Untitled%208.png" alt="Untitled" /></p>
+<h1 id="线性深度与非线性"><a class="anchor" href="#线性深度与非线性">#</a> 线性深度与非线性</h1>
+<p>在 view space 下，depth 的变化是线性的，但在 clip space 下，就要分情况讨论了。</p>
+<ul>
+<li>
+<p>当使用正交投影时，深度是线性变化的。</p>
+</li>
+<li>
+<p>当使用透视投影时，深度是非线性变化的。</p>
+</li>
+<li></li>
+</ul>
+<p>在 unity 中通过纹理采样 SAMPLE_DEPTH_TEXTURE 之后，得到的深度值往往是非线性的。然而，我们的计算过程中通常是需要线性的深度值</p>
+<p><img src="Untitled%209.png" alt="Unity" /></p>
+<h2 id="从非线性转化为线性"><a class="anchor" href="#从非线性转化为线性">#</a> 从非线性转化为线性</h2>
+<p>float z = depth * 2.0 - 1.0;<br />
+float linearDepth = (2.0 * near) / (far + near - z * (far - near));</p>
