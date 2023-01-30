@@ -113,7 +113,7 @@ theme: shoka
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/Natsuneko3/Natsuneko3.github.io
+  repo: git@github.com:Natsuneko3/Natsuneko3.github.io.git
   branch: gh-pages
   message: 
     

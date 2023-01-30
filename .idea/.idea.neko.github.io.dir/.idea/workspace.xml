@@ -1,39 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb8cd9ad-dabc-42f7-a2dd-22ea79844d2c" name="Changes" comment="更新文章">
-      <change afterPath="$PROJECT_DIR$/source/_posts/NiagaraDataInterface.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/dependabot.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/dependabot.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/pages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/pages.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hexo.dir/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hexo.dir/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hexo.dir/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hexo.dir/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hexo.dir/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hexo.dir/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.neko.github.io.dir/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.neko.github.io.dir/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.neko.github.io.dir/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.neko.github.io.dir/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.neko.github.io.dir/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.neko.github.io.dir/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="bb8cd9ad-dabc-42f7-a2dd-22ea79844d2c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/source/_posts/GPU/U1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/ue源码/渲染机制解析/U1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/ue源码/渲染机制解析/U2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.neko.github.io.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.neko.github.io.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.arknights.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.arknights.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.shoka.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.shoka.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scaffolds/draft.md" beforeDir="false" afterPath="$PROJECT_DIR$/scaffolds/draft.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scaffolds/page.md" beforeDir="false" afterPath="$PROJECT_DIR$/scaffolds/page.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scaffolds/post.md" beforeDir="false" afterPath="$PROJECT_DIR$/scaffolds/post.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/WallpaperEnging.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/WallpaperEnging.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/flex-block/layout/_svg/icon-article.svg" beforeDir="false" afterPath="$PROJECT_DIR$/themes/flex-block/layout/_svg/icon-article.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/flex-block/layout/_svg/icon-categories.svg" beforeDir="false" afterPath="$PROJECT_DIR$/themes/flex-block/layout/_svg/icon-categories.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/flex-block/layout/_svg/icon-notice.svg" beforeDir="false" afterPath="$PROJECT_DIR$/themes/flex-block/layout/_svg/icon-notice.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/flex-block/layout/_svg/icon-tags.svg" beforeDir="false" afterPath="$PROJECT_DIR$/themes/flex-block/layout/_svg/icon-tags.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/flex-block/layout/_svg/icon-toc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/themes/flex-block/layout/_svg/icon-toc.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/flex-block/layout/_widget/article-nav.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/flex-block/layout/_widget/article-nav.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/flex-block/layout/_widget/category.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/flex-block/layout/_widget/category.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/flex-block/layout/_widget/tag.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/flex-block/layout/_widget/tag.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/flex-block/layout/_widget/widget-author.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/flex-block/layout/_widget/widget-author.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/flex-block/layout/_widget/widget-categorys.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/flex-block/layout/_widget/widget-categorys.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/flex-block/layout/_widget/widget-notice.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/flex-block/layout/_widget/widget-notice.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/flex-block/layout/_widget/widget-tags.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/flex-block/layout/_widget/widget-tags.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/flex-block/layout/_widget/widget-toc.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/flex-block/layout/_widget/widget-toc.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/GPU.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/GPU.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ue源码/渲染机制解析.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ue源码/渲染机制解析.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,25 +33,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "ts.external.directory.path": "D:\\JetBrains Rider 2022.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\JetBrains Rider 2022.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/Users/xiamao/Library/Application Support/JetBrains/Rider2022.3/resharper-host/DecompilerCache",
-      "/Users/xiamao/Library/Application Support/JetBrains/Rider2022.3/resharper-host/SourcesCache",
-      "/Users/xiamao/.local/share/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/xiamao/Library/Application Support/JetBrains/Rider2022.3/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/xiamao/Library/Application Support/JetBrains/Rider2022.3/resharper-host/SourcesCache&quot;,
+      &quot;/Users/xiamao/.local/share/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -106,7 +84,11 @@
       <workItem from="1672665423775" duration="4428000" />
       <workItem from="1672924829630" duration="2155000" />
       <workItem from="1674143006592" duration="502000" />
-      <workItem from="1674199446774" duration="5381000" />
+      <workItem from="1674199446774" duration="5622000" />
+      <workItem from="1674216499670" duration="1468000" />
+      <workItem from="1674270583201" duration="4342000" />
+      <workItem from="1674708048317" duration="3057000" />
+      <workItem from="1674904590492" duration="8926000" />
     </task>
     <task id="LOCAL-00001" summary="N">
       <created>1671124293172</created>
@@ -157,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672504135642</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="new pape">
+      <created>1674216395666</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1674216395666</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,7 +159,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -190,6 +185,7 @@
     <MESSAGE value="add a lot of paper" />
     <MESSAGE value="add simulation paper" />
     <MESSAGE value="更新文章" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新文章" />
+    <MESSAGE value="new pape" />
+    <option name="LAST_COMMIT_MESSAGE" value="new pape" />
   </component>
 </project>

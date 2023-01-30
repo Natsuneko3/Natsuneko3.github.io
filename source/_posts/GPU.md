@@ -11,7 +11,7 @@ count: true
 
 ## SIMD
 
-![Untitled](GPU%206cd925943e86431ca3394bb5322ef184/Untitled.png)
+![Untitled](Untitled.png)
 
 SIMD (Single Instruction Multiple Data)
 
@@ -21,7 +21,7 @@ SIMT(single Instruction Multiple Threads)
 
 单指令多线程，可对GPU中单个SM中的多个Core同时处理同一指令，并且每个Core存取的数据可以是不同的。
 
-![Untitled](GPU%206cd925943e86431ca3394bb5322ef184/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
 GPC(图形处理集群) 计算、栅格化、阴影和纹理处理。40系列安培架构里面还塞了AI，还有光追
 
@@ -32,7 +32,7 @@ GPC(图形处理集群) 计算、栅格化、阴影和纹理处理。40系列安
     - Warp Schedulers：这个模块负责warp调度，一个warp由32个线程组成，warp调度器的指令通过Dispatch Units送到Core执行。
     - LD/ST（load/store）模块来加载和存储数据
 
-![Untitled](GPU%206cd925943e86431ca3394bb5322ef184/Untitled%202.png)
+![Untitled](Untitled%202.png)
 
 GPU被划分成多个GPCs(Graphics Processing Cluster)，每个GPC拥有多个SM（SMX、SMM）和一个光栅化引擎(Raster Engine)，它们其中有很多的连接，最显著的是Crossbar，它可以连接GPCs和其它功能性模块（例如ROP或其他子系统）。
 
@@ -74,9 +74,9 @@ GPU被划分成多个GPCs(Graphics Processing Cluster)，每个GPC拥有多个SM
 
 ## **IMR(Immediate Mode Rendering) 立即渲染**
 
-![Untitled](GPU%206cd925943e86431ca3394bb5322ef184/Untitled%203.png)
+![Untitled](Untitled%203.png)
 
-![Untitled](GPU%206cd925943e86431ca3394bb5322ef184/Untitled%204.png)
+![Untitled](Untitled%204.png)
 
 IMR模式的GPU的优势在于，顶点着色器和其它几何体相关着色器的输出可以保留在GPU内的芯片上。这些着色器的输出可以存储在FIFO缓冲区，直到管道中的下一阶段准备使用数据，GPU可以使用很少的外部内存带宽存储和检索中间几何结果。
 
@@ -84,7 +84,7 @@ IMR模式的GPU的劣势在于，像素着色在屏幕上跳跃，因为三角�
 
 ## **TBR（Tile Based Rendering）**
 
-![Untitled](GPU%206cd925943e86431ca3394bb5322ef184/Untitled%205.png)
+![Untitled](Untitled%205.png)
 
 TBR架构的GPU会把整个逻辑渲染管线**打断成两个阶段：**
 
@@ -94,7 +94,7 @@ TBR的管线会等待同一个framebuffer上所有的三角形的第一阶段都
 
 第二阶段负责像素着色，这一阶段将会**以Tile为单位去执行（而非整个framebuffer）** ，每次Raster会从Primitive List里面取出一个tile的三角形列表，然后根据列表对当前tile的所有三角形进行光栅化以及顶点属性的插值。后面的阶段TBR和IMR基本是一致的，唯一区别在于，由于Tile是比较小的，**因此每个Tile的color buffer/depth buffer是存储在一个on chip memory上，所以整个着色包括z test的过程，都是发生在on chip memory上，直到整个tile都处理完毕后，最终结果才会被写回System Memory**。
 
-```cpp
+```c++ Pass one
 # Pass one
 for draw in renderPass:
     for primitive in draw:
@@ -112,7 +112,7 @@ for tile in renderPass:
 
 **分块（Binning Pass）**过程大致如下：
 
-![Untitled](GPU%206cd925943e86431ca3394bb5322ef184/Untitled%206.png)
+![Untitled](Untitled%206.png)
 
 - 设定每个Bin（也被称为Tile）的固定大小（2的N次方，长宽通常相同，具体尺寸因GPU厂商而异，如16x16、32x32、64x64），根据Frame Buffer尺寸设置可见数据流。
 - 转换图元坐标。注意此阶段处理的是索引和顶点数据，某些GPU（如Adreno）会用特殊的简化过的shader（而非完整的Vertex Shader）来处理坐标，以减少带宽和能耗。此阶段通常只有顶点的位置有效，其它顶点数据（纹理坐标、法线、切线、顶点颜色）都会被忽略。
@@ -132,7 +132,7 @@ for tile in renderPass:
 
 - 如果开启了MSAA，在GMEM上的解析颜色、深度等数据（求平均值）。可以减少后续步骤GMEM传输到系统显存的数据总量。
     
-    ![https://img2020.cnblogs.com/blog/1617944/202111/1617944-20211112221626907-2059546161.png](https://img2020.cnblogs.com/blog/1617944/202111/1617944-20211112221626907-2059546161.png)
+    ![](U1.png)
     
 - 将分块上的所有像素数据（颜色、深度、模板等）写入到系统显存中。
 - 如果不是Frame Buffer的最后一个分块，继续执行下一个分块。
@@ -143,6 +143,6 @@ for tile in renderPass:
 - 使用的是延迟渲染（Deferred Rendering）
 - HSR（Hidden Surface Removal，隐藏面消除）等进一步减少了不需要渲染的过程
 
-![Untitled](GPU%206cd925943e86431ca3394bb5322ef184/Untitled%207.png)
+![Untitled](Untitled%207.png)
 
 [ ****深入GPU和渲染优化（基础篇）****](https://www.notion.so/GPU-d4b709561b4345e4b120236c4dd265f4)
