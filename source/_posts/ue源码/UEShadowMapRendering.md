@@ -107,6 +107,6 @@ count: true
 
 总结阴影渲染主要流程：
 
-| 初始化阴影 | 渲染灯光深度图 | 渲染ScreenShadowMaskTexture | 采样LightAttenuationTexture（ScreenShadowMaskTexture） | 计算表面阴影 | 计算表面光照 |
+| 初始化阴影 | 渲染灯光深度图 | 渲染ScreenShadowMaskTexture（从这里开始就是light pass rendering） | 采样LightAttenuationTexture（ScreenShadowMaskTexture） | 计算表面阴影 | 计算表面光照 |
 | --- | --- | --- | --- | --- | --- |
 | InitDynamicShadows | RenderShadowDepthMaps | RenderShadowProjections | GetPerPixelLightAttenuation | GetShadowTerms | GetDynamicLighting |
