@@ -1,0 +1,54 @@
+<hr />
+<h2 id="title-图形学笔记杂项date-2022-04-07-1200tags-图形学笔记category-图形学笔记count-true"><a class="anchor" href="#title-图形学笔记杂项date-2022-04-07-1200tags-图形学笔记category-图形学笔记count-true">#</a> title: 图形学笔记杂项<br />
+ date: 2022-04-07 12:00<br />
+tags: 图形学笔记<br />
+ category: 图形学笔记<br />
+ count: true</h2>
+<h1 id="杂项"><a class="anchor" href="#杂项">#</a> 杂项</h1>
+<h1 id="求曲率"><a class="anchor" href="#求曲率">#</a> 求曲率</h1>
+<figure class="highlight glsl"><figcaption data-lang="GLSL"><span>""</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">float</span> <span class="token function">curvature</span><span class="token punctuation">(</span>float3 VertexNormal<span class="token punctuation">,</span>float3 WorldPositon<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>		<span class="token keyword">float</span> DeltaN <span class="token operator">=</span> <span class="token function">length</span><span class="token punctuation">(</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token function">DDX</span><span class="token punctuation">(</span>VertexNormal<span class="token punctuation">)</span><span class="token operator">+</span><span class="token function">DDY</span><span class="token punctuation">(</span>VertexNormal<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>		<span class="token keyword">float</span> DeltaP <span class="token operator">=</span> <span class="token function">length</span><span class="token punctuation">(</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token function">DDX</span><span class="token punctuation">(</span>WorldPositon<span class="token punctuation">)</span><span class="token operator">+</span><span class="token function">DDY</span><span class="token punctuation">(</span>WorldPositon<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>		<span class="token keyword">float</span> curvature <span class="token operator">=</span> DeltaN <span class="token operator">/</span> DeltaP <span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>		reture curvature <span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h1 id="fog公式"><a class="anchor" href="#fog公式">#</a> Fog 公式</h1>
+<p>瑞丽散射和米氏散射</p>
+<p><img src="Untitled.png" alt="Untitled" /></p>
+<h1 id="折射"><a class="anchor" href="#折射">#</a> 折射</h1>
+<p>A dot b = |a|*|b|cos 弧度</p>
+<p>|a | 是 a 向量的长度 sqrt (x<sup>2*y</sup>2*z^2)</p>
+<p>角度乘以 π/180 等于弧度，弧度乘 180/π 等于角度</p>
+<p>折射后法线</p>
+<p>T = Ñ i+（Ñ COS（Θ 1） - SQRT [1 - Ñ 2（1 - （cos（Θ 1））2）]）N</p>
+<p><img src="Untitled%201.png" alt="Untitled" /></p>
+<p>其中 n = n 1 /n 2 n1 是起源物体的折射率 n2 是进入物体的折射率，i 是射线的向量</p>
+<h1 id="曲线"><a class="anchor" href="#曲线">#</a> 曲线</h1>
+<h2 id="catmull-rom"><a class="anchor" href="#catmull-rom">#</a> <strong>Catmull-Rom</strong></h2>
+<p><img src="Untitled%202.png" alt="Untitled" /></p>
+<p><img src="Untitled%203.png" alt="Untitled" /></p>
+<h2 id="二次bezier曲线"><a class="anchor" href="#二次bezier曲线">#</a> 二次 Bezier 曲线</h2>
+<p><img src="Untitled%204.png" alt="Untitled" /></p>
+<pre><code class="language-C++">float ontT = 1-t;
+RealVelocity = ontT*ontT*P0+2*t*ontT*P0+t*t*P1;
+</code></pre>
+<h1 id="动态灯光优化"><a class="anchor" href="#动态灯光优化">#</a> 动态灯光优化</h1>
+<p><img src="P0LVW5ACC594DIY3D12M.png" alt="P0{LVW5ACC594DI$)Y3D12M.png" /></p>
+<h1 id="光照渲染"><a class="anchor" href="#光照渲染">#</a> 光照渲染</h1>
+<p><img src="Untitled%205.png" alt="Untitled" /></p>
+<p><img src="Untitled%206.png" alt="Untitled" /></p>
+<p>灯光是最后算的，点光源所覆盖的像素通过 Gbuffer 获取信息，求得着色，这样的话离相机越近的地方，所覆盖的像素也就越大，消耗更高</p>
+<p><img src="OS2BMSUAKUKJUC17A8W.png" alt="OS2BMSUAK$U%KJUC17A8W.png" /></p>
+<h1 id="求点是否在三角形里面"><a class="anchor" href="#求点是否在三角形里面">#</a> 求点是否在三角形里面</h1>
+<p><img src="Untitled%207.png" alt="Untitled" /></p>
+<p><img src="Untitled%208.png" alt="Untitled" /></p>
+<h1 id="线性深度与非线性"><a class="anchor" href="#线性深度与非线性">#</a> 线性深度与非线性</h1>
+<p>在 view space 下，depth 的变化是线性的，但在 clip space 下，就要分情况讨论了。</p>
+<ul>
+<li>
+<p>当使用正交投影时，深度是线性变化的。</p>
+</li>
+<li>
+<p>当使用透视投影时，深度是非线性变化的。</p>
+</li>
+<li></li>
+</ul>
+<p>在 unity 中通过纹理采样 SAMPLE_DEPTH_TEXTURE 之后，得到的深度值往往是非线性的。然而，我们的计算过程中通常是需要线性的深度值</p>
+<p><img src="Untitled%209.png" alt="Unity" /></p>
+<h2 id="从非线性转化为线性"><a class="anchor" href="#从非线性转化为线性">#</a> 从非线性转化为线性</h2>
+<p>float z = depth * 2.0 - 1.0;<br />
+float linearDepth = (2.0 * near) / (far + near - z * (far - near));</p>
