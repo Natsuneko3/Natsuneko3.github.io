@@ -2,16 +2,220 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb8cd9ad-dabc-42f7-a2dd-22ea79844d2c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/source/_posts/GPU/U1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/ue源码/渲染机制解析/U1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/ue源码/渲染机制解析/U2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/Ambient Cube 074e81bf559f43b48fa72e7c2635eae7.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/Ambient Cube 074e81bf559f43b48fa72e7c2635eae7/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/Ambient Cube 074e81bf559f43b48fa72e7c2635eae7/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/BRDF方程 70512469e005449dab1f3eb91452f787.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/Compute shader ce8a4f41e18845b0ac4fb1978f28869f.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/Compute shader ce8a4f41e18845b0ac4fb1978f28869f/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/Compute shader ce8a4f41e18845b0ac4fb1978f28869f/threadgroupids.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/GTAO cdb7d5c086e44d4ca1489b7b64c373a0.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/GTAO cdb7d5c086e44d4ca1489b7b64c373a0/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/GTAO cdb7d5c086e44d4ca1489b7b64c373a0/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/GTAO cdb7d5c086e44d4ca1489b7b64c373a0/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/HLSL语言基础.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/HZB (Hierarchical Z-Buffer) 84e7171093be454f8b86d1d03ac2310b.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/HZB (Hierarchical Z-Buffer) 84e7171093be454f8b86d1d03ac2310b/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/HZB (Hierarchical Z-Buffer) 84e7171093be454f8b86d1d03ac2310b/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/HZB (Hierarchical Z-Buffer) 84e7171093be454f8b86d1d03ac2310b/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled 5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/SH求谐函数与立体角 ea839e75f76f4b02bfaf515e79810f44.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/SH求谐函数与立体角 ea839e75f76f4b02bfaf515e79810f44/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/SH求谐函数与立体角 ea839e75f76f4b02bfaf515e79810f44/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/SH求谐函数与立体角 ea839e75f76f4b02bfaf515e79810f44/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/SH求谐函数与立体角 ea839e75f76f4b02bfaf515e79810f44/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/TAA fefed9e1f12f4d78a64918dcba545d9d.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/TAA fefed9e1f12f4d78a64918dcba545d9d/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/TAA fefed9e1f12f4d78a64918dcba545d9d/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/VXGI bac8f80de4544dd7b5e7741bab2ab299.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/VXGI bac8f80de4544dd7b5e7741bab2ab299/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/VXGI bac8f80de4544dd7b5e7741bab2ab299/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/VXGI bac8f80de4544dd7b5e7741bab2ab299/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/VXGI bac8f80de4544dd7b5e7741bab2ab299/Untitled 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/VXGI bac8f80de4544dd7b5e7741bab2ab299/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/Virtual Texture.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/Virtual Texture/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/Virtual Texture/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/Virtual Texture/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/Visibility Buffer 328fe9588ec5451faf76588581bfd0b1.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/Visibility Buffer 328fe9588ec5451faf76588581bfd0b1/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/动态光源优化 3dcc82b1b9ed4887b642f6edb3c355c0/OS2BMSUAK(UKJUC17A8W.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/动态光源优化 3dcc82b1b9ed4887b642f6edb3c355c0/P0LVW5ACC594DI)Y3D12M.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/动态光源优化 3dcc82b1b9ed4887b642f6edb3c355c0/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/动态光源优化 3dcc82b1b9ed4887b642f6edb3c355c0/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/图片压缩算法 37b07de836514407b210f68c9a91c0ec.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/图片压缩算法 37b07de836514407b210f68c9a91c0ec/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/图片压缩算法 37b07de836514407b210f68c9a91c0ec/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/图片压缩算法 37b07de836514407b210f68c9a91c0ec/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/图片压缩算法 37b07de836514407b210f68c9a91c0ec/Untitled 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/图片压缩算法 37b07de836514407b210f68c9a91c0ec/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/杂项 5b7a33b443b4469482b32406094b9773.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/杂项 5b7a33b443b4469482b32406094b9773/OS2BMSUAKUKJUC17A8W.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/杂项 5b7a33b443b4469482b32406094b9773/P0LVW5ACC594DI)Y3D12M.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/杂项 5b7a33b443b4469482b32406094b9773/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/杂项 5b7a33b443b4469482b32406094b9773/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/杂项 5b7a33b443b4469482b32406094b9773/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/杂项 5b7a33b443b4469482b32406094b9773/Untitled 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/杂项 5b7a33b443b4469482b32406094b9773/Untitled 5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/杂项 5b7a33b443b4469482b32406094b9773/Untitled 6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/杂项 5b7a33b443b4469482b32406094b9773/Untitled 7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/杂项 5b7a33b443b4469482b32406094b9773/Untitled 8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/杂项 5b7a33b443b4469482b32406094b9773/Untitled 9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/杂项 5b7a33b443b4469482b32406094b9773/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled 5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/范数 7e8460db51a840648bc0541f33b4af00.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/范数 7e8460db51a840648bc0541f33b4af00/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/范数 7e8460db51a840648bc0541f33b4af00/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/范数 7e8460db51a840648bc0541f33b4af00/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/范数 7e8460db51a840648bc0541f33b4af00/Untitled 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/范数 7e8460db51a840648bc0541f33b4af00/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/薄膜干涉.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/薄膜干涉/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/薄膜干涉/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/薄膜干涉/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/薄膜干涉/Untitled 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/薄膜干涉/Untitled 5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/薄膜干涉/Untitled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/迭代法 d5c9fb20c6d746ceadd94b6beb306cd3.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/迭代法 d5c9fb20c6d746ceadd94b6beb306cd3/Untitled 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/迭代法 d5c9fb20c6d746ceadd94b6beb306cd3/Untitled 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/迭代法 d5c9fb20c6d746ceadd94b6beb306cd3/Untitled 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/图形学笔记/迭代法 d5c9fb20c6d746ceadd94b6beb306cd3/Untitled.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.neko.github.io.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.neko.github.io.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/GPU.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/GPU.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/ue源码/渲染机制解析.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ue源码/渲染机制解析.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/simulation/矩阵/埃尔米特矩阵.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/simulation/矩阵/埃尔米特矩阵.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ue源码/UEShadowMapRendering.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ue源码/UEShadowMapRendering.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/Ambient Cube 074e81bf559f43b48fa72e7c2635eae7.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/Ambient Cube 074e81bf559f43b48fa72e7c2635eae7/Untitled 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/Ambient Cube 074e81bf559f43b48fa72e7c2635eae7/Untitled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled 9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/BRDF方程 70512469e005449dab1f3eb91452f787/Untitled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/Compute shader ce8a4f41e18845b0ac4fb1978f28869f.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/Compute shader ce8a4f41e18845b0ac4fb1978f28869f/Untitled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/Compute shader ce8a4f41e18845b0ac4fb1978f28869f/threadgroupids.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/GTAO cdb7d5c086e44d4ca1489b7b64c373a0.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/GTAO cdb7d5c086e44d4ca1489b7b64c373a0/Untitled 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/GTAO cdb7d5c086e44d4ca1489b7b64c373a0/Untitled 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/GTAO cdb7d5c086e44d4ca1489b7b64c373a0/Untitled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/HLSL语言基础.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/HZB (Hierarchical Z-Buffer) 84e7171093be454f8b86d1d03ac2310b.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/HZB (Hierarchical Z-Buffer) 84e7171093be454f8b86d1d03ac2310b/Untitled 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/HZB (Hierarchical Z-Buffer) 84e7171093be454f8b86d1d03ac2310b/Untitled 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/HZB (Hierarchical Z-Buffer) 84e7171093be454f8b86d1d03ac2310b/Untitled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled 5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/MVP矩阵 474772934c4146dcb4cddcb94c7b48a4/Untitled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/SH求谐函数与立体角 ea839e75f76f4b02bfaf515e79810f44.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/SH求谐函数与立体角 ea839e75f76f4b02bfaf515e79810f44/Untitled 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/SH求谐函数与立体角 ea839e75f76f4b02bfaf515e79810f44/Untitled 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/SH求谐函数与立体角 ea839e75f76f4b02bfaf515e79810f44/Untitled 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/SH求谐函数与立体角 ea839e75f76f4b02bfaf515e79810f44/Untitled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/TAA fefed9e1f12f4d78a64918dcba545d9d.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/TAA fefed9e1f12f4d78a64918dcba545d9d/Untitled 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/TAA fefed9e1f12f4d78a64918dcba545d9d/Untitled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/VXGI bac8f80de4544dd7b5e7741bab2ab299.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/VXGI bac8f80de4544dd7b5e7741bab2ab299/Untitled 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/VXGI bac8f80de4544dd7b5e7741bab2ab299/Untitled 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/VXGI bac8f80de4544dd7b5e7741bab2ab299/Untitled 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/VXGI bac8f80de4544dd7b5e7741bab2ab299/Untitled 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/VXGI bac8f80de4544dd7b5e7741bab2ab299/Untitled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/Visibility Buffer 328fe9588ec5451faf76588581bfd0b1.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/Visibility Buffer 328fe9588ec5451faf76588581bfd0b1/Untitled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/动态光源优化 3dcc82b1b9ed4887b642f6edb3c355c0/OS2BMSUAK(UKJUC17A8W.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/动态光源优化 3dcc82b1b9ed4887b642f6edb3c355c0/P0LVW5ACC594DI)Y3D12M.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/动态光源优化 3dcc82b1b9ed4887b642f6edb3c355c0/Untitled 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/动态光源优化 3dcc82b1b9ed4887b642f6edb3c355c0/Untitled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/图片压缩算法 37b07de836514407b210f68c9a91c0ec.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/图片压缩算法 37b07de836514407b210f68c9a91c0ec/Untitled 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/图片压缩算法 37b07de836514407b210f68c9a91c0ec/Untitled 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/图片压缩算法 37b07de836514407b210f68c9a91c0ec/Untitled 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/图片压缩算法 37b07de836514407b210f68c9a91c0ec/Untitled 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/图片压缩算法 37b07de836514407b210f68c9a91c0ec/Untitled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled 6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/旋转相关 4cf01f6c2d37404ba421f52a0d30f0cc/Untitled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/OS2BMSUAKUKJUC17A8W.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/P0LVW5ACC594DI)Y3D12M.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled 5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled 6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled 7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled 8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled 9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/杂项 5b7a33b443b4469482b32406094b9773/Untitled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled 5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/空间结构划分 4c6a1b50e90841d3b3e7ce5734c4210b/Untitled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/范数 7e8460db51a840648bc0541f33b4af00.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/范数 7e8460db51a840648bc0541f33b4af00/Untitled 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/范数 7e8460db51a840648bc0541f33b4af00/Untitled 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/范数 7e8460db51a840648bc0541f33b4af00/Untitled 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/范数 7e8460db51a840648bc0541f33b4af00/Untitled 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/范数 7e8460db51a840648bc0541f33b4af00/Untitled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/迭代法 d5c9fb20c6d746ceadd94b6beb306cd3.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/迭代法 d5c9fb20c6d746ceadd94b6beb306cd3/Untitled 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/迭代法 d5c9fb20c6d746ceadd94b6beb306cd3/Untitled 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/迭代法 d5c9fb20c6d746ceadd94b6beb306cd3/Untitled 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/图形学笔记 b18a92c69072446d8004605d7c56b687/迭代法 d5c9fb20c6d746ceadd94b6beb306cd3/Untitled.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +292,10 @@
       <workItem from="1674216499670" duration="1468000" />
       <workItem from="1674270583201" duration="4342000" />
       <workItem from="1674708048317" duration="3057000" />
-      <workItem from="1674904590492" duration="8926000" />
+      <workItem from="1674904590492" duration="10839000" />
+      <workItem from="1675685001788" duration="2194000" />
+      <workItem from="1675788650412" duration="3563000" />
+      <workItem from="1676172371349" duration="3386000" />
     </task>
     <task id="LOCAL-00001" summary="N">
       <created>1671124293172</created>
@@ -146,7 +353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674216395666</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Update wed">
+      <created>1675080255489</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1675080255489</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +400,7 @@
     <MESSAGE value="add simulation paper" />
     <MESSAGE value="更新文章" />
     <MESSAGE value="new pape" />
-    <option name="LAST_COMMIT_MESSAGE" value="new pape" />
+    <MESSAGE value="Update wed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update wed" />
   </component>
 </project>
