@@ -28,7 +28,7 @@
     "hexo-server": "^3.0.0",
     "hexo-symbols-count-time": "^0.7.1",
     "hexo-tag-bilibili": "^0.3.1",
-    "hexo-theme-landscape": "^0.0.3",
+    "hexo-theme-landscape": "^1.0.0",
     "markdown-it-container": "^3.0.0"
   }
 }
