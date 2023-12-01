@@ -1,0 +1,1311 @@
+<hr />
+<h2 id="title-hlsl语言基础date-2022-04-07-1200count-truetags-图形学笔记category-图形学笔记"><a class="anchor" href="#title-hlsl语言基础date-2022-04-07-1200count-truetags-图形学笔记category-图形学笔记">#</a> title: HLSL 语言基础<br />
+ date: 2022-04-07 12:00<br />
+count: true<br />
+tags: 图形学笔记<br />
+ category: 图形学笔记</h2>
+<h1 id="hlsl语言基础"><a class="anchor" href="#hlsl语言基础">#</a> HLSL 语言基础</h1>
+<p><a href="https://en.wikipedia.org/wiki/High-Level_Shading_Language">HLSL</a>(High-Level Shading Language， <a href="https://zh.wikipedia.org/wiki/%E9%AB%98%E7%BA%A7%E7%9D%80%E8%89%B2%E5%99%A8%E8%AF%AD%E8%A8%80">高级着色语言</a>) 是由微软开发的一种着色器语言，D3D9 及以上版本使用其作为着色语言（注：D3D8 的 shader 使用是类似于汇编的语言来编写），拥有如下特点：</p>
+<ol>
+<li>基于 C 语言的语法（如：大小写敏感，每条语句必须以分号结尾），是一门面向过程的强类型语言（type sensitive language）</li>
+<li>除了 bool、int、uint、half、float、double 基础类型外，还支持数组类型，另外 HLSL 还内置了适合 3D 图形操作的向量与矩阵类型，以及采样器（纹理）类型</li>
+<li>基础类型的隐式转换规则与 C 语言一致</li>
+<li>变量没有赋初值时，都会被填充为 false、0 或 0.0</li>
+<li>if 条件语句和 switch 条件语句与 C 语言一致</li>
+<li>for 循环语句和 while 循环语句与 C 语言一致</li>
+<li>return、continue 和 break 与 C 语言一致。另外引入了 discard，该关键字只能在 ps 中使用，表示放弃当前像素，直接处理下一个像素。</li>
+<li>无指针、无字符和字符串类型</li>
+<li>无 union、无 enum</li>
+<li>向量、矩阵可通过构造函数进行初始化</li>
+</ol>
+<h1 id="通用着色器的核心"><a class="anchor" href="#通用着色器的核心">#</a> <strong>通用着色器的核心</strong></h1>
+<p>所有的可编程着色器阶段使用通用着色器核心来实现相同的基础功能。此外，顶点着色阶段、几何着色阶段和像素着色阶段则提供了独特的功能。</p>
+<p>例如几何着色阶段可以生成新的图元或删减图元，像素着色阶段可以决定当前像素是否被抛弃等。</p>
+<p>下图展示了数据是怎么流向一个着色阶段，以及通用着色器核心与着色器内存资源之间的关系：</p>
+<p><strong>Input Data</strong>：顶点着色器从输入装配阶段获取数据；几何着色器则从上一个着色阶段的输出获取等等。通过给形参引入可以使用的系统值可以提供额外的输入</p>
+<p><strong>Output Data</strong>：着色器生成输出的结果然后传递给管线的下一个阶段。有些输出会被通用着色器核心解释成特定用途（如顶点位置、渲染目标对应位置的值），另外一些输出则由应用程序来解释。</p>
+<p><strong>Shader Code</strong>：着色器代码可以从内存读取，然后用于执行代码中所期望的内容。</p>
+<p><strong>Samplers</strong>：采样器决定了如何对纹理进行采样和滤波。</p>
+<p><strong>Textures</strong>：纹理可以使用采样器进行采样，也可以基于索引的方式按像素读取。</p>
+<p><strong>Buffers</strong>：缓冲区可以使用读取相关的内置函数，在内存中按元素直接读取。</p>
+<p><strong>Constant Buffers</strong>：常量缓冲区对常量值的读取有所优化。他们被设计用于 CPU 对这些数据的频繁更新，因此他们有额外的大小、布局和访问限制。</p>
+<h2 id="注释"><a class="anchor" href="#注释">#</a> <strong>注释</strong></h2>
+<p>单行注释</p>
+<p>多行注释</p>
+<figure class="highlight raw"><figcaption data-lang=""><span>raw</span></figcaption><table><tr><td data-num="1"></td><td><pre>&#x2F;*********************************</pre></td></tr><tr><td data-num="2"></td><td><pre> This is my first HLSL.</pre></td></tr><tr><td data-num="3"></td><td><pre> Let&#39;s take a look.</pre></td></tr><tr><td data-num="4"></td><td><pre>*********************************&#x2F;</pre></td></tr></table></figure><h2 id="预处理"><a class="anchor" href="#预处理">#</a> <strong>预处理</strong></h2>
+<p>#if #elif [defined (), !defined ()] #else #ifdef #ifndef #endif // 条件编译</p>
+<figure class="highlight hlsl"><figcaption data-lang="hlsl"><span>hlsl</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">TEST1</span>  <span class="token comment">// 定义为空的宏</span></span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">TEST1  </span><span class="token comment">// 条件成立</span></span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">TEST1</span> <span class="token expression"><span class="token number">1</span> </span><span class="token comment">// 定义 TEST1 宏为 1  注：可以不用先 undef TEST1 宏 但会报 warning X1519: 'TEST1' : macro redefinition</span></span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">undef</span> <span class="token expression">TEST1  </span><span class="token comment">// 取消 TEST1 宏</span></span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression">TEST1  </span><span class="token comment">// 条件不成立</span></span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">TEST1  </span><span class="token comment">// 条件成立</span></span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">TEST1</span> <span class="token expression"><span class="token operator">-</span><span class="token number">1</span>  </span><span class="token comment">// 定义为 int 的宏</span></span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">TEST2</span> <span class="token comment">// 定义为空的宏</span></span></pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression">TEST1 <span class="token operator">&amp;&amp;</span> <span class="token function">defined</span><span class="token punctuation">(</span>TEST2<span class="token punctuation">)</span> </span><span class="token comment">// 条件成立</span></span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">TEST3</span> <span class="token expression"><span class="token boolean">true</span> </span><span class="token comment">// 定义为 bool 的宏</span></span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression">TEST3  </span><span class="token comment">// 条件不成立</span></span></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span></pre></td></tr><tr><td data-num="27"></td><td><pre></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token operator">!</span>TEST3  </span><span class="token comment">// 条件成立</span></span></pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span></pre></td></tr><tr><td data-num="30"></td><td><pre></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression">TEST3<span class="token operator">==</span><span class="token boolean">true</span>  </span><span class="token comment">// 条件成立</span></span></pre></td></tr><tr><td data-num="32"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span></pre></td></tr><tr><td data-num="33"></td><td><pre></pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token operator">!</span><span class="token function">defined</span><span class="token punctuation">(</span>TEST0<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> TEST1 <span class="token operator">&amp;&amp;</span> <span class="token function">defined</span><span class="token punctuation">(</span>TEST2<span class="token punctuation">)</span> </span><span class="token comment">// 条件成立</span></span></pre></td></tr><tr><td data-num="35"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span></pre></td></tr><tr><td data-num="36"></td><td><pre></pre></td></tr><tr><td data-num="37"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">TEST4</span> <span class="token expression"><span class="token number">100</span>  </span><span class="token comment">// 定义为 int 的宏</span></span></pre></td></tr><tr><td data-num="38"></td><td><pre></pre></td></tr><tr><td data-num="39"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression">TEST4  </span><span class="token comment">// 条件成立</span></span></pre></td></tr><tr><td data-num="40"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span></pre></td></tr><tr><td data-num="41"></td><td><pre></pre></td></tr><tr><td data-num="42"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression">TEST4 <span class="token operator">></span> <span class="token number">150</span></span></span></pre></td></tr><tr><td data-num="43"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">elif</span> <span class="token expression"><span class="token punctuation">(</span>TEST4 <span class="token operator">></span> <span class="token number">120</span><span class="token punctuation">)</span> <span class="token operator">||</span> TEST1 </span><span class="token comment">// 进入 elif 分支</span></span></pre></td></tr><tr><td data-num="44"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span></pre></td></tr><tr><td data-num="45"></td><td><pre></pre></td></tr><tr><td data-num="46"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression">TEST4 <span class="token operator">></span> <span class="token number">160</span></span></span></pre></td></tr><tr><td data-num="47"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">else</span> <span class="token comment">// 进入 else 分支</span></span></pre></td></tr><tr><td data-num="48"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">XX2</span> <span class="token expression"><span class="token number">1</span></span></span></pre></td></tr><tr><td data-num="49"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span></pre></td></tr><tr><td data-num="50"></td><td><pre></pre></td></tr><tr><td data-num="51"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token operator">!</span>TEST4</span></span></pre></td></tr><tr><td data-num="52"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">elif</span> <span class="token expression"><span class="token punctuation">(</span>TEST4 <span class="token operator">></span> <span class="token number">110</span><span class="token punctuation">)</span></span></span></pre></td></tr><tr><td data-num="53"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">else</span> <span class="token comment">// 进入 else 分支</span></span></pre></td></tr><tr><td data-num="54"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span></pre></td></tr><tr><td data-num="55"></td><td><pre></pre></td></tr><tr><td data-num="56"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">TEST5</span> <span class="token expression"><span class="token number">2.0</span>  </span><span class="token comment">// 定义为 float 的宏</span></span></pre></td></tr><tr><td data-num="57"></td><td><pre></pre></td></tr><tr><td data-num="58"></td><td><pre><span class="token comment">//#if TEST5  //float 不能进行条件判断  编译失败</span></pre></td></tr><tr><td data-num="59"></td><td><pre><span class="token comment">//#endif</span></pre></td></tr><tr><td data-num="60"></td><td><pre></pre></td></tr><tr><td data-num="61"></td><td><pre><span class="token comment">//#if TEST5>0.0  //float 不能进行条件判断  编译失败</span></pre></td></tr><tr><td data-num="62"></td><td><pre><span class="token comment">//#endif1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.17.18.19.20.21.22.23.24.25.26.27.28.29.30.31.32.33.34.35.36.37.38.39.40.41.42.43.44.45.46.47.48.49.50.51.52.53.54.55.56.57.58.59.60.61.62.</span></pre></td></tr></table></figure><p>#define #undef // 宏定义、宏取消</p>
+<figure class="highlight raw"><figcaption data-lang=""><span>raw</span></figcaption><table><tr><td data-num="1"></td><td><pre>#define TEST1 100  &#x2F;&#x2F; 定义 TEST1 宏为 100</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>#ifdef TEST1  &#x2F;&#x2F; 条件成立</pre></td></tr><tr><td data-num="4"></td><td><pre>#undef TEST1   &#x2F;&#x2F; 取消 TEST1 宏的定义</pre></td></tr><tr><td data-num="5"></td><td><pre>#endif</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>#if !defined (TEST1) &#x2F;&#x2F; 条件成立</pre></td></tr><tr><td data-num="8"></td><td><pre>#endif</pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>#define SQUARE (a) ((a)*(a))</pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>#define MAX (a,b) \</pre></td></tr><tr><td data-num="13"></td><td><pre>    (((a) &gt; (b)) ? (a) : (b)) &#x2F;&#x2F; 宏必须在一行写完，多行写时必须带上 \ 行连接符，但要注意 \ 后不要有空格，否则会编译失败</pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>#define MERGE (a, b) a##b &#x2F;&#x2F; ## 字符拼接符 1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.</pre></td></tr></table></figure><p>#line // 指示下一行的行号，及当前所在的文件；该命令会修改__FILE__、__LINE__的值</p>
+<p>该命令是提供给编译器使用的，程序员最好不要使用该命令</p>
+<figure class="highlight raw"><figcaption data-lang=""><span>raw</span></figcaption><table><tr><td data-num="1"></td><td><pre>#if __LINE__&#x3D;&#x3D;10  &#x2F;&#x2F; 判断当前行号是否为 10</pre></td></tr><tr><td data-num="2"></td><td><pre>#endif</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre>#if __FILE__&#x3D;&#x3D;0  &#x2F;&#x2F; 条件成立  __FILE__始终为 0</pre></td></tr><tr><td data-num="5"></td><td><pre>#endif</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>#line 116 &#x2F;&#x2F; 指定下一行的行号为 116</pre></td></tr><tr><td data-num="8"></td><td><pre>#if __LINE__&#x3D;&#x3D;116  &#x2F;&#x2F; 条件成立</pre></td></tr><tr><td data-num="9"></td><td><pre>#endif</pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>#line 200 &quot;test.hlsl&quot;  &#x2F;&#x2F; 指定下一行的行号为 200，当前文件的 ID 标识为 5</pre></td></tr><tr><td data-num="12"></td><td><pre>#if __FILE__&#x3D;&#x3D;0  &#x2F;&#x2F; 条件成立   __FILE__始终为 0</pre></td></tr><tr><td data-num="13"></td><td><pre>#endif</pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>&#x2F;&#x2F;test.hlsl (204,2): error: This is an error!</pre></td></tr><tr><td data-num="16"></td><td><pre>#error This is an error!1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.</pre></td></tr></table></figure><p>#error //error 命令被执行，会导致当前文件编译失败</p>
+<figure class="highlight raw"><figcaption data-lang=""><span>raw</span></figcaption><table><tr><td data-num="1"></td><td><pre>&#x2F;&#x2F; E:\ModenD3D\HLSL-Development-Cookbook\book_sample\Chpater 1 - Forward Light\Ambient Light\ForwardLight.hlsl(40,2): error: This is an error!</pre></td></tr><tr><td data-num="2"></td><td><pre>#error This is an error!</pre></td></tr></table></figure><p>#pragma // 用来控制编译器的一些行为</p>
+<figure class="highlight raw"><figcaption data-lang=""><span>raw</span></figcaption><table><tr><td data-num="1"></td><td><pre>#pragma warning (disable : 1519; once : 3205; error : 3206) &#x2F;&#x2F; 忽略 1519 warning，只报一次 3205 warning，3206 warning 视为 error</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>#define TEST1  &#x2F;&#x2F; 定义为空的宏</pre></td></tr><tr><td data-num="4"></td><td><pre>#define TEST1 1 &#x2F;&#x2F; 定义 TEST1 宏为 1  注：可以不用先 undef TEST1 宏 但会报 warning X1519: &#39;TEST1&#39; : macro redefinition</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>#pragma message (&quot;Hello HLSL.&quot;) &#x2F;&#x2F;Hello HLSL.</pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>#pragma pack_matrix ( column_major ) &#x2F;&#x2F; 将 uniform 参数的 matrix 设置成列主序（缺省）  注 1：列主序生成的指令数更少，因此其效率比行主序的效率要高  注 2：构造 matrix 时不受 #pragma pack_matrix 影响，始终为行主序</pre></td></tr><tr><td data-num="9"></td><td><pre>#pragma pack_matrix ( row_major ) &#x2F;&#x2F; 将 uniform 参数的 matrix 设置成行主序</pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>#error This is an error! &#x2F;&#x2F;hlsl 中出现 error 时，才会打印 pragma message 和 warning 信息 1.2.3.4.5.6.7.8.9.10.11.</pre></td></tr></table></figure><p>注 1：需要注意的是，hlsl 中出现 error 时（#error 或语法错误），才会打印 pragma message 和 warning 信息</p>
+<p>注 2：更多 error、warning number 说明，详见： <a href="https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/hlsl-errors-and-warnings">https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/hlsl-errors-and-warnings</a></p>
+<p>注 3：在 C<ins> 代码层中，DirectXMath 数学库创建的矩阵都是行矩阵，但当矩阵从 C</ins> 传递给 HLSL 时，HLSL 默认是列矩阵的，因此传递前要进行了一次转置。如果希望不发生转置操作的话，可以添加修饰关键字 row_major</p>
+<p>#include // 引用其他 hlsl 文件 与 c/c++ 语言用法一致</p>
+<figure class="highlight raw"><figcaption data-lang=""><span>raw</span></figcaption><table><tr><td data-num="1"></td><td><pre>#include &quot;common.hlsl&quot; &#x2F;&#x2F; 引用其他的 hlsl 文件</pre></td></tr></table></figure><p><strong>typedef</strong></p>
+<p>用于类型的别名，用法与 C 语言一致</p>
+<figure class="highlight raw"><figcaption data-lang=""><span>raw</span></figcaption><table><tr><td data-num="1"></td><td><pre>typedef vector&lt;float, 3&gt; POINT;</pre></td></tr><tr><td data-num="2"></td><td><pre>typedef const float CFLOAT;</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre>POINT pt;</pre></td></tr><tr><td data-num="5"></td><td><pre>CFLOAT cf1;</pre></td></tr></table></figure><p><strong>运算符</strong></p>
+<p>除了没有指针相关的运算符外，其他的与 c 语言完全一致</p>
+<p>注 1：对于向量、矩阵类型，运算符会在各个分量上进行</p>
+<p>注 2：支持浮点数取模 %</p>
+<figure class="highlight raw"><figcaption data-lang=""><span>raw</span></figcaption><table><tr><td data-num="1"></td><td><pre>int n1 &#x3D; 5 % 3;  &#x2F;&#x2F; 取模即求余数，结果为 2</pre></td></tr><tr><td data-num="2"></td><td><pre>float f1 &#x3D; 3.3 % 1.6; &#x2F;&#x2F; 3.3-(int)(3.3&#x2F;1.6)*1.6 &#x3D; 3.3-2*1.6 &#x3D; 0.1</pre></td></tr><tr><td data-num="3"></td><td><pre>float f2 &#x3D; -3.3 % 1.6; &#x2F;&#x2F;-3.3-(int)(-3.3&#x2F;1.6)*1.6 &#x3D; -3.3-(-2*1.6) &#x3D; -0.1</pre></td></tr></table></figure><p>注 3：二元运算中变量类型的提升规则：</p>
+<p>① 对于二元运算来说，如果运算符左右操作数的维度不同，那么维度较小的变量类型将会被隐式提升为维度较大的变量类型。但是这种提升仅限于标量到向量的提升，即 x 会变为 (x, x, x)。但是不支持像 float2 到 float3 的提升。</p>
+<p>② 对于二元运算来说，如果运算符左右的操作数类型不同，那么低精度变量的类型将被隐式提升为高精度变量的类型，这点和 C/C++ 是类似的。</p>
+<hr />
+<h2 id="控制流"><a class="anchor" href="#控制流">#</a> <strong>控制流</strong></h2>
+<h3 id="条件语句"><a class="anchor" href="#条件语句">#</a> <strong>条件语句</strong></h3>
+<p>HLSL 也支持 <code>if</code> ,  <code>else</code> ,  <code>continue</code> ,  <code>break</code> ,  <code>switch</code>  关键字，此外 <code>discard</code>  关键字用于像素着色阶段抛弃该像素。</p>
+<p>条件的判断使用一个布尔值进行，通常由各种逻辑运算符或者比较运算符操作得到。注意向量之间的比较或者逻辑操作是得到一个存有布尔值的向量，不能够直接用于条件判断，也不能用于 <code>switch</code>  语句。</p>
+<h3 id="判断与动态分支"><a class="anchor" href="#判断与动态分支">#</a> 判断与动态分支</h3>
+<p>基于值的条件分支只有在程序执行的时候被编译好的着色器汇编成两种方式：<strong>判断 (predication)<strong> 和</strong>动态分支 (dynamic branching)</strong>。</p>
+<p>如果使用的是判断的形式，编译器会提前计算两个不同分支下表达式的值。然后使用比较指令来基于比较结果来 &quot;选择&quot; 正确的值。</p>
+<p>而动态分支使用的是跳转指令来避免一些非必要的计算和内存访问。</p>
+<p>着色器程序在同时执行的时候应当选择相同的分支，以防止硬件在分支的两边执行。通常情况下，硬件会同时将一系列连续的顶点数据传入到顶点着色器并行计算，或者是一系列连续的像素单元传入到像素着色器同时运算等。</p>
+<p>动态分支会由于执行分支指令所带来的开销而导致一定的性能损失，因此要权衡动态分支的开销和可以跳过的指令数目。</p>
+<p>通常情况下编译器会自行选择使用判断还是动态分支，但我们可以通过重写某些属性来修改编译器的行为。我们可以在条件语句前可以选择添加下面两个属性之一：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[branch]</td>
+<td>缺省。根据条件值的结果，只计算其中一边的内容，会产生跳转指令。</td>
+</tr>
+<tr>
+<td>[flatten]</td>
+<td>两边的分支内容都会计算，然后根据条件值选择其中一边。可以避免跳转指令的产生。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight raw"><figcaption data-lang=""><span>raw</span></figcaption><table><tr><td data-num="1"></td><td><pre>[flatten]</pre></td></tr><tr><td data-num="2"></td><td><pre>if (x)</pre></td></tr><tr><td data-num="3"></td><td><pre>&#123;</pre></td></tr><tr><td data-num="4"></td><td><pre>    x &#x3D; sqrt(x);</pre></td></tr><tr><td data-num="5"></td><td><pre>&#125;1.2.3.4.5.</pre></td></tr></table></figure><h3 id="循环语句"><a class="anchor" href="#循环语句">#</a> <strong>循环语句</strong></h3>
+<p>HLSL 也支持 <code>for</code> ,  <code>while</code>  和 <code>do while</code>  循环。和条件语句一样，它可能也会在基于运行时的条件值判断而产生动态分支，从而影响程序性能。用法如下：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[loop]</td>
+<td>缺省。默认不加属性的循环语句为 loop 型。</td>
+</tr>
+<tr>
+<td>[unroll]</td>
+<td>如果循环次数较小，我们可以使用属性 [unroll] 来展开循环，代价是产生更多的汇编指令。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight raw"><figcaption data-lang=""><span>raw</span></figcaption><table><tr><td data-num="1"></td><td><pre>times &#x3D; 4;</pre></td></tr><tr><td data-num="2"></td><td><pre>sum &#x3D; times;</pre></td></tr><tr><td data-num="3"></td><td><pre>[unroll]</pre></td></tr><tr><td data-num="4"></td><td><pre>while (times--)</pre></td></tr><tr><td data-num="5"></td><td><pre>&#123;</pre></td></tr><tr><td data-num="6"></td><td><pre>    sum +&#x3D; times;</pre></td></tr><tr><td data-num="7"></td><td><pre>&#125;1.2.3.4.5.6.7.</pre></td></tr></table></figure><h3 id="寄存器register"><a class="anchor" href="#寄存器register">#</a> <strong>寄存器（register）</strong></h3>
+<p>用于在 C++ 与 HLSL 之间传递数据，包括如下 4 种：</p>
+<table>
+<thead>
+<tr>
+<th>寄存器</th>
+<th>说明</th>
+<th>上限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>b</td>
+<td>常量缓冲区视图 (CBV)，用于从 C++ 传递只读数据给 HLSL</td>
+<td>15 个常量缓冲区（共 16 个，系统内部保留 1 个）</td>
+</tr>
+<tr>
+<td>t</td>
+<td>着色器资源视图 (SRV)，用于从 C++ 传递只读内存块或纹理数据给 HLSL</td>
+<td>128 个</td>
+</tr>
+<tr>
+<td>u</td>
+<td>无序访问视图 (UAV)，用于可读写数据的传递</td>
+<td></td>
+</tr>
+<tr>
+<td>s</td>
+<td>用于从 C++ 传递采样器设置给 HLSL</td>
+<td>128 个</td>
+</tr>
+</tbody>
+</table>
+<h3 id="变量"><a class="anchor" href="#变量">#</a> <strong>变量</strong></h3>
+<p>变量名需要符合以下规则：</p>
+<p>① 只能包括大小写字母、数字和下划线</p>
+<p>② 变量名不能以数字开头</p>
+<p>③ 不能是关键字或预留的关键字</p>
+<p>全局变量：定义在函数体外的变量。作用域规则与 c 语言全局变量一致。</p>
+<p>局部变量：定义在函数内的变量。作用域规则与 c 语言局部变量一致。</p>
+<p>const 变量</p>
+<p>该变量为一常量，需要被初始化，在运行时不能被修改，与 c/c++ 用法一致</p>
+<p>static 变量</p>
+<p>进一步可分为 static 局部变量和 static 全局变量，与 c/c++ 用法一致</p>
+<p>static 局部变量需要在 HLSL 中自己初始化，否则使用默认初始化，初始化操作仅执行一次（首次被访问时）</p>
+<p>只在着色器内部可见</p>
+<p>extern 变量</p>
+<p>在全局变量上可用，非静态的全局变量默认是 extern 类型</p>
+<p>可在着色器外被访问，比如被 C++ 应用程序</p>
+<p>uniform 变量</p>
+<p>在 D3D 代码中初始化，然后再作为输入传给着色器</p>
+<p>允许在 C++ 应用层中修改，但在着色器执行的过程中，其值始终保持不变（运行前可变，运行时不变）。着色器程序中的全局变量默认为既 uniform 又 extern</p>
+<p>volatile 变量</p>
+<p>表示该变量经常被修改，用于局部变量</p>
+<p>shared 变量</p>
+<p>在全局变量上可用，提示效果框架该变量可在多个效果之间共享</p>
+<p>nointerpolation -- 修饰的变量，在将顶点着色器的输出传递到像素着色器之前，请勿对其进行插值</p>
+<p>groupshared -- 将一个变量标记为用于计算着色器的线程组共享内存</p>
+<p>precise -- 用于保证该变量在计算时，是严格精确的</p>
+<p>row_major -- 标记一个可在单个行中存储 4 个成分的变量，以便可以将它们存储在单个常量寄存器中</p>
+<p>column_major -- 标记一个可在单个列中存储 4 个成分的变量，以优化矩阵数学 （缺省）</p>
+<h3 id="语义"><a class="anchor" href="#语义">#</a> <strong>语义</strong></h3>
+<p><a href="https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-semantics">语义</a>通常是附加在着色器输入 / 输出参数上的字符串。它在着色器程序的用途如下：</p>
+<ol>
+<li>用于描述传递给着色器程序的变量参数的含义</li>
+<li>允许着色器程序接受由渲染管线生成的特殊系统值</li>
+<li>允许着色器程序传递由渲染管线解释的特殊系统值</li>
+</ol>
+<h2 id="vs语义"><a class="anchor" href="#vs语义">#</a> vs 语义</h2>
+<table>
+<thead>
+<tr>
+<th>语义</th>
+<th>描述</th>
+<th>是否可作为输入关联</th>
+<th>是否可作为输出关联</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BINORMAL[n]</td>
+<td>副法线（副切线）向量</td>
+<td>Yes</td>
+<td></td>
+<td>float4</td>
+</tr>
+<tr>
+<td>BLENDINDICES[n]</td>
+<td>混合索引</td>
+<td>Yes</td>
+<td></td>
+<td>uint</td>
+</tr>
+<tr>
+<td>BLENDWEIGHT[n]</td>
+<td>混合权重</td>
+<td>Yes</td>
+<td></td>
+<td>float</td>
+</tr>
+<tr>
+<td>COLOR[n]</td>
+<td>漫反射 / 镜面反射颜色</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>float4</td>
+</tr>
+<tr>
+<td>NORMAL[n]</td>
+<td>法向量</td>
+<td>Yes</td>
+<td></td>
+<td>float4</td>
+</tr>
+<tr>
+<td>POSITION[n]</td>
+<td>物体坐标系下的顶点坐标</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>float4</td>
+</tr>
+<tr>
+<td>PSIZE[n]</td>
+<td>点的大小</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>float</td>
+</tr>
+<tr>
+<td>TANGENT[n]</td>
+<td>切线向量</td>
+<td>Yes</td>
+<td></td>
+<td>float4</td>
+</tr>
+<tr>
+<td>TEXCOORD[n]</td>
+<td>纹理坐标</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>float4</td>
+</tr>
+<tr>
+<td>FOG</td>
+<td>顶点雾</td>
+<td></td>
+<td>Yes</td>
+<td>float</td>
+</tr>
+</tbody>
+</table>
+<p>注 1：n 是一个可选的整数，从 0 开始。比如 POSITION0, TEXCOORD1 等等。</p>
+<p>注 2：vs 的输出关联将其运算得到的结果经过光栅化插值后链接到 ps 的输入关联上.</p>
+<h2 id="ps语义"><a class="anchor" href="#ps语义">#</a> <strong>ps 语义</strong></h2>
+<table>
+<thead>
+<tr>
+<th>语义</th>
+<th>描述</th>
+<th>是否可作为输入关联</th>
+<th>是否可作为输出关联</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>COLOR[n]</td>
+<td>漫反射 / 镜面反射颜色</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>float4</td>
+</tr>
+<tr>
+<td>TEXCOORD[n]</td>
+<td>纹理坐标</td>
+<td>Yes</td>
+<td></td>
+<td>float4</td>
+</tr>
+<tr>
+<td>VFACE</td>
+<td>负数表示为背面</td>
+</tr>
+<tr>
+<td>正数表示为正面</td>
+<td>Yes</td>
+<td></td>
+<td>float</td>
+</tr>
+<tr>
+<td>VPOS</td>
+<td>像素所在坐标</td>
+<td>Yes</td>
+<td></td>
+<td>float2</td>
+</tr>
+<tr>
+<td>DEPTH[n]</td>
+<td>深度值</td>
+<td></td>
+<td>Yes</td>
+<td>float</td>
+</tr>
+</tbody>
+</table>
+<p>注： ps 输出关联将其输出颜色绑定给正确的 RT 上（渲染目标）。其中颜色输出被连接到 alpha 混合阶段，DEPTH 输出关联用于改变当前光栅化位置的目标深度值</p>
+<h2 id="系统值语义"><a class="anchor" href="#系统值语义">#</a> <strong>系统值语义</strong></h2>
+<p>所有的系统值都包含前缀 <code>SV_</code> ，后面的部分大小写不敏感，例如：SV_Positon 和 SV_POSITION 是一样的。这些系统值将用于某些着色器的特定用途。</p>
+<table>
+<thead>
+<tr>
+<th>系统值</th>
+<th>描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SV_Depth</td>
+<td>深度缓冲区数据，可以被任何着色器写入 / 读取</td>
+<td>float</td>
+</tr>
+<tr>
+<td>SV_InstanceID</td>
+<td>每个实例都会在运行期间自动生成一个 ID。在任何着色器阶段都能读取</td>
+<td>uint</td>
+</tr>
+<tr>
+<td>SV_IsFrontFace</td>
+<td>指定该三角形是否为正面。可以被几何着色器写入，以及可以被像素着色器读取</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>SV_Position</td>
+<td>若被声明用于输入到着色器，它描述的是像素位置，在所有着色器中都可用，可能会有 0.5 的偏移值</td>
+<td>float4</td>
+</tr>
+<tr>
+<td>SV_PrimitiveID</td>
+<td>每个原始拓扑都会在运行期间自动生成一个 ID。可用在几何 / 像素着色器中写入，也可以在像素 / 几何 / 外壳 / 域着色器中读取</td>
+<td>uint</td>
+</tr>
+<tr>
+<td>SV_StencilRef</td>
+<td>代表当前像素着色器的模板引用值。只可以被像素着色器写入</td>
+<td>uint</td>
+</tr>
+<tr>
+<td>SV_VertexID</td>
+<td>每个实例都会在运行期间自动生成一个 ID。仅允许作为顶点着色器的输入</td>
+<td>uint</td>
+</tr>
+<tr>
+<td>SV_TARGET</td>
+<td>SV_TARGET 即 Color 缓存区（帧缓存，FrameBuffer）</td>
+<td></td>
+</tr>
+<tr>
+<td>SV_TARGET[n] 0 &lt;= n &lt;= 7</td>
+<td>MRT 有多个 RenderTarget 输出</td>
+<td></td>
+</tr>
+<tr>
+<td>SV_ClipDistance0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SV_RenderTargetArrayIndex</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SV_TessFactor</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SV_InsideTessFactor</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SV_DomainLocation</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SV_GroupID</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SV_GroupIndex</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SV_GroupThreadID</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SV_DispatchThreadID</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="着色器常量"><a class="anchor" href="#着色器常量">#</a> <strong>着色器常量</strong></h3>
+<p><a href="https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-constants">着色器常量</a>存在内存中的一个或多个缓冲区资源当中。他们可以被组织成两种类型的缓冲区：常量缓冲区（cbuffers）和纹理缓冲区（tbuffers）。</p>
+<h2 id="常量缓冲区constant-buffer"><a class="anchor" href="#常量缓冲区constant-buffer">#</a> <strong>常量缓冲区 (Constant Buffer)</strong></h2>
+<p>常量缓冲区允许 C++ 端将数据传递给 HLSL 中使用，在 HLSL 中，这些传递过来的数据不可更改，因而是常量。常量缓冲区对这种使用方式有所优化，表现为低延迟的访问和允许来自 CPU 的频繁更新，因此他们有额外的大小、布局和访问限制。</p>
+<p>① 每个着色器阶段最多允许 15 个常量缓冲区（共 16 个，系统内部保留 1 个），并且每个缓冲区最多可以容纳 4096 个标量（每个 vector 最多包含 4 个 float 类型）。HLSL 的 cbuffer 需要指定 register (b#), #的范围为 0 到 14</p>
+<p>② 在 C++ 创建常量缓冲区时大小必须为 16 字节的倍数，因为 HLSL 的常量缓冲区本身以及对它的读写操作需要严格按 16 字节对齐</p>
+<p>③ 对常量缓冲区的成员使用 packoffset 修饰符可以指定起始向量和分量位置</p>
+<p>④ 在更新常量缓冲区时由于数据是提交完整的字节流数据到 GPU，会导致 HLSL 中 cbuffer 的所有成员都被更新。为了减少不必要的更新，可以根据这些参数的更新频率划分出多个常量缓冲区以节省带宽资源</p>
+<p>⑤ 一个着色器在使用了多个常量缓冲区的情况下，这些常量缓冲区相互间都不能出现同名成员</p>
+<p>⑥ 单个常量缓冲区可以同时绑定到不同的可编程着色器阶段，因为这些缓冲区都是只读的，不会导致内存访问冲突。</p>
+<p>一个包含常量缓冲区的 *.hlsli 文件同时被多个着色器文件引用，只是说明这些着色器使用相同的常量缓冲区布局，如果该缓冲区需要在多个着色器阶段使用，你还需要在 C++ 同时将相同的常量缓冲区绑定到各个着色器阶段上</p>
+<p>当我们在 HLSL 中声明常量缓冲区时，还<strong>需要在 HLSL 的声明中使用关键字 <code>register</code>  手动指定对应的寄存器索引</strong>，然后编译器会为对应的着色器阶段自动将其映射到 15 个常量缓冲寄存器的其中一个位置。这些寄存器的名字为 <code>b0</code>  到 <code>b14</code> ：</p>
+<pre><code class="language-c++">/****************************** C++ ******************************/
+struct VS_CONSTANT_BUFFER
+{
+    D3DXMATRIX mWorldViewProj;
+
+    D3DXVECTOR4 vSomeVectorThatMayBeNeededByASpecificShader;
+    float fSomeFloatThatMayBeNeededByASpecificShader;
+
+    float fTime;
+
+    float fSomeFloatThatMayBeNeededByASpecificShader2;
+    float fSomeFloatThatMayBeNeededByASpecificShader3;
+};
+
+/***************************** HLSL *****************************/
+// 在cb0中，第一个 mWorldViewProj : packoffset(c0)表示将会在这个cbuffer中的c0位置开始存储 mWorldViewProj,共使用c0,c1,c2,c3
+// 由于D3DXVECTOR4 vSomeVectorThatMayBeNeededByASpecificShader占据了c4，float fSomeFloatThatMayBeNeededByASpecificShader占据了c5.x，所以float fTime就是c5.y了
+
+// 在C++代码层中，D3DXMATRIX矩阵是行矩阵，但当矩阵从C++传递给HLSL时，HLSL默认是列矩阵的，因此传递前要进行了一次转置。如果希望不发生转置操作的话，则需要添加修饰关键字row_major
+cbuffer cb0
+{
+    row_major float4x4 mWorldViewProj : packoffset(c0);
+
+    float fTime : packoffset(c5.y);
+};1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.17.18.19.20.21.22.23.24.25.26.
+</code></pre>
+<p>注 1：常量缓冲区（constant buffer views，CBV）用 b 寄存器来传递</p>
+<p>注 2：packoffset (c0) 表示起始位置为 c0，其中 c 为一个 float4 的向量 (x,y,z,w)</p>
+<p>在 C++ 端是通过 ID3D11DeviceContext::VSSetConstantBuffers、ID3D11DeviceContext::PSSetConstantBuffers 指定特定的槽 (slot) 来给某一着色器阶段对应的寄存器索引提供常量缓冲区的数据。</p>
+<p>如果是存在多个不同的着色器阶段使用同一个常量缓冲区，那就需要分别给这两个着色器阶段设置好相同的数据。</p>
+<p>综合前面几节内容，下面演示了顶点着色器和常量缓冲区的用法：</p>
+<pre><code class="language-C++">cbuffer ConstantBuffer : register(b0)
+{
+    float4x4 g_WorldViewProj;
+}
+
+void VS_Main(
+    in float4 inPos : POSITION,         // 绑定变量到输入装配器
+    in uint VID : SV_VertexID,          // 绑定变量到系统生成值
+    out float4 outPos : SV_Position)    // 告诉管线将该值解释为输出的顶点位置
+{
+    outPos = mul(inPos, g_WorldViewProj);
+}1.2.3.4.5.6.7.8.9.10.11.12.13.
+</code></pre>
+<p>上面的代码也可以写成：</p>
+<pre><code>cbuffer ConstantBuffer : register(b0)
+{
+    float4x4 g_WorldViewProj;
+}
+
+struct VertexIn
+{
+    float4 inPos : POSITION;    // 源自输入装配器
+    uint VID : SV_VertexID;        // 源自系统生成值
+};
+
+float4 VS_Main(VertexIn vIn) : SV_Position
+{
+    return mul(vIn.inPos, g_WorldViewProj);
+}1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.
+</code></pre>
+<h3 id="纹理缓冲区texture-buffer"><a class="anchor" href="#纹理缓冲区texture-buffer">#</a> <strong>纹理缓冲区（Texture Buffer）</strong></h3>
+<p>纹理缓冲区（tbuffer）并不是用来存储纹理的，而是指可以像纹理那样来访问其中的数据，对于索引类数据有更好的性能。这些数据也是只读的。vs、ps 阶段分别最多可以绑定 128 个 tbuffer。</p>
+<pre><code>tbuffer mytb : register(t0)
+{
+    float weight[256];        // 可以从CPU更新，只读
+}
+</code></pre>
+<h3 id="有类型的缓冲区typed-buffer"><a class="anchor" href="#有类型的缓冲区typed-buffer">#</a> <strong>有类型的缓冲区 (Typed Buffer)</strong></h3>
+<p>这是一种创建和使用起来最简单的缓冲区，其数据可以在 HLSL 被解释成基本 HLSL 类型的数组形式。</p>
+<p><strong>Buffer（只读的缓冲区类型）</strong></p>
+<p><strong>RWBuffer（可读写的缓冲区类型）</strong></p>
+<p><strong>结构化缓冲区（Struct Buffer）</strong></p>
+<p>StructuredBuffer（只读的结构化缓冲区）</p>
+<pre><code>struct TBokeh
+{
+    float2 Pos;
+    float Radius;
+    float4 Color;
+};
+StructuredBuffer&lt;TBokeh&gt; Bokeh : register( t0 );
+StructuredBuffer&lt;float&gt; AvgLum : register( t1 );1.2.3.4.5.6.7.8.
+</code></pre>
+<p>RWStructuredBuffer（可读写的结构化缓冲区）</p>
+<pre><code>// Single raindrop structure
+struct RainDrop
+{
+    float3 Pos;
+    float3 Vel;
+    float State;
+};
+
+// Raindrop buffer
+RWStructuredBuffer&lt;RainDrop&gt; RainData : register( u0 );
+RWStructuredBuffer&lt;float&gt; AverageLum : register( u1 );1.2.3.4.5.6.7.8.9.10.11.
+</code></pre>
+<h3 id="追加消耗缓冲区appendconsume-buffer"><a class="anchor" href="#追加消耗缓冲区appendconsume-buffer">#</a> <strong>追加 / 消耗缓冲区 (Append/Consume Buffer)</strong></h3>
+<p>追加缓冲区和消耗缓冲区类型实际上是结构化缓冲区的特殊变体资源。因为涉及到修改操作，它们只能使用乱序访问视图（unordered access view，UAV）来绑定，用 u 寄存器来传递。</p>
+<p>如果你只是希望这些结构体数据经过着色器变换并且不需要考虑最终的输出顺序要一致，那么使用这两个缓冲区是一种不错的选择。</p>
+<p>AppendStructuredBuffer</p>
+<pre><code>struct TBokeh
+{
+    float2 Pos;
+    float Radius;
+    float4 Color;
+};
+AppendStructuredBuffer&lt;TBokeh&gt; BokehStack : register( u0 );
+
+AppendStructuredBuffer&lt;float3&gt; g_VertexOut : register(u1);1.2.3.4.5.6.7.8.
+</code></pre>
+<p>ConsumeStructuredBuffer</p>
+<pre><code>ConsumeStructuredBuffer&lt;float3&gt; g_VertexIn : register(u0);
+</code></pre>
+<h3 id="字节地址缓冲区byte-address-buffer"><a class="anchor" href="#字节地址缓冲区byte-address-buffer">#</a> <strong>字节地址缓冲区 (Byte Address Buffer)</strong></h3>
+<p>字节地址缓冲区为 HLSL 程序提供了一种更为原始的内存块，程序员自己负责解析内存块的内容</p>
+<p>ByteAddressBuffer（只读的字节地址缓冲区）</p>
+<p>使用着色器资源视图（shader resource views，SRV）来绑定，用 t 寄存器来传递</p>
+<pre><code>ByteAddressBuffer g_ByteAddressBuffer : register(t0);
+</code></pre>
+<p>RWByteAddressBuffer（可读写的结构化缓冲区）</p>
+<p>不仅支持写入，还支持原子操作。使用乱序访问视图（unordered access view，UAV）来绑定，用 u 寄存器来传递。</p>
+<pre><code>RWByteAddressBuffer g_RWByteAddressBuffer : register(u0);
+</code></pre>
+<h1 id="基础类型"><a class="anchor" href="#基础类型">#</a> <strong>基础类型</strong></h1>
+<pre><code>// 布尔型
+bool b1 = true;
+bool b2 = 10; // b2=true
+
+// 32位有符号整型
+int n1 = 10;
+int n2 = { -25 };
+int n3 = 0;
+int n4 = 0.9; // 取整数部分  n4=0
+int n5 = 3L; // n5=3
+int n6 = 0x14; // 16进制 n6=20
+int n7 = 027; // 8进制 n7=23
+int n8 = b1; // n8=1
+
+// 32位无符号整型
+uint u1 = 0;
+uint u2 = 1u;
+uint u3 = 100L;
+uint u4 = 1.5;// 取整数部分  u4=1
+uint u5 = -3.2;// 赋值为负数时  u5=0
+uint u6 = b1;// u6=1
+
+// dword类型与uint类型等价
+dword dw1 = 150;
+dword dw2 = 0.9;// 取整数部分  dw2=0
+dword dw3 = -2.8f;// 赋值为负数时  dw3=0
+
+// 64位双精度浮点型
+double d1 = 200UL;
+double d2 = dw1;
+double d3 = 20.8f;
+double d4 = 320.5;
+
+// 32位单精度浮点型
+float f1 = -250.6;
+float f2 = 130.0f;
+float f3 = d3;
+
+// 16位单精度浮点型
+half h1 = 1.0f;
+half h2 = n6; // h2=20
+half h3 = d4; // h3=320.5
+half h4 = f2; // h4=130.0f
+half h5 = f1 + d1; // h5=-50.6
+
+// 基础类型强制转换
+bool b3 = bool(n3); // b3=false  支持c类型的转换方式
+int n9 = int(f1); // n9=-250  支持c类型的转换方式
+uint u7 = (uint)f1; // u7=0
+uint u8 = (uint)d3; // u8=201.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.17.18.19.20.21.22.23.24.25.26.27.28.29.30.31.32.33.34.35.36.37.38.39.40.41.42.43.44.45.46.47.48.49.50.
+</code></pre>
+<p>注：有些平台可能不支持 int、half 和 double，这种情况下，这些类型将用 float 来模拟</p>
+<h2 id="数组"><a class="anchor" href="#数组">#</a> <strong>数组</strong></h2>
+<p>除了一维数组外，允许有多维数组</p>
+<pre><code>float fa1[5]; // fa1 = {0.0, 0.0, 0.0, 0.0, 0.0}
+int ia1[3] = { 1 ,2 ,3 };
+uint ua1[2][3] = { {2, 3, 5},{4, 8, 7} };
+vector va1[2] = { {0.1, 0.2, 0.13, 0.0}, {1.0, 0.0, 2.0, 1.0} };
+float1x2 ma1[2] = { {2.0, 4.0}, {0.5, 0.6} };1.2.3.4.5.
+</code></pre>
+<h2 id="结构体struct"><a class="anchor" href="#结构体struct">#</a> <strong>结构体（struct）</strong></h2>
+<p>① 可从其他结构体上派生</p>
+<p>② 与 C 语言结构体一样，不允许有构造函数和析构函数</p>
+<p>③ 不能直接对 2 个结构体变量进行比较</p>
+<pre><code>struct base { float param; };
+
+struct light : base // 可从另外一个结构体上继承
+{
+    vector color;
+    float3 position;
+
+    //light(){} // 与C语言一样，不允许有构造函数
+    //~light(){} // 与C语言一样，不允许有析构函数
+
+    void test()
+    {
+        param = 0.5;
+        color.x = 0.2;
+    }
+};
+
+//base s1 = base(2.5); //编译错误 error X3037: constructors only defined for numeric base types
+//light s2 = light(2.1, vector(1.0, 1.0, 0.0, 1.0), float3(10.0, 10.0, 0.0));//编译错误 error X3037: constructors only defined for numeric base types
+light s3, s4;
+//if (s3 == s4) {}// 结构体不能直接比较  编译错误 error X3020 : type mismatch
+
+s3.test();1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.17.18.19.20.21.22.23.
+</code></pre>
+<h2 id="向量"><a class="anchor" href="#向量">#</a> <strong>向量</strong></h2>
+<p>向量的分量可以为：</p>
+<p>① {x,y,z,w} ： 用来获取顶点坐标分量</p>
+<p>② {r,g,b,a} ： 用来获取颜色分量</p>
+<p>从向量中可以同时抽取多个分量，这个过程称作混合（swizzle，或重组、重排）。但要注意地是，以上两种不能相互混着使用，如：xyr、rgyz 等</p>
+<table>
+<thead>
+<tr>
+<th>分量类型</th>
+<th>1 维</th>
+<th>2 维</th>
+<th>3 维</th>
+<th>4 维</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bool</td>
+<td>bool1 // vector&lt;bool,1&gt;</td>
+<td>bool2 // vector&lt;bool,2&gt;</td>
+<td>bool3 // vector&lt;bool,3&gt;</td>
+<td>bool4 // vector&lt;bool,4&gt;</td>
+</tr>
+<tr>
+<td>int</td>
+<td>int1 // vector&lt;int,1&gt;</td>
+<td>int2 // vector&lt;int,2&gt;</td>
+<td>int3 // vector&lt;int,3&gt;</td>
+<td>int4 // vector&lt;int,4&gt;</td>
+</tr>
+<tr>
+<td>uint</td>
+<td>uint1 // vector&lt;uint,1&gt;</td>
+<td>uint2 // vector&lt;uint,2&gt;</td>
+<td>uint3 // vector&lt;uint,3&gt;</td>
+<td>uint4 // vector&lt;uint,4&gt;</td>
+</tr>
+<tr>
+<td>half</td>
+<td>half1 // vector&lt;half,1&gt;</td>
+<td>half2 // vector&lt;half,2&gt;</td>
+<td>half3 // vector&lt;half,3&gt;</td>
+<td>half4 // vector&lt;half,4&gt;</td>
+</tr>
+<tr>
+<td>float</td>
+<td>float1 // vector&lt;float,1&gt;</td>
+<td>float2 // vector&lt;float,2&gt;</td>
+<td>float3 // vector&lt;float,3&gt;</td>
+<td>float4 //vector&lt;float,4&gt; 即 vector</td>
+</tr>
+<tr>
+<td>double</td>
+<td>double1 // vector&lt;double,1&gt;</td>
+<td>double2 // vector&lt;double,2&gt;</td>
+<td>double3 // vector&lt;double,3&gt;</td>
+<td>double4 // vector&lt;double,4&gt;</td>
+</tr>
+</tbody>
+</table>
+<p>注 1：vector 为一个 4 维向量，各元素的类型为 float</p>
+<p>注 2：vector&lt;T, n&gt; 为一个 n 维向量（n 必须介于 1~4 之间），各元素的类型为 T</p>
+<p>注 3：当 N&gt;n 时，可裁剪降维后自动隐式转换 N --&gt; n</p>
+<pre><code>// 向量 vector为4维float类型向量
+vector v1 = { 0.0, 1.0, 0.0, 0.0 };
+vector v2; // v2 = { 0.0, 0.0, 0.0, 0.0 }
+v2[0] = 1.0; // v2 = { 1.0, 0.0, 0.0, 0.0 }
+v2.z = 1.0; // v2 = { 1.0, 0.0, 1.0, 0.0 }
+v2.g = 1.0; // v2 = { 1.0, 1.0, 1.0, 0.0 }
+
+// 混合（swizzle）
+vector v3 = v1.yzwx; // v3 = { 1.0, 0.0, 0.0, 0.0 } 等价于 v3.x=v1.y; v3.y=v1.z; v3.z=v1.w; v3.w=v1.x;
+vector v4 = v1.rbga; // v4 = { 0.0, 0.0, 1.0, 0.0 }  等价于 v4.x=v1.r; v4.y=v1.b; v4.z=v1.g; v4.w=v1.a;
+vector v5 = vector(0.5, 0.2, 1.0, 0.0); // v5 = { 0.5, 0.2, 1.0, 0.0 }  新构造方法
+v5.xz = v1; // v5 = { 0.0, 0.2, 0.0, 0.0 }  只将v1的xz分量赋值给v5，等价于 v5.x=v1.x; v5.z=v1.z;
+
+//vector v6 = vector(0.95); // 编译错误  error X3014: incorrect number of arguments to numeric-type constructor
+vector v6 = (vector)0.95; // v6 = { 0.95, 0.95, 0.95, 0.95 }
+
+vector&lt;float, 4&gt; v7 = v1; // vector&lt;float, 4&gt;即vector类型  v7 = { 0.0, 1.0, 0.0, 0.0 }
+
+// 向量运算
+vector v8 = { 0.2, -0.8, 0.3, 0.6 };
+vector v9 = { 0.0, 0.5, 1.0, 0.2 };
+vector v10 = v8 * 2; // v10 = {0.4, -1.6, 0.6, 1.2}
+vector v11 = v8 + 0.6; // v11 = {0.8, -0.2, 0.9, 1.2}
+vector v12 = v8 + v9; // v12 = { 0.2, -0.3, 1.3, 0.8 }
+vector v13 = v8 * v9; // v13 = {0.0, -0.4, 0.3, 0.12}
+
+// 逐分量进行比较
+vector&lt;bool, 4&gt; v14 = (v8 &gt; v9); // v14 = {true, false, false, true}
+
+// 点乘(内积)
+float ret1 = dot(v8, v9); // 0.2*0.0+(-0.8)*0.5+0.3*1.0+0.6*0.2 = 0.02
+// 叉乘(外积)  3维向量特有
+vector&lt;float, 3&gt; vf3Ret = cross(v8.xyz, v9.xyz); // vf3Ret.x=v8.y*v9.z-v8.z*v9.y = -0.8*1.0-0.3*0.5   = -0.95
+                                                 // vf3Ret.y=v8.z*v9.x-v8.x*v9.z = 0.3*0.0-0.2*1.0    = -0.2
+                                                 // vf3Ret.z=v8.x*v9.y-v8.y*v9.x = 0.2*0.5-(-0.8)*0.0 = 0.1
+
+vector&lt;int, 3&gt; vi3a; // vi3a = {0, 0, 0}
+vi3a.b = 10;  // vi3a = {0, 0, 10}
+
+vector&lt;bool, 2&gt; vb2a; // vb2a = {false, false}
+vb2a.x = true; // vb2a = {true, false}
+
+// float4即vector
+float4 vf4a; // vf4a = { 0.0, 0.0, 0.0, 0.0 }
+vf4a = v2; // vf4a = { 1.0, 1.0, 1.0, 0.0 }
+
+float1 vf1a = 0.75; // float3即vector&lt;float,1&gt; 即float类型
+float f1 = vf1a; // f1为0.75
+float f2 = vf1a.x; // f2为0.75
+float f3 = vf1a.r; // f3为0.75
+
+float2 vf2a = { 0.8, 0.9 }; // float2即vector&lt;float,2&gt;
+float3 vf3a = { 0.2, 0.35, 0.5 }; // float3即vector&lt;float,3&gt;
+float3 vf3b; // vf3b = { 0.0, 0.0, 0.0 }
+
+//vf3b = vf2a; // error 编译错误  低维向量不允许赋值给高维向量
+float2 vf2b = vf3a; // vf2b = { 0.2, 0.35 } 当N&gt;n时，可裁剪降维后自动隐式转换   N --&gt; n
+vf3b = float3(vf2a, 1.0); // vf3b = { 0.8, 0.9, 1.0 }
+vf3b = float3(0.3, vf2a); // vf3b = { 0.3, 0.8, 0.9 }
+vf3b = float3(vf1a, vf2a); // vf3b = { 0.75, 0.8, 0.9 }
+vf3b = v1;  // vf3b = { 0.0, 1.0, 0.0 };  高维向量可赋值给低维向量  后面的部分会被截断
+
+float4 vf4b = { vf2a, vf2a }; // vf4b = { 0.8, 0.9, 0.8, 0.9 }
+float4 vf4c = { 0.7, vf2a, 0.5 }; // vf4c = { 0.7, 0.8, 0.9, 0.5 }
+float4 vf4d = { 0.7, vf3a }; // vf4d = { 0.7, 0.2, 0.35, 0.5 }
+
+bool2 vb2b; // bool2即vector&lt;bool,2&gt;
+int2 vi2a; // int2即vector&lt;int,2&gt;
+uint2 vu2a; // uint2即vector&lt;uint,2&gt;
+// dword2 vdw2a; // error 编译错误  不存在dword2类型
+half2 vh2a; // half2即vector&lt;half,2&gt;
+double2 vd2a; // double2即vector&lt;double,2&gt;
+vf2a = vb2b;
+vf2a = vi2a;
+vf2a = vu2a;
+vf2a = vh2a;
+vf2a = vd2a;1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.17.18.19.20.21.22.23.24.25.26.27.28.29.30.31.32.33.34.35.36.37.38.39.40.41.42.43.44.45.46.47.48.49.50.51.52.53.54.55.56.57.58.59.60.61.62.63.64.65.66.67.68.69.70.71.72.73.74.75.76.77.
+</code></pre>
+<h2 id="矩阵"><a class="anchor" href="#矩阵">#</a> <strong>矩阵</strong></h2>
+<p>按照行优先顺序来存储（行主序）</p>
+<table>
+<thead>
+<tr>
+<th>分量类型</th>
+<th>matrix 类型</th>
+<th>m x n //m 行 n 列</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bool</td>
+<td>matrix&lt;bool, m, n&gt;</td>
+<td>bool1x1、bool1x2、bool1x3、bool1x4……</td>
+</tr>
+<tr>
+<td>int</td>
+<td>matrix&lt;int, m, n&gt;</td>
+<td>int1x1、int1x2、int1x3、int1x4</td>
+</tr>
+<tr>
+<td>uint</td>
+<td>matrix&lt;uint, m, n&gt;</td>
+<td>uint1x1、uint1x2、uint1x3、uint1x4</td>
+</tr>
+<tr>
+<td>half</td>
+<td>matrix&lt;half, m, n&gt;</td>
+<td>half1x1、half1x2、half1x3、half1x4</td>
+</tr>
+<tr>
+<td>float</td>
+<td>matrix&lt;float, m, n&gt;</td>
+<td>float1x1、float1x2、float1x3、float1x4</td>
+</tr>
+<tr>
+<td>注：matrix 即为 float4x4</td>
+</tr>
+<tr>
+<td>double</td>
+<td>matrix&lt;double, m, n&gt;</td>
+<td>double1x1、double1x2、double1x3、double1x4</td>
+</tr>
+</tbody>
+</table>
+<p>注 1：matrix 为一个 4x4 float 矩阵</p>
+<p>注 2：matrix&lt;T, m, n&gt; 为一个 m x n（m、n 必须介于 1~4 之间），各元素的类型为 T</p>
+<p>注 3：当 M&gt;m 且 N&gt;n 时，可裁剪降维后自动隐式转换 M x N --&gt; m x n</p>
+<pre><code class="language-Hlsl">float2 f2a = { 1.6, 1.8 };
+float3 f3a = { 0.0, -1.0, 3.0 };
+float2x2 m2x2a; // m2x2a = {0.0, 0.0, 0.0, 0.0}
+float2x2 m2x2b = { 0.8, 0.6, 2.0, 0.9 }; // m2x2b = {0.8, 0.6, 2.0, 0.9}
+                                         //          | 0.8  0.6 |
+                                         //          | 2.0  0.9 |
+float2x2 m2x2c = float2x2( f3a, 0.1 ); // m2x2c = {0.0, -1.0, 3.0, 0.1}
+                                       //          | 0.0  -1.0 |
+                                       //          | 3.0   0.1 |
+//float2x2 m2x2d = float2x2(f2a, f3a);  // 编译出错  error X3014: incorrect number of arguments to numeric-type constructor
+float2x2 m2x2e = float2x2(f2a, f3a.xz); // m2x2e = {1.6, 1.8, 0.0, 3.0}
+                                        //          | 1.6  1.8 |
+                                        //          | 0.0  3.0 |
+//float2x2 m2x2f = float2x2(5.0); // 编译出错  error X3014: incorrect number of arguments to numeric-type constructor
+float2x2 m2x2g = (float2x2)5.0; // m2x2g = {5.0, 5.0, 5.0, 5.0}
+                                //          | 5.0  5.0 |
+                                //          | 5.0  5.0 |
+
+float2 f2b = m2x2b[0]; // 获取m2x2b的第1个行向量  f2b = {0.8  0.6}
+float2 f2c = m2x2b[1]; // 获取m2x2b的第2个行向量  f2c = {2.0  0.9}
+
+float f1 = m2x2b[0][1]; // 获取m2x2b的第1行第2列元素 f1 = 0.6
+float f2 = m2x2b[0].y; // 获取m2x2b的第1行第2列元素 f2 = 0.6
+float f3 = m2x2b[0].g; // 获取m2x2b的第1行第2列元素 f3 = 0.6
+float f4 = m2x2b._m01; // 获取m2x2b的第1行第2列元素 f4 = 0.6
+float f5 = m2x2b._12; // 获取m2x2b的第1行第2列元素 f5 = 0.6
+float2 f2d = m2x2e._11_22 // 获取m2x2e的第1行第1列元素及第2行第2列元素 Swizzle f2d = {1.6  3.0}
+m2x2e._12_21 = m2x2e._21_12; // 交换m2x2e[0][1]和m2x2e[1][0] Swizzle
+                             // m2x2e = {1.6, 0.0, 1.8, 3.0}
+                             //          | 1.6  0.0 |
+                             //          | 1.8  3.0 |
+m2x2e._m00_m11 = m2x2e._m11_m00;    // 交换M[0][0]和M[1][1]     Swizzle
+                             // m2x2e = {3.0, 0.0, 1.8, 1.6}
+                             //          | 3.0  0.0 |
+                             //          | 1.8  1.6 |
+
+float2x2 m2x2h = m2x2b + m2x2c; // m2x2h = {0.8, -0.4, 5.0, 1.0}
+float2x2 m2x2i = m2x2b * m2x2c; // m2x2i = {0.0, -0.6, 6.0, 0.09}
+float2x2 m2x2j = m2x2b + 0.2; // m2x2j = {1.0, 0.8, 2.2, 1.1}
+float2x2 m2x2k = m2x2b * 2; // m2x2k = {1.6, 1.2, 4.0, 1.8}
+//float2x2 m2x2l = f2a + m2x2b; // 编译错误  error X3020: type mismatch
+//float2x2 m2x2m = f2a * m2x2b; // 编译错误  error X3020: type mismatch
+
+float2x1 m2x1a = { 1.0, 0.2 }; // m2x1a = { 1.0, 0.2 }
+                               //          | 1.0 |
+                               //          | 0.2 |
+float1x2 m1x2a = { 0.3, 1.0 }; // m1x2a = { 0.3, 1.0 }
+                               //         | 0.3  1.0 |
+// 矩阵算术运算  M x N --&gt; m x n   注：当M&gt;m且N&gt;n时，可裁剪降维后自动隐式转换
+float2x1 m2x1b = f2a + m2x1a; // float2向量可与float2x1矩阵进行算术运算
+                              // m1x2b = { 2.6, 2.0 }
+                              //           | 2.6 |
+                              //           | 2.0 |
+float1x1 m1x1a = { 0.2 }; // | 0.2 |
+float3x3 m3x3a = {0.1, 0.0, 0.2, 0.15, -0.1, 0.0, -0.2, 0.0, 0.3};
+                   // | 0.1   0.0  0.2 |
+                   // | 0.15 -0.1  0.0 |
+                   // | -0.2  0.0  0.3 |
+//float2x2 m2x2n = m2x2b + m2x1a; // 编译错误  error X3017: cannot implicitly convert from 'const float2x1' to 'float2x2'
+float2x1 m2x1c = m2x2b + m2x1a; // m1x2c = { 1.8, 0.8 }
+float2x2 m2x2o = m2x2b + m1x1a; // m2x2o = {1.0, 0.8, 2.2, 1.1}  注：m1x1a退化为float
+float2x2 m2x2p = m2x2b + m3x3a; // m2x2p = {0.9, 0.6, 2.15, 0.8}
+//float3x3 m3x3b = m3x3a + m2x2b; // 编译错误 error X3017 : cannot implicitly convert from 'const float2x2' to 'float3x3'
+//float3x3 m3x3c = m2x2b + m3x3a; // 编译错误 error X3017 : cannot implicitly convert from 'const float2x2' to 'float3x3'
+
+// 矩阵-矩阵乘法
+float1x1 m1x1b = mul(m1x2a, m2x1a); //                  | 1.0 |
+                                    // | 0.3  1.0 | mul | 0.2 | = 0.5
+
+float2x2 m2x2r = mul(m2x1a, m1x2a);//  | 1.0 |                    | 0.3  1.0 |
+                                    // | 0.2 | mul | 0.3  1.0 | = | 0.06 0.2 |
+
+// 矩阵右乘向量
+float2x1 m2x1d = mul(m2x2b, f2a);  // f2a被当成列向量
+                                   //  | 0.8  0.6 |     | 1.6 |   | 2.36 |
+                                    // | 2.0  0.9 | mul | 1.8 | = | 4.82 |
+
+// 矩阵左乘向量
+float1x2 m1x2b = mul(f2a, m2x2b);  // f2a被当成行向量
+                                   //                   | 0.8  0.6 |
+                                   //  | 1.6  1.8 | mul | 2.0  0.9 | = | 4.88 2.58 |1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.17.18.19.20.21.22.23.24.25.26.27.28.29.30.31.32.33.34.35.36.37.38.39.40.41.42.43.44.45.46.47.48.49.50.51.52.53.54.55.56.57.58.59.60.61.62.63.64.65.66.67.68.69.70.71.72.73.74.75.76.77.78.79.80.81.82.
+</code></pre>
+<h2 id="纹理texture"><a class="anchor" href="#纹理texture">#</a> <strong>纹理（texture）</strong></h2>
+<p>在 glsl、CG 或 Effects Framework（效果框架）中引用纹理，只需要声明一个 sampler2D。</p>
+<p>而在 HLSL 中，sampler2D 这个对象则被拆分为两部分：即 Texture2D（纹理）和 SamplerState（采样器），需要同时声明两个变量来保存它们。</p>
+<p><strong>纹理</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Texture1D</td>
+<td>1D 纹理</td>
+<td>RWTexture1D&lt;float&gt; tex;</td>
+</tr>
+<tr>
+<td>Texture1DArray</td>
+<td>1D 纹理数组</td>
+<td>RWTexture1DArray&lt;float&gt; tex;</td>
+</tr>
+<tr>
+<td>Texture2D</td>
+<td>2D 纹理</td>
+</tr>
+<tr>
+<td>Texture2DArray</td>
+<td>2D 纹理数组</td>
+<td>Texture2DArray&lt;float&gt; CascadeShadowMapTexture : register( t4 );</td>
+</tr>
+<tr>
+<td>RWTexture2DArray&lt;float&gt; tex;</td>
+</tr>
+<tr>
+<td>Texture3D</td>
+<td>3D 纹理</td>
+<td>RWTexture3D&lt;float&gt; tex;</td>
+</tr>
+<tr>
+<td>Texture2DMS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Texture2DMSArray</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TextureCube</td>
+<td></td>
+<td>TextureCube&lt;float&gt; PointShadowMapTexture : register( t4 );</td>
+</tr>
+<tr>
+<td>TextureCubeArray</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight yaml"><figcaption data-lang="YAML"><span>Texture2D示例</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token key atrule">Texture2D DiffuseTexture</span>    <span class="token punctuation">:</span> register( t0 );</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token key atrule">Texture2D&lt;float> DepthTexture</span>         <span class="token punctuation">:</span> register( t1 );</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token key atrule">Texture2D&lt;float4> ColorSpecIntTexture</span> <span class="token punctuation">:</span> register( t2 );</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token key atrule">Texture2D&lt;float3> NormalTexture</span>       <span class="token punctuation">:</span> register( t3 );</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token key atrule">Texture2D&lt;float4> SpecPowTexture</span>      <span class="token punctuation">:</span> register( t4 );</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token key atrule">RWTexture2D&lt;float4> MyTexture</span> <span class="token punctuation">:</span> register( u0 );</pre></td></tr><tr><td data-num="8"></td><td><pre>• 1.</pre></td></tr><tr><td data-num="9"></td><td><pre>• 2.</pre></td></tr><tr><td data-num="10"></td><td><pre>• 3.</pre></td></tr><tr><td data-num="11"></td><td><pre>• 4.</pre></td></tr><tr><td data-num="12"></td><td><pre>• 5.</pre></td></tr><tr><td data-num="13"></td><td><pre>• 6.</pre></td></tr><tr><td data-num="14"></td><td><pre>• 7. <span class="token punctuation">|</span></pre></td></tr></table></figure><p>注 1：只读纹理使用着色器资源视图（shader resource views，SRV）来绑定，用 t 寄存器来传递</p>
+<p>注 2：可读写纹理使用乱序访问视图（unordered access view，UAV）来绑定，用 u 寄存器来传递 UnorderedAccessView</p>
+<h2 id="采样器"><a class="anchor" href="#采样器">#</a> <strong>采样器</strong></h2>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SamplerState</td>
+<td>贴图采样器</td>
+<td>SamplerState LinearSampler    : register( s0 );</td>
+</tr>
+<tr>
+<td>SamplerComparisonState</td>
+<td>阴影贴图采样器</td>
+</tr>
+</tbody>
+</table>
+<p>/////////////////////////////////////////////////////////////////////////////<br />
+// Shadow sampler<br />
+/////////////////////////////////////////////////////////////////////////////<br />
+SamplerComparisonState PCFSampler : register( s2 );<br />
+• 1.<br />
+• 2.<br />
+• 3.<br />
+• 4. |</p>
+<p>注：采样器（sampler）用 s 寄存器来传递</p>
+<h2 id="示例"><a class="anchor" href="#示例">#</a> <strong>示例</strong></h2>
+<p>在 C++ 端是通过 ID3D11DeviceContext::VSSetShaderResources、ID3D11DeviceContext::PSSetShaderResources 指定特定的槽 (slot) 来给某一着色器阶段对应的寄存器索引提供纹理数据。</p>
+<p>在 C++ 端是通过 ID3D11DeviceContext::VSSetSamplers、ID3D11DeviceContext::PSSetSamplers 指定特定的槽 (slot) 来给某一着色器阶段对应的寄存器索引提供 SamplerState 数据。</p>
+<p>当 SamplerState 不需要 C++ 动态传入时，也可以在 hlsl 内部定义</p>
+<pre><code class="language-C++">/****************************** C++ ******************************/
+ID3D11ShaderResourceView*   g_pTexture1 = NULL;
+ID3D11ShaderResourceView*   g_pTexture2 = NULL;
+ID3D11SamplerState*         g_pSampLinear = NULL;
+// PCF sampler state for shadow mapping
+ID3D11SamplerState*         g_pPCFSamplerState = NULL;
+
+// Create Shader Resouce View (Texture2D)
+WCHAR str[MAX_PATH];
+V_RETURN( DXUTFindDXSDKMediaFileCch( str, MAX_PATH, L&quot;..\\Media\\Bokeh1.dds&quot; ) );
+V_RETURN( D3DX11CreateShaderResourceViewFromFile( g_pDevice, str, NULL, NULL, &amp;g_pTexture1, NULL ) ); // ID3D11Device* g_pDevice;
+V_RETURN( DXUTFindDXSDKMediaFileCch( str, MAX_PATH, L&quot;..\\Media\\Bokeh2.dds&quot; ) );
+V_RETURN( D3DX11CreateShaderResourceViewFromFile( g_pDevice, str, NULL, NULL, &amp;g_pTexture2, NULL ) ); // ID3D11Device* g_pDevice;
+
+// Set Shader Resources
+ID3D11ShaderResourceView* arrViews[2] = { g_pTexture1, g_pTexture2};
+pd3dImmediateContext-&gt;PSSetShaderResources(0, 2, arrViews);// ID3D11DeviceContext* pd3dImmediateContext
+
+// --------------------------------------------------------------
+
+// Create sampler
+D3D11_SAMPLER_DESC samDesc;
+ZeroMemory( &amp;samDesc, sizeof(samDesc) );
+samDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+samDesc.AddressU = samDesc.AddressV = samDesc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;
+samDesc.MaxAnisotropy = 1;
+samDesc.ComparisonFunc = D3D11_COMPARISON_ALWAYS;
+samDesc.MaxLOD = D3D11_FLOAT32_MAX;
+V_RETURN( pd3dDevice-&gt;CreateSamplerState( &amp;samDesc, &amp;g_pSampLinear ) );
+
+// Create the PCF sampler state
+D3D11_SAMPLER_DESC samDesc2;
+ZeroMemory( &amp;samDesc2, sizeof(samDesc2) );
+samDesc2.Filter = D3D11_FILTER_COMPARISON_MIN_MAG_MIP_LINEAR;
+samDesc2.AddressU = samDesc2.AddressV = samDesc2.AddressW = D3D11_TEXTURE_ADDRESS_CLAMP;
+samDesc2.MaxAnisotropy = 1;
+samDesc2.ComparisonFunc = D3D11_COMPARISON_LESS_EQUAL;
+samDesc2.MaxLOD = D3D11_FLOAT32_MAX;
+V_RETURN( g_pDevice-&gt;CreateSamplerState( &amp;samDesc2, &amp;g_pPCFSamplerState ) );
+
+// Set render resources
+pd3dImmediateContext-&gt;PSSetSamplers( 0, 1, &amp;g_pSampLinear ); // ID3D11DeviceContext* pd3dImmediateContext
+
+// Set the shadowmapping PCF sampler
+pd3dImmediateContext-&gt;PSSetSamplers( 2, 1, &amp;g_pPCFSamplerState ); // ID3D11DeviceContext* pd3dImmediateContext
+
+/***************************** HLSL *****************************/
+
+/////////////////////////////////////////////////////////////////////////////
+// Diffuse texture and linear sampler
+/////////////////////////////////////////////////////////////////////////////
+Texture2D    Diffuse1Texture : register( t0 );
+Texture2D    Diffuse2Texture : register( t1 );
+SamplerState LinearSampler : register( s0 );
+
+SamplerComparisonState PCFSampler : register( s2 );
+
+// sampler define in shader code
+SamplerState MeshTextureSampler
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Wrap;
+    AddressV = Wrap;
+};
+
+float4 AmbientLightPS( VS_OUTPUT In ) : SV_TARGET0  // VS_OUTPUT In：VS的输出经过光栅化插值后，会作为输入传入PS
+{
+    // Sample the texture and convert to linear space
+    float4 Diffuse1Color =  Diffuse1Texture.Sample( LinearSampler, In.UV );
+    float4 Diffuse2Color =  Diffuse2Texture.Sample( LinearSampler, In.UV );
+
+    // ... ...
+
+    return float4((Diffuse1Color+Diffuse2Color).rgb, 1.0);
+}1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.17.18.19.20.21.22.23.24.25.26.27.28.29.30.31.32.33.34.35.36.37.38.39.40.41.42.43.44.45.46.47.48.49.50.51.52.53.54.55.56.57.58.59.60.61.62.63.64.65.66.67.68.69.70.71.72.73.74.75.76.
+</code></pre>
+<h1 id="函数"><a class="anchor" href="#函数">#</a> <strong>函数</strong></h1>
+<p>函数用法和 C 语言一样</p>
+<p>函数参数限定词说明：</p>
+<table>
+<thead>
+<tr>
+<th>限定词</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>in</td>
+<td>缺省限定词，可以省略不写</td>
+</tr>
+<tr>
+<td>const</td>
+<td>当前参数为常量，不可在函数内被修改</td>
+</tr>
+<tr>
+<td>out</td>
+<td>① 在函数内使用前必须先初始化 ② 在函数内修改后，对外可见</td>
+</tr>
+<tr>
+<td>inout</td>
+<td>① 接受函数外传入的初始值 ② 在函数内修改后，对外可见</td>
+</tr>
+</tbody>
+</table>
+<p>① 参数限定词只需要用在函数上，函数调用时不用带。</p>
+<p>② 不允许函数递归 这一限制的原因是编译器会把函数都内联展开，以支持没有堆栈的 GPU</p>
+<figure class="highlight yaml"><figcaption data-lang="YAML"><span>Raw</span></figcaption><table><tr><td data-num="1"></td><td><pre>float square(float value) // 求平方</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    return value * value;</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>void fuc1(const float value) // const参数不能在函数内部修改</pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    //value = 0.2; // assignment to const variable value  编译错误</pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>void fuc2(out float value)  // value在函数内使用前必须先初始化；在函数内修改，对外可见</pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    value = 0.0; // 注：在函数内使用out参数之前，必须先初始化，否则会编译错误</pre></td></tr><tr><td data-num="14"></td><td><pre>    value += 0.5;</pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>void fuc3(inout float value) // value的初始值从函数外传入；在函数内修改，对外可见</pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    value += 0.5;</pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre></pre></td></tr><tr><td data-num="22"></td><td><pre>int fun4(int n)  // 直接或间接调用fun4函数，会编译报错：recursive call to function</pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    if (n == 0 <span class="token punctuation">|</span><span class="token punctuation">|</span> n == 1)</pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>        return 1;</pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    return fun4(n <span class="token punctuation">-</span> 1) + fun4(n <span class="token punctuation">-</span> 2);</pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token punctuation">&#125;</span>1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.17.18.19.20.21.22.23.24.25.26.27.28.29.</pre></td></tr></table></figure><h2 id="内置函数intrinsic-functions"><a class="anchor" href="#内置函数intrinsic-functions">#</a> <strong>内置函数（Intrinsic Functions）</strong></h2>
+<p>HLSL 提供了一些 <a href="https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-intrinsic-functions">内置全局函数</a>，它通常直接映射到指定的着色器汇编指令集。这里只列出一些比较常用的函数：</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+<th>最小支持的着色器版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abs(x)</td>
+<td>求 x 的绝对值 注：x 为向量或矩阵时，表示求各分量的 abs</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>acos(x)</td>
+<td>求 x 的反余弦值</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>ceil(x)</td>
+<td>返回不小于 x 的最小整数</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>clamp(x, a, b)</td>
+<td>把 x 夹钳在 [a, b] 内</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>cos(x)</td>
+<td>计算 x 的余弦值。x 的单位为弧度</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>cross(u,v)</td>
+<td>计算 u、v 向量的叉乘（外积）</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>degrees(x)</td>
+<td>将 x 从弧度转成角度</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>determinant(M)</td>
+<td>返回矩阵的行列式 det (M)</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>distance(u, v)</td>
+<td colspan="2">返回两点 u 和 v 之间的距离</td>
+<td colspan="2">u - v</td>
+<td></td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>dot(u, v)</td>
+<td>返回向量 u 和 v 的点乘（内积）</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>dst(u, v)</td>
+<td>计算距离向量</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>floor(x)</td>
+<td>返回不大于 x 的最大整数</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>length(v)</td>
+<td colspan="2">返回向量 v 的模</td>
+<td colspan="2">v</td>
+<td></td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>lerp(u, v, t)</td>
+<td>在 u 和 v 之间做线性插值，并返回 t 所在比例的值 注：t 在 [0,1] 之间</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>log(x)</td>
+<td>返回 ln (x) 注：以 e 为底数的对数值</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>log10(x)</td>
+<td>返回以 10 为底数的对数值</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>log2(x)</td>
+<td>返回以 2 为底数的对数值</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>max(x, y)</td>
+<td>返回 x，y 中的较大的一个</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>min(x, y)</td>
+<td>返回 x，y 中的较小的一个</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>mul(M, N)</td>
+<td>矩阵乘法</td>
+</tr>
+<tr>
+<td>若 M 为向量，被视为行向量；若 N 为向量，被视为列向量</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>normalize(v)</td>
+<td colspan="2">对向量 v 归一化，返回 v /</td>
+<td colspan="2">v</td>
+<td></td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>pow(b, n)</td>
+<td>返回 b 的 n 次幂</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>radians(x)</td>
+<td>将 x 从角度转为弧度</td>
+<td>1</td>
+</tr>
+<tr>
+<td>reflect(v, n)</td>
+<td>给定入射向量 v 和表面法线 n 时，求出反射向量</td>
+<td>1</td>
+</tr>
+<tr>
+<td>refract(v, n, eta)</td>
+<td>给定折射向量 v、表面法线 n 及两种材质的折射度索引的比率 eta，求出折射向量</td>
+</tr>
+<tr>
+<td>详见：斯涅耳定律（Snell's Law）</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>rsqrt(x)</td>
+<td>返回 1/sqrt (x)</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>saturate(x)</td>
+<td>返回 clamp (x, 0.0, 1.0)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>sin(x)</td>
+<td>计算 x 的正弦值。x 的单位为弧度</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>sincos(in x, out s, out c)</td>
+<td>计算 x 的正弦值 s 和余弦值 c。x 的单位为弧度</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>sqrt(x)</td>
+<td>对 x 开根号</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>tan(x)</td>
+<td>返回 x 的正切值。x 的单位为弧度</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>transpose(M)</td>
+<td>返回矩阵 M 的转置矩阵</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h1 id="参考"><a class="anchor" href="#参考">#</a> <strong>参考</strong></h1>
+<p>DirectX11--HLSL 语法入门 （csdn）</p>
+<p>DirectX11-- 深入理解 HLSL 常量缓冲区打包规则</p>
+<p>DirectX11-- 深入理解与使用缓冲区资源</p>
+<p>contant buffer 中的 packoffset</p>
+<p>DirectX11 With Windows SDK--03 索引缓冲区、常量缓冲区</p>
+<p>在 DirectX10 中不使用 Effect 框架处理 Shader 与程序间的数据传递</p>
+<p><a href="https://docs.microsoft.com/en-us/windows/win32/direct3d9">https://docs.microsoft.com/en-us/windows/win32/direct3d9</a></p>
+<p><a href="https://docs.microsoft.com/en-us/windows/win32/direct3d10">https://docs.microsoft.com/en-us/windows/win32/direct3d10</a></p>
+<p><a href="https://docs.microsoft.com/en-us/windows/win32/direct3d11">https://docs.microsoft.com/en-us/windows/win32/direct3d11</a></p>
+<p><a href="https://docs.microsoft.com/en-us/windows/win32/direct3d12">https://docs.microsoft.com/en-us/windows/win32/direct3d12</a></p>

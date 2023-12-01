@@ -1,0 +1,35 @@
+<hr />
+<p>title: Visibility Buffer<br />
+date: 2022-04-07 12:00<br />
+count: true<br />
+tags:</p>
+<ul>
+<li>图形学笔记</li>
+<li>渲染<br />
+ category: 图形学笔记</li>
+</ul>
+<hr />
+<h1 id="visibility-buffer"><a class="anchor" href="#visibility-buffer">#</a> Visibility Buffer</h1>
+<p>Visibility Buffer 解决了传统延迟渲染的几个问题：</p>
+<ol>
+<li>带宽高；</li>
+<li>对于可见性和着色阶段的不完美的分离，会造成 Overdraw；</li>
+<li>不能使用 MSAA。</li>
+</ol>
+<hr />
+<p>Visibility Buffer 通常需要这些信息：</p>
+<p>（1）<strong>InstanceID</strong>，表示当前像素属于哪个 Instance（16~24 bits）；</p>
+<p>（2）<strong>PrimitiveID</strong>，表示当前像素属于 Instance 的哪个三角形（8~16 bits）；</p>
+<p>（3）<strong>Barycentric Coord</strong>，代表当前像素位于三角形内的位置，用重心坐标表示（16 bits）；</p>
+<p>（4）<strong>Depth Buffer</strong>，代表当前像素的深度（16~24 bits）；</p>
+<p>（5）<strong>MaterialID</strong>，表示当前像素属于哪个材质（8~16 bits）；</p>
+<p>以上，我们只需要存储大约<strong> 8~12 Bytes/Pixel</strong> 即可表示场景中所有几何体的材质信息，同时，我们需要维护一个<strong>全局的顶点数据和材质贴图表</strong>，表中存储了当前帧所有几何体的顶点数据，以及材质参数和贴图。在光照着色阶段，只需要根据 InstanceID 和 PrimitiveID 从全局的 Vertex Buffer 中索引到相关三角形的信息；进一步地，根据像该素的重心坐标，对 Vertex Buffer 内的顶点信息（UV，Tangent Space 等）进行插值得到逐像素信息；再进一步地，根据 MaterialID 去索引相关的材质信息，执行贴图采样等操作，并输入到光照计算环节最终完成着色，有时这类方法也被称为<strong> Deferred Texturing</strong>。</p>
+<hr />
+<p>VBuffer 管线有三个阶段：</p>
+<ul>
+<li>Visibility Passes： 对场景进行光栅化，将 Primitive ID 和 Instance ID（或 Material ID）保存到 ID Texture 里（顺手做个 Depth Prepass），也就是说只有可见的 Primitive 才会进入后续的阶段；</li>
+<li>Worklist Pass：构建并 Worklist，这一步是为了驱动下一步，将屏幕划分成很多 tile，根据使用到某个 Material ID 的 tile 加到该 Material ID 的 Worklist 里，作为下一步的索引；</li>
+<li>Shading Passes : 使用 Compute Shader 对每个 Material ID 进行软光栅，获取顶点属性并插值，然后再进行表面着色。</li>
+</ul>
+<p><img src="Untitled.png" alt="Untitled" /></p>
+<p>直观地看，Visibility Buffer 减少了着色所需要信息的储存带宽，此外，它将光照计算相关的几何信息和贴图信息读取延迟到了着色阶段，于是那些屏幕不可见的像素不必再读取这些数据，而是只需要读取顶点位置即可。基于这两个原因，<strong>Visibility Buffer 在分辨率较高的复杂场景下，带宽开销相比传统 G-Buffer 大大降低</strong>。但同时维护全局的几何、材质数据，增加了引擎设计的复杂度，同时也降低了材质系统的灵活度，有时候还需要借助 Bindless Texture 等尚未全硬件平台支持的 Graphics API，不利于兼容。</p>

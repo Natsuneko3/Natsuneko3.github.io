@@ -1,0 +1,18 @@
+<hr />
+<p>title: HZB (Hierarchical Z-Buffer)<br />
+date: 2022-04-07 12:00<br />
+count: true<br />
+tags:</p>
+<ul>
+<li>图形学笔记</li>
+<li>渲染<br />
+ category: 图形学笔记</li>
+</ul>
+<hr />
+<h1 id="hzb-hierarchical-z-buffer"><a class="anchor" href="#hzb-hierarchical-z-buffer">#</a> HZB (Hierarchical Z-Buffer)</h1>
+<p>HZB 是多 Mip 层级的 z-buffer，也就是说 depthmap 的 lod，每个更高级别 Mip 的 buffer 记录上一级别中周围四点中最远处的深度值。</p>
+<p><img src="Untitled.png" alt="Untitled" /></p>
+<p>将 HZB 生成后，就可以将待剔除物体的包围盒信息传入到 Computer Shader 中进行计算，计算时会选择最适合的 Mip 级别进行遮挡测试。在屏幕中占比更大的物体会选择更高级别 Mip 的深度进行测试，这样可以降低计算量。</p>
+<p>计算 hzb 时候的计算了是非常小的，昂贵的是从 gpu 传输到 cpu 上</p>
+<p><img src="Untitled%201.png" alt="Untitled" /></p>
+<p><img src="Untitled%202.png" alt="Untitled" /></p>

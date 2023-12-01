@@ -1,0 +1,44 @@
+<hr />
+<h2 id="title-compute-shaderdate-2022-04-07-1200count-truetags-图形学笔记category-图形学笔记"><a class="anchor" href="#title-compute-shaderdate-2022-04-07-1200count-truetags-图形学笔记category-图形学笔记">#</a> title: Compute shader<br />
+date: 2022-04-07 12:00<br />
+count: true<br />
+tags: 图形学笔记<br />
+ category: 图形学笔记</h2>
+<h1 id="compute-shader"><a class="anchor" href="#compute-shader">#</a> Compute shader</h1>
+<p><img src="Compute%20shader%20ce8a4f41e18845b0ac4fb1978f28869f/threadgroupids.png" alt="threadgroupids.png" /></p>
+<p>View 的话有以下几种：</p>
+<p>ID3D11ConstantBufferView（CBV），表示 Resource 是只读的 Buffer。</p>
+<p>ID3D11ShaderResourceView（SRV），表示 Resource 是只读的 Texture。<br />
+<a href="Compute%20shader%20ce8a4f41e18845b0ac4fb1978f28869f.md">Compute shader ce8a4f41e18845b0ac4fb1978f28869f.md</a><br />
+ID3D11RenderTargetView（RTV），表示 Resource 是只写的 RenderTarget。</p>
+<p>ID3D11DepthStencilView（DSV），表示 Resource 是只写的 DepthStencil。</p>
+<p>ID3D11UnorderedAccessView（UAV），表示 Resource 可以随机读写。</p>
+<figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 创建</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token operator">*</span><span class="token operator">*</span>FRDGBufferRef<span class="token operator">*</span><span class="token operator">*</span> ObjectIndexBuffer <span class="token operator">=</span> GraphBuilder<span class="token punctuation">.</span><span class="token function">CreateBuffer</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token operator">*</span>FRDGBufferDesc<span class="token operator">*</span><span class="token operator">*</span><span class="token double-colon punctuation">::</span><span class="token operator">*</span>CreateStructuredDesc<span class="token operator">*</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token operator">*</span>uint32<span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">,</span> MaxSDFMeshObjects<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">TEXT</span><span class="token punctuation">(</span><span class="token string">"ObjectIndices"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">// 创建 UAV，并且写入数据</span></pre></td></tr><tr><td data-num="4"></td><td><pre>PassParameters<span class="token operator">-></span>RWObjectIndexBuffer <span class="token operator">=</span> GraphBuilder<span class="token punctuation">.</span><span class="token function">CreateUAV</span><span class="token punctuation">(</span>ObjectIndexBuffer<span class="token punctuation">,</span> PF_R32_UINT<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 创建 SRV，别人读取他的数据</span></pre></td></tr><tr><td data-num="6"></td><td><pre>PassParameters<span class="token operator">-></span>ObjectIndexBuffer <span class="token operator">=</span> GraphBuilder<span class="token punctuation">.</span><span class="token function">CreateSRV</span><span class="token punctuation">(</span>ObjectIndexBuffer<span class="token punctuation">,</span> PF_R32_UINT<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h1 id="group-shared群组共享"><a class="anchor" href="#group-shared群组共享">#</a> <strong><strong>Group Shared (群组共享)</strong></strong></h1>
+<p>HLSL 使计算着色器的线程能够通过共享内存交换值。HLSL 提供了诸如 **<a href="https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/groupmemorybarrierwithgroupsync">GroupMemoryBarrierWithGroupSync</a>** 等屏障原语，以确保在着色器中对共享内存进行正确的读取和写入顺序，并避免数据竞争。</p>
+<h1 id="extern"><a class="anchor" href="#extern">#</a> <strong>extern</strong></h1>
+<p>将全局变量标记为着色器的外部输入；这是所有全局变量的默认标记。 不能与 <strong>static</strong><br />
+ 组合。</p>
+<h1 id="nointerpolation"><a class="anchor" href="#nointerpolation">#</a> <strong>nointerpolation</strong></h1>
+<p>在将顶点着色器的输出传递给像素着色器之前，不要对它们进行插值。</p>
+<h1 id="precise"><a class="anchor" href="#precise">#</a> <strong>precise</strong></h1>
+<h1 id="static"><a class="anchor" href="#static">#</a> <strong>static</strong></h1>
+<p>标记一个局部变量，以便它被初始化一次并在函数调用之间保持不变。如果声明不包含初始值设定项，则该值设置为零。标记为<strong>静态</strong>的全局变量对应用程序不可见。</p>
+<h1 id="uniform"><a class="anchor" href="#uniform">#</a> Uniform</h1>
+<p>标记一个变量，其数据在整个着色器的执行过程中保持不变（例如顶点着色器中的材质颜色）；默认情况下，全局变量被认为是<strong>统一的。</strong></p>
+<h1 id="volatile"><a class="anchor" href="#volatile">#</a> <strong>volatile</strong></h1>
+<p>标记一个经常变化的变量；这是对编译器的提示。此存储类修饰符仅适用于局部变量。</p>
+<p>[!Note]</p>
+<p>HLSL 编译器当前忽略此存储类修饰符。</p>
+<h1 id="branch"><a class="anchor" href="#branch">#</a> branch</h1>
+<p>添加了 branch 标签的 if 语句 shader 会根据判断语句只执行当前情况的代码，这样会产生跳转指令。</p>
+<h1 id="flatten"><a class="anchor" href="#flatten">#</a> flatten</h1>
+<p>添加了 flatten 标签的 if 语句 shader 会执行全部情况的分支代码，然后根据判断语句来决定使用哪个结果</p>
+<h1 id="unroll"><a class="anchor" href="#unroll">#</a> unroll</h1>
+<p>添加了 unroll 标签的 for 循环是可以展开的，直到循环条件终止，代价是产生更多机器码，意思是每一次循环都写成新一行代码</p>
+<p><img src="Compute%20shader%20ce8a4f41e18845b0ac4fb1978f28869f/Untitled.png" alt="Untitled" /></p>
+<p>至于 “为什么”，循环有一些开销，所以展开的情况通常更快。但占用内存更多，听说这样在 for 读 texture 会安全点</p>
+<h1 id="loop"><a class="anchor" href="#loop">#</a> loop</h1>
+<p><strong>指定 [loop] 时，循环在编译后的汇编代码中描述，内存大小被抑制，但执行速度稍慢。</strong></p>
+<p><a href="Compute%20shader%20ce8a4f41e18845b0ac4fb1978f28869f/SSGi%20a665a92db8ef49a7b8a319f527af4816.md">SSGi</a></p>
+<p><a href="Compute%20shader%20ce8a4f41e18845b0ac4fb1978f28869f/Ambient%20Cube%20074e81bf559f43b48fa72e7c2635eae7.md"><strong><strong>Ambient Cube</strong></strong> </a></p>
+<p><a href="Compute%20shader%20ce8a4f41e18845b0ac4fb1978f28869f/GTAO%20cdb7d5c086e44d4ca1489b7b64c373a0.md">GTAO</a></p>

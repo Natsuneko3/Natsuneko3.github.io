@@ -1,0 +1,23 @@
+<hr />
+<h2 id="title-范数date-2022-04-07-1200count-truetags-图形学笔记category-图形学笔记"><a class="anchor" href="#title-范数date-2022-04-07-1200count-truetags-图形学笔记category-图形学笔记">#</a> title: 范数<br />
+ date: 2022-04-07 12:00<br />
+count: true<br />
+tags: 图形学笔记<br />
+ category: 图形学笔记</h2>
+<h1 id="范数"><a class="anchor" href="#范数">#</a> 范数</h1>
+<p>归一化公式，范数就是向量的长度</p>
+<p><img src="%E8%8C%83%E6%95%B0%207e8460db51a840648bc0541f33b4af00/Untitled.png" alt="Untitled" /></p>
+<p><img src="%E8%8C%83%E6%95%B0%207e8460db51a840648bc0541f33b4af00/Untitled%201.png" alt="Untitled" /></p>
+<h1 id="frobenius-范数f-范数"><a class="anchor" href="#frobenius-范数f-范数">#</a> <strong><strong>Frobenius 范数（F - 范数）</strong></strong></h1>
+<p>一种矩阵范数，即<strong>矩阵中每项数的平方和的开方值</strong>。也是</p>
+<p><img src="%E8%8C%83%E6%95%B0%207e8460db51a840648bc0541f33b4af00/Untitled%202.png" alt="Untitled" /></p>
+<p>这个范数是针对<strong>矩阵</strong>而言的，具体定义可以类比 <strong>向量的 L2 范数</strong>。</p>
+<p><em>可用于 利用低秩矩阵来近似单一数据矩阵。用数学表示就是去找一个秩为 k 的矩阵 B，使得矩阵 B 与原始数据矩阵 A 的差的<strong> F 范数尽可能地小</strong>。</em></p>
+<p>矩阵 A 的 Frobenius 范数<br />
+为所有元素平方和再开方。另一个观点是矩阵 A 的所有列向量的 l2 范数平方和再开方。由此可以得到矩阵 A 的 F 范数的另外两种方法：所有奇异值的和、trace (A^TA)。</p>
+<p><strong><strong>Minkowski-P 范数</strong></strong></p>
+<p>即向量元素绝对值的 p 次方和的 1/p 次幂</p>
+<p><img src="%E8%8C%83%E6%95%B0%207e8460db51a840648bc0541f33b4af00/Untitled%203.png" alt="Untitled" /></p>
+<p>特殊的，当<strong> p=2</strong> 时，称为<strong>弗罗贝尼乌斯范数</strong>（Frobenius norm）或<strong>希尔伯特 - 施密特范数</strong>（ Hilbert–Schmidt norm），不过后面这个术语通常<strong>只用于希尔伯特空间</strong>。这个范数可用不同的方式定义：</p>
+<p><img src="%E8%8C%83%E6%95%B0%207e8460db51a840648bc0541f33b4af00/Untitled%204.png" alt="Untitled" /></p>
+<p>就是上面的 F 范数</p>

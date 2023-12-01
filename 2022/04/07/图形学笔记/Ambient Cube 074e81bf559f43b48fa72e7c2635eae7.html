@@ -1,0 +1,16 @@
+<hr />
+<p>title: Ambient Cube<br />
+date: 2022-04-07 12:00<br />
+count: true<br />
+tags:</p>
+<ul>
+<li>图形学笔记</li>
+<li>渲染<br />
+ category: 图形学笔记</li>
+</ul>
+<hr />
+<h1 id="ambient-cube"><a class="anchor" href="#ambient-cube">#</a> Ambient Cube</h1>
+<p>ambient cube 是 valve 在 2004 年开发半条命 2 使用的一个提供间接光的技术。该方法的资料不多，核心思想是将一个 vpl 看作一个 cube。cube 有六个面，每个面中存放相对于的颜色。在 evaluation 阶段，通过法线去索引这六个面中的 3 个面，最后通过权重去做混合。</p>
+<p>六个 float3 的参数，带宽占用在 2 阶球谐和 3 阶球谐之间。效果基本上和 2 阶球谐一样。优势在于 evaluation 阶段，alu 开销小于 2 阶球谐，在移动端中的性能要好一些。</p>
+<p><img src="Untitled.png" alt="Untitled" /></p>
+<p><img src="Untitled%201.png" alt="Untitled" /></p>

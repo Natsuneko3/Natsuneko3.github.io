@@ -1,0 +1,18 @@
+<hr />
+<h2 id="title-迭代法date-2022-04-07-1200count-truetags-图形学笔记category-图形学笔记"><a class="anchor" href="#title-迭代法date-2022-04-07-1200count-truetags-图形学笔记category-图形学笔记">#</a> title: 迭代法<br />
+ date: 2022-04-07 12:00<br />
+count: true<br />
+tags: 图形学笔记<br />
+ category: 图形学笔记</h2>
+<h1 id="迭代法"><a class="anchor" href="#迭代法">#</a> 迭代法</h1>
+<h2 id="牛顿迭代法"><a class="anchor" href="#牛顿迭代法">#</a> 牛顿迭代法</h2>
+<p><img src="Untitled.png" alt="Untitled" /></p>
+<h1 id="jocobi迭代法"><a class="anchor" href="#jocobi迭代法">#</a> Jocobi 迭代法</h1>
+<p>x 为我们要求的公式，例如隐性弹簧质点系统的 v,A 为要求的方程，就是质点弹簧公式</p>
+<p><img src="Untitled%201.png" alt="Untitled" /></p>
+<h1 id="高斯-赛德尔迭代gaussseidel-method"><a class="anchor" href="#高斯-赛德尔迭代gaussseidel-method">#</a> 高斯 - 赛德尔迭代（Gauss–Seidel method）</h1>
+<p><img src="Untitled%202.png" alt="Untitled" /></p>
+<p><img src="Untitled%203.png" alt="Untitled" /></p>
+<p>高斯迭代法和 jocobi 迭代法类似，jocobi 用的是上一个值，高斯用的是当前值，<br />
+高斯迭代适用于大型稀疏线性方程组，本质上是串行计算，其需要保留上一帧所有顶点坐标的值，所以不利于并行计算，但其收敛速度较快，模拟更准确。<br />
+Jocobi 有着更好的并行计算</p>

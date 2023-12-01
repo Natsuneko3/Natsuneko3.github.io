@@ -1,0 +1,110 @@
+<hr />
+<h2 id="title-薄膜干涉date-2023-02-07-1200count-truemath-truetags-图形学笔记category-图形学笔记"><a class="anchor" href="#title-薄膜干涉date-2023-02-07-1200count-truemath-truetags-图形学笔记category-图形学笔记">#</a> title: 薄膜干涉<br />
+ date: 2023-02-07 12:00<br />
+count: true<br />
+math: true<br />
+tags: 图形学笔记<br />
+ category: 图形学笔记</h2>
+<h1 id="薄膜干涉"><a class="anchor" href="#薄膜干涉">#</a> 薄膜干涉</h1>
+<h2 id="光程optical-path-difference"><a class="anchor" href="#光程optical-path-difference">#</a> 光程（optical path difference）</h2>
+<p>先说一下前置知识</p>
+<p>光程就是是指在<a href="https://zh.m.wikipedia.org/w/index.php?title=%E5%9D%87%E5%8C%80%E4%BB%8B%E8%B4%A8&amp;action=edit&amp;redlink=1">均匀介质</a>中，<a href="https://zh.m.wikipedia.org/wiki/%E5%85%89">光</a>行径的几何路径的长度 <em>s</em> 与光在该介质中的<a href="https://zh.m.wikipedia.org/wiki/%E6%8A%98%E5%B0%84%E7%8E%87">折射率</a> <em>n</em> 的乘积，也可以光程可认为是在相等时间内光在<a href="https://zh.m.wikipedia.org/wiki/%E7%9C%9F%E7%A9%BA">真空</a>中的路程。</p>
+<p>当一个灯源的两条光到达我们眼睛之前，会经过不同地方反射，那么他们走过的路程不同，到达我们眼睛的时候就会产生不同的干扰，那么我们就要求出他的光程差</p>
+<p><img src="Untitled.png" alt="Untitled" /></p>
+<p><img src="Untitled%201.png" alt="Untitled" /></p>
+<p>在入射时，一道光多走了绿色的部分，反射时，另一道光多走了红色的部分。因此，两道光的路程差就是红、绿两部分的差值。</p>
+<p>用三角函数表示就是</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><mi>s</mi><mi>i</mi><mi>n</mi><msub><mi>θ</mi><mi>L</mi></msub><mo>−</mo><mi>d</mi><mi>s</mi><mi>i</mi><mi>n</mi><msub><mi>θ</mi><mi>V</mi></msub><mo>=</mo><mi>n</mi><mo separator="true">⋅</mo><mi>w</mi></mrow><annotation encoding="application/x-tex">dsin{\theta_L}-dsin{\theta_V} = n·w
+
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">s</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">L</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">s</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.22222em;">V</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.44445em;vertical-align:0em;"></span><span class="mord mathnormal">n</span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>s</mi><mi>i</mi><mi>n</mi><msub><mi>θ</mi><mi>L</mi></msub><mo>−</mo><mi>s</mi><mi>i</mi><mi>n</mi><msub><mi>θ</mi><mi>V</mi></msub><mo>=</mo><mfrac><mrow><mi>n</mi><mo separator="true">⋅</mo><mi>w</mi></mrow><mi>d</mi></mfrac></mrow><annotation encoding="application/x-tex">sin{\theta_L}-sin{\theta_V} = \frac{n·w}d
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">L</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.22222em;">V</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.8074500000000002em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.12145em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">d</span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<h1 id="泡沫薄膜干涉"><a class="anchor" href="#泡沫薄膜干涉">#</a> 泡沫薄膜干涉</h1>
+<p>首先来分析泡沫的薄膜是怎么干涉光的传播的</p>
+<p><img src="Untitled%202.png" alt="Untitled" /></p>
+<p>可以看到光在 A 处入射，AD 表示反射，AB 表示折射，BC 是 AB 的反射，到 C 处又产生折射和反射。如果是车漆，则最下层的 “其他介质” 是金属，如果是泡泡，其他介质就还是空气了。</p>
+<p>那么这个光程就是</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>O</mi><mi>P</mi><mi>D</mi><mo>=</mo><msub><mi>n</mi><mn>2</mn></msub><mo stretchy="false">(</mo><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">‾</mo></mover><mo>+</mo><mover accent="true"><mrow><mi>B</mi><mi>C</mi></mrow><mo stretchy="true">‾</mo></mover><mo stretchy="false">)</mo><mo>−</mo><msub><mi>n</mi><mn>1</mn></msub><mover accent="true"><mrow><mi>A</mi><mi>D</mi></mrow><mo stretchy="true">‾</mo></mover><mo>=</mo><msub><mi>n</mi><mn>2</mn></msub><mn>2</mn><mi>d</mi><mi>c</mi><mi>o</mi><mi>s</mi><msub><mi>θ</mi><mi>R</mi></msub></mrow><annotation encoding="application/x-tex">OPD = n_2(\overline{AB}+\overline{BC})-n_1\overline{AD} = {n_2}2dcos\theta_R
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.13333em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span><span style="top:-3.80333em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.13333em;vertical-align:-0.25em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span><span style="top:-3.80333em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.03333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span><span style="top:-3.80333em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mord">2</span><span class="mord mathnormal">d</span><span class="mord mathnormal">c</span><span class="mord mathnormal">o</span><span class="mord mathnormal">s</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>其中 n2 是折射率，空气是 1，水是 1.33，d 就是薄膜厚度</p>
+<h2 id="光波"><a class="anchor" href="#光波">#</a> 光波</h2>
+<p>在实时渲染的时候，为了简化光照模型，会把物体反弹到我们眼睛的光简单相加，但现实并不是这样，最终的颜色取决于它们的光波如何相互作用。</p>
+<p><img src="Untitled%203.png" alt="Untitled" /></p>
+<p>当两个波为互相重叠的时候，波峰相同，那么这束到我们眼睛的光就会放大，但互相抵消的话，就会收不到任何光，就像两个水波，中间部分为互相抵消就不产生波纹</p>
+<p><img src="Untitled%204.png" alt="Untitled" /></p>
+<p>紫色的 w 是 400nm，红色的波是 700nm</p>
+<p><img src="Untitled%205.png" alt="Untitled" /></p>
+<p>用函数拟合的话</p>
+<pre><code class="language-c++">// Based on GPU Gems
+// Optimised by Alan Zucconi
+inline fixed3 bump3y (fixed3 x, fixed3 yoffset)
+{
+    float3 y = 1 - x * x;
+    y = saturate(y-yoffset);
+    return y;
+}
+
+fixed3 spectral_zucconi6 (float w)
+{
+    // w: [400, 700]
+    // x: [0,   1]
+    fixed x = saturate((w - 400.0)/ 300.0);
+    const float3 c1 = float3(3.54585104, 2.93225262, 2.41593945);
+    const float3 x1 = float3(0.69549072, 0.49228336, 0.27699880);
+    const float3 y1 = float3(0.02312639, 0.15225084, 0.52607955);
+    const float3 c2 = float3(3.90307140, 3.21182957, 3.96587128);
+    const float3 x2 = float3(0.11748627, 0.86755042, 0.66077860);
+    const float3 y2 = float3(0.84897130, 0.88445281, 0.73949448);
+    return
+        bump3y(c1 * (x - x1), y1) +
+        bump3y(c2 * (x - x2), y2) ;
+}
+</code></pre>
+<p>还有其他函数</p>
+<p>最后代码是</p>
+<pre><code class="language-c++">// --- Diffraction grating effect ---
+    float3 L = gi.light.dir;
+    float3 V = viewDir;
+    float3 N = worldNormal;
+
+    // Reminder:
+    //     thetaL = angle from L to N
+    //     thetaR = angle from reflected L inside material to N
+    // From Snell's Law:
+    //     N1 * sin(thetaL) = N2 * sin(thetaR)
+    float cos_thetaL = dot(N, L);
+    float thetaL = acos(cos_thetaL);
+
+    float sin_thetaR = (_N1 / _N2) * sin(thetaL);
+    float thetaR = asin(sin_thetaR);
+		float u = _N2 * 2 * d * abs(cos(thetaR));//光程差
+
+    fixed3 color = 0;
+    for (int n = 1; n &lt;= _Order; n++)
+    {
+        // Constructive interference
+        float wavelength = u / n;
+        color += spectral_zucconi6(wavelength);
+    }
+    color = saturate(color);
+</code></pre>
+<p>当然还有引擎里还有简单做法，直接用 matcap</p>
+<pre><code class="language-c++">half NdotV =  dot(normal_dir, view_dir * _Tile);
+// 蓝色
+half3 Mask01 = saturate(acos(NdotV)*2/UNITY_PI * half3(0,0,1));
+// 蓝色和白色叉乘得到绿色，这里是为了拿到绿色通道 --- 可以手动计算下看结果，有saturate所以-1会修正
+// --- 绿色和白色叉乘得到红色
+// --- 红色和白色叉乘得到蓝色
+half3 CrossColor = cross (half3(0,0,1) , half3(1,1,1));
+// 绿色和红色
+half3 Mask02 = saturate (asin(NdotV)*2/UNITY_PI * CrossColor);
+// 得到红，绿，蓝三色通道
+half3 AddMask = Mask01 + Mask02;
+// 转灰度
+half Rgb2Gray = saturate(0.2989 * AddMask.r + 0.587 * AddMask.g + 0.114 * AddMask.b);
+
+half4 col = tex2D(_BubbleTex, half2(NdotV,NdotL));
+half4 basecolor = tex2D(_MainTex,i.uv);
+outcolor = lerp(col ,basecolor ,Rgb2Gray );
+
+</code></pre>

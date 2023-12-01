@@ -1,0 +1,19 @@
+<hr />
+<h2 id="title-mvp矩阵date-2022-04-07-1200count-truetags-图形学笔记category-图形学笔记cover-httpswwallhavenccfullo3wallhaven-o3er65jpg"><a class="anchor" href="#title-mvp矩阵date-2022-04-07-1200count-truetags-图形学笔记category-图形学笔记cover-httpswwallhavenccfullo3wallhaven-o3er65jpg">#</a> title: MVP 矩阵<br />
+ date: 2022-04-07 12:00<br />
+count: true<br />
+tags: 图形学笔记<br />
+ category: 图形学笔记<br />
+ cover: <a href="https://w.wallhaven.cc/full/o3/wallhaven-o3er65.jpg">https://w.wallhaven.cc/full/o3/wallhaven-o3er65.jpg</a></h2>
+<h1 id="mvp矩阵"><a class="anchor" href="#mvp矩阵">#</a> MVP 矩阵</h1>
+<p><img src="Untitled.png" alt="Untitled" /></p>
+<p><img src="Untitled%201.png" alt="Untitled" /></p>
+<p><img src="Untitled%202.png" alt="Untitled" /></p>
+<h1 id="ue4-project-matrix"><a class="anchor" href="#ue4-project-matrix">#</a> Ue4 project matrix</h1>
+<p><img src="Untitled%203.png" alt="Untitled" /></p>
+<p>N/near 为近裁片面到相机的距离，f 为远裁屏幕到相机的距离，fovV 为上下角度，fovH 为左右宽度，ue 设置的 fov 主要是设置 fovH。</p>
+<p>投影矩阵推到：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/122411512">[图形学笔记] 推导投影矩阵</a></p>
+<p><img src="Untitled%204.png" alt="Untitled" /></p>
+<p><img src="Untitled%205.png" alt="Untitled" /></p>
+<p>在顶点经过投影矩阵变换后变为裁剪空间，之所以称为裁剪空间，是因为基于以上裁剪空间坐标，将 x、y、z 和 [-w,+w] 比较，其中 w = -z，这个 z 是顶点在 View Space 中的 z 值（为了满足投影性质推导出来的值，这里负号因为推导用的 View Space 是右手坐标系，NDC 是左手坐标系）是个超过 1 的数。超出范围的顶点将会被裁剪。在裁剪之后，顶点数量减少，再进行透视除法，转换为 NDC 空间坐标，就是除于 w<a href="MVP%BE%D8%D5%F3%20474772934c4146dcb4cddcb94c7b48a4.md">MVP 矩阵 474772934c4146dcb4cddcb94c7b48a4.md</a></p>
