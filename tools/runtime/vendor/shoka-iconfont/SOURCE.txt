@@ -1,0 +1,4 @@
+Shoka iconfont, Iconfont project 1832207
+Original unmodified WOFF2: https://at.alicdn.com/t/font_1832207_igi8uaupcus.woff2
+Project: https://www.iconfont.cn/manage/index?manage_type=myprojects&projectId=1832207
+Theme and icon mappings: https://github.com/amehime/hexo-theme-shoka

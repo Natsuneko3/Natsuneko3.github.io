@@ -8,3 +8,7 @@ public/
 _multiconfig.yml
 asset/Videos/
 .idea/
+.cache/
+__pycache__/
+.site-build-*/
+.venv/

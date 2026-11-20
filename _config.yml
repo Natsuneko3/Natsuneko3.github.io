@@ -8,12 +8,12 @@ subtitle: '嵐です！'
 description: '主要分享关于ue或者TA的知识，也或者分享点自己想写的东西，作品什么的'
 keywords:
 author: Natsuneko
-language: ch
-timezone: ''
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://natsuneko3.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -62,7 +62,7 @@ prismjs:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 50
+  per_page: 12
   order_by: -date
 
 # Category & Tag
@@ -103,8 +103,6 @@ ignore:
 
 
 # Extensions
-##plugins:
-##  - hexo-algoliasearch
 
 ## Themes: https://hexo.io/themes/
 theme: shoka
@@ -187,17 +185,3 @@ minify:
     compress:
     exclude:
       - '**/*.min.js'
-algolia:
-  appId: IZ3Q77WV15
-  apiKey: 64f3b08f23e237e3dbd8d3abb9ed25e8
-  adminApiKey: 05d8107d0a38c565d925de51ca452489
-  chunkSize: 5000
-  indexName: "Natsuneko"
-  fields:
-    - title #必须配置
-    - path #必须配置
-    - categories #推荐配置
-    - content:strip:truncate,0,4000
-    - gallery
-    - photos
-    - tags

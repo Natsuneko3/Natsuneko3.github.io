@@ -1,0 +1,10 @@
+#imgs .site-slides > img {
+  opacity: 1;
+  transition: opacity .45s ease-in-out;
+}
+#imgs .site-slides > .incoming {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  #imgs .site-slides > img { transition: none; }
+}

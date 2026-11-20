@@ -1,33 +1,114 @@
-.github/workflows/pages.yml
 name: Pages
 
 on:
   push:
-    branches:
-      - main # default branch
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  pages:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js v19.3.0.x
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: "v19.3.0"
-      - name: Cache NPM dependencies
-        uses: actions/cache@v2
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v5
         with:
-          path: node_modules
-          key: ${{ runner.OS }}-npm-cache
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: tools/requirements*.txt
+      - run: npm ci --no-audit --no-fund
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
+      - run: python -m pip install -r tools/requirements.txt
+      - uses: actions/cache@v4
+        with:
+          path: .cache/shoka-post-images
+          key: ${{ runner.os }}-post-images-${{ hashFiles('tools/requirements-images.txt', 'tools/optimize-post-images.py', 'source/**/*.png', 'source/**/*.jpg', 'source/**/*.jpeg', 'source/**/*.webp') }}
           restore-keys: |
-            ${{ runner.OS }}-npm-cache
-      - name: Install Dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+            ${{ runner.os }}-post-images-
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          name: site
+          path: public/
+          include-hidden-files: true
+          compression-level: 1
+          retention-days: 1
+
+  publish:
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: publish-gh-pages
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: ${{ runner.temp }}/site
+      - name: Publish verified output to the existing Pages branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SITE: ${{ runner.temp }}/site
+        run: |
+          set -euo pipefail
+          current=$(git ls-remote origin refs/heads/master | cut -f1)
+          if [[ "$current" != "$GITHUB_SHA" ]]; then
+            echo "A newer source commit is available; skipping this deployment."
+            exit 0
+          fi
+          baseline=06755811f3d0bfb3441af5839c3833e5e40a9189
+          git merge-base --is-ancestor "$baseline" HEAD
+          while IFS= read -r subject; do
+            if [[ ! "$subject" =~ ^Publish\ site\ from\ [0-9a-f]{40}$ ]]; then
+              echo "::error::gh-pages has a manual update. Reconcile it with the pinned snapshot before publishing."
+              exit 1
+            fi
+          done < <(git log --format=%s "$baseline"..HEAD)
+          last_page=1
+          for index in "$SITE"/page/*/index.html; do
+            [[ -f "$index" ]] || continue
+            number=$(basename "$(dirname "$index")")
+            if [[ "$number" =~ ^[1-9][0-9]*$ ]] && grep -q 'class="segments posts"' "$index"; then
+              if (( number > last_page )); then last_page=$number; fi
+            fi
+          done
+          while IFS= read -r -d '' page; do
+            if [[ "$page" == *.html && ! -f "$SITE/$page" ]]; then
+              if [[ "$page" =~ ^page/([1-9][0-9]*)/index\.html$ ]] && (( BASH_REMATCH[1] > last_page )); then
+                mkdir -p "$(dirname "$SITE/$page")"
+                echo '<!doctype html><!-- retired home page --><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/"><link rel="canonical" href="/"><a href="/">返回首页</a>' > "$SITE/$page"
+                continue
+              fi
+              echo "::error::Existing published route missing from build: $page"
+              exit 1
+            fi
+          done < <(git ls-tree -rz --name-only HEAD)
+          test -s "$SITE/index.html"
+          rsync -a --delete --exclude=.git/ "$SITE/" ./
+          git add -A
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m "Publish site from $GITHUB_SHA"
+            git push origin HEAD:gh-pages
+          fi
+          # GITHUB_TOKEN pushes alone do not trigger the legacy Pages builder.
+          gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --silent
